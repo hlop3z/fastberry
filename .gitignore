@@ -1,0 +1,18 @@
+# general things to ignore
+build/
+dist/
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+
+# for pytest
+.cache
+
+# docs
+docs/site
+
+# vscode
+.vscode/

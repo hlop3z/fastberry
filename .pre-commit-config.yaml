@@ -1,0 +1,35 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+# Folder
+files: ^src/
+
+# Repos
+repos:
+
+# Pre-Commit
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+
+# Black
+-   repo: https://github.com/psf/black
+    rev: 22.1.0
+    hooks:
+    -   id: black
+
+# iSort
+-   repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+        - id: isort
+
+# PyLint
+-   repo: https://github.com/pycqa/pylint
+    rev: v2.12.2
+    hooks:
+    -   id: pylint
