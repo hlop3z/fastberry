@@ -10,7 +10,6 @@ try:
     else:
         BASE_DIR = Path(sys.argv[0]).resolve().parent
 
-    print(BASE_DIR)
     # Append "PROJECT" <Folder>
     sys.path.insert(0, os.path.join(BASE_DIR, "project"))
 
