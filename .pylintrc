@@ -23,12 +23,13 @@ fail-under=10.0
 ignore=CVS
 
 # Add files or directories matching the regex patterns to the ignore-list. The
-# regex matches against paths.
+# regex matches against paths and can be in Posix or Windows format.
 ignore-paths=
 
 # Files or directories matching the regex patterns are skipped. The regex
-# matches against base names, not paths.
-ignore-patterns=
+# matches against base names, not paths. The default value ignores emacs file
+# locks
+ignore-patterns=^\.#
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
@@ -50,6 +51,13 @@ load-plugins=
 # Pickle collected data for later comparisons.
 persistent=yes
 
+# Minimum Python version to use for version dependent checks. Will default to
+# the version used to run pylint.
+py-version=3.10
+
+# Discover python modules and packages in the file system subtree.
+recursive=no
+
 # When enabled, pylint would attempt to guess common misconfiguration and emit
 # user-friendly hints instead of false-positive error messages.
 suggestion-mode=yes
@@ -62,29 +70,20 @@ unsafe-load-any-extension=no
 [MESSAGES CONTROL]
 
 # Only show warnings with the listed confidence levels. Leave empty to show
-# all. Valid levels: HIGH, INFERENCE, INFERENCE_FAILURE, UNDEFINED.
+# all. Valid levels: HIGH, CONTROL_FLOW, INFERENCE, INFERENCE_FAILURE,
+# UNDEFINED.
 confidence=
 
 # Disable the message, report, category or checker with the given id(s). You
 # can either give multiple identifiers separated by comma (,) or put this
 # option multiple times (only on the command line, not in the configuration
 # file where it should appear only once). You can also use "--disable=all" to
-# disable everything first and then reenable specific checks. For example, if
+# disable everything first and then re-enable specific checks. For example, if
 # you want to run only the similarities checker, you can use "--disable=all
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
-disable=print-statement,
-        parameter-unpacking,
-        unpacking-in-except,
-        old-raise-syntax,
-        backtick,
-        long-suffix,
-        old-ne-operator,
-        old-octal-literal,
-        import-star-module-level,
-        non-ascii-bytes-literal,
-        raw-checker-failed,
+disable=raw-checker-failed,
         bad-inline-option,
         locally-disabled,
         file-ignored,
@@ -92,67 +91,20 @@ disable=print-statement,
         useless-suppression,
         deprecated-pragma,
         use-symbolic-message-instead,
-        apply-builtin,
-        basestring-builtin,
-        buffer-builtin,
-        cmp-builtin,
-        coerce-builtin,
-        execfile-builtin,
-        file-builtin,
-        long-builtin,
-        raw_input-builtin,
-        reduce-builtin,
-        standarderror-builtin,
-        unicode-builtin,
-        xrange-builtin,
-        coerce-method,
-        delslice-method,
-        getslice-method,
-        setslice-method,
-        no-absolute-import,
-        old-division,
-        dict-iter-method,
-        dict-view-method,
-        next-method-called,
-        metaclass-assignment,
-        indexing-exception,
-        raising-string,
-        reload-builtin,
-        oct-method,
-        hex-method,
-        nonzero-method,
-        cmp-method,
-        input-builtin,
-        round-builtin,
-        intern-builtin,
-        unichr-builtin,
-        map-builtin-not-iterating,
-        zip-builtin-not-iterating,
-        range-builtin-not-iterating,
-        filter-builtin-not-iterating,
-        using-cmp-argument,
-        eq-without-hash,
-        div-method,
-        idiv-method,
-        rdiv-method,
-        exception-message-attribute,
-        invalid-str-codec,
-        sys-max-int,
-        bad-python3-import,
-        deprecated-string-function,
-        deprecated-str-translate-call,
-        deprecated-itertools-function,
-        deprecated-types-field,
-        next-method-defined,
-        dict-items-not-iterating,
-        dict-keys-not-iterating,
-        dict-values-not-iterating,
-        deprecated-operator-function,
-        deprecated-urllib-function,
-        xreadlines-attribute,
-        deprecated-sys-function,
-        exception-escape,
-        comprehension-escape
+        # Custom Disable
+        invalid-name,
+        arguments-differ,
+        too-few-public-methods,
+        too-many-instance-attributes,
+        too-many-locals,
+        no-member,
+        too-many-branches,
+        too-many-statements,
+        bare-except,
+        consider-using-with,
+        C0411,
+        cyclic-import,
+        import-outside-toplevel
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -164,11 +116,11 @@ enable=c-extension-no-member
 [REPORTS]
 
 # Python expression which should return a score less than or equal to 10. You
-# have access to the variables 'error', 'warning', 'refactor', and 'convention'
-# which contain the number of messages in each category, as well as 'statement'
-# which is the total number of statements analyzed. This score is used by the
-# global evaluation report (RP0004).
-evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+# have access to the variables 'fatal', 'error', 'warning', 'refactor',
+# 'convention', and 'info' which contain the number of messages in each
+# category, as well as 'statement' which is the total number of statements
+# analyzed. This score is used by the global evaluation report (RP0004).
+evaluation=max(0, 0 if fatal else 10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10))
 
 # Template used to display messages. This is a python new-style format string
 # used to format the message information. See doc for all details.
@@ -204,13 +156,15 @@ never-returning-functions=sys.exit,argparse.parse_error
 argument-naming-style=snake_case
 
 # Regular expression matching correct argument names. Overrides argument-
-# naming-style.
+# naming-style. If left empty, argument names will be checked with the set
+# naming style.
 #argument-rgx=
 
 # Naming style matching correct attribute names.
 attr-naming-style=snake_case
 
 # Regular expression matching correct attribute names. Overrides attr-naming-
+# style. If left empty, attribute names will be checked with the set naming
 # style.
 #attr-rgx=
 
@@ -230,27 +184,30 @@ bad-names-rgxs=
 class-attribute-naming-style=any
 
 # Regular expression matching correct class attribute names. Overrides class-
-# attribute-naming-style.
+# attribute-naming-style. If left empty, class attribute names will be checked
+# with the set naming style.
 #class-attribute-rgx=
 
 # Naming style matching correct class constant names.
 class-const-naming-style=UPPER_CASE
 
 # Regular expression matching correct class constant names. Overrides class-
-# const-naming-style.
+# const-naming-style. If left empty, class constant names will be checked with
+# the set naming style.
 #class-const-rgx=
 
 # Naming style matching correct class names.
 class-naming-style=PascalCase
 
 # Regular expression matching correct class names. Overrides class-naming-
-# style.
+# style. If left empty, class names will be checked with the set naming style.
 #class-rgx=
 
 # Naming style matching correct constant names.
 const-naming-style=UPPER_CASE
 
 # Regular expression matching correct constant names. Overrides const-naming-
+# style. If left empty, constant names will be checked with the set naming
 # style.
 #const-rgx=
 
@@ -262,7 +219,8 @@ docstring-min-length=-1
 function-naming-style=snake_case
 
 # Regular expression matching correct function names. Overrides function-
-# naming-style.
+# naming-style. If left empty, function names will be checked with the set
+# naming style.
 #function-rgx=
 
 # Good variable names which should always be accepted, separated by a comma.
@@ -284,21 +242,22 @@ include-naming-hint=no
 inlinevar-naming-style=any
 
 # Regular expression matching correct inline iteration names. Overrides
-# inlinevar-naming-style.
+# inlinevar-naming-style. If left empty, inline iteration names will be checked
+# with the set naming style.
 #inlinevar-rgx=
 
 # Naming style matching correct method names.
 method-naming-style=snake_case
 
 # Regular expression matching correct method names. Overrides method-naming-
-# style.
+# style. If left empty, method names will be checked with the set naming style.
 #method-rgx=
 
 # Naming style matching correct module names.
 module-naming-style=snake_case
 
 # Regular expression matching correct module names. Overrides module-naming-
-# style.
+# style. If left empty, module names will be checked with the set naming style.
 #module-rgx=
 
 # Colon-delimited sets of names that determine each other's naming style when
@@ -314,11 +273,16 @@ no-docstring-rgx=^_
 # These decorators are taken in consideration only for invalid-name.
 property-classes=abc.abstractproperty
 
+# Regular expression matching correct type variable names. If left empty, type
+# variable names will be checked with the set naming style.
+#typevar-rgx=
+
 # Naming style matching correct variable names.
 variable-naming-style=snake_case
 
 # Regular expression matching correct variable names. Overrides variable-
-# naming-style.
+# naming-style. If left empty, variable names will be checked with the set
+# naming style.
 #variable-rgx=
 
 
@@ -376,16 +340,16 @@ notes=FIXME,
 
 [SIMILARITIES]
 
-# Ignore comments when computing similarities.
+# Comments are removed from the similarity computation
 ignore-comments=yes
 
-# Ignore docstrings when computing similarities.
+# Docstrings are removed from the similarity computation
 ignore-docstrings=yes
 
-# Ignore imports when computing similarities.
+# Imports are removed from the similarity computation
 ignore-imports=no
 
-# Ignore function signatures when computing similarities.
+# Signatures are removed from the similarity computation
 ignore-signatures=no
 
 # Minimum lines number of a similarity.
@@ -440,7 +404,7 @@ contextmanager-decorators=contextlib.contextmanager
 generated-members=
 
 # Tells whether missing members accessed in mixin class should be ignored. A
-# mixin class is detected if its name ends with "mixin" (case insensitive).
+# class is considered mixin if its name matches the mixin-class-rgx option.
 ignore-mixin-members=yes
 
 # Tells whether to warn about missing members when the owner of the attribute
@@ -477,6 +441,10 @@ missing-member-hint-distance=1
 # The total number of similar names that should be taken in consideration when
 # showing a hint for a missing member.
 missing-member-max-choices=1
+
+# Regex pattern to define which classes are considered mixins ignore-mixin-
+# members is set to 'yes'
+mixin-class-rgx=.*[Mm]ixin
 
 # List of decorators that change the signature of a decorated function.
 signature-mutators=
@@ -542,6 +510,14 @@ valid-metaclass-classmethod-first-arg=cls
 
 
 [DESIGN]
+
+# List of regular expressions of class ancestor names to ignore when counting
+# public methods (see R0903)
+exclude-too-few-public-methods=
+
+# List of qualified class names to ignore when counting class parents (see
+# R0901)
+ignored-parents=
 
 # Maximum number of arguments for function / method.
 max-args=5
