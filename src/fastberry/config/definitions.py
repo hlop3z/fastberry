@@ -26,7 +26,7 @@ SETTING_YAML = {
     "allowed_hosts": [],
     "permissions": [],
     "middleware": [],
-    "generates": "",
+    "generates": "graphql",
 }
 
 
