@@ -56,7 +56,10 @@ def graphql():
 
     # Get Path(s)
     output_dir = settings.base_dir
-    for path in settings.base.generates.split("/"):
+    generates_file = settings.base.generates
+    if generates_file == "" or not generates_file:
+        generates_file = "graphql"
+    for path in generates_file.split("/"):
         output_dir = output_dir / path
 
     # Create Path(s)
