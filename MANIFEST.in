@@ -10,5 +10,10 @@ include LICENSE.txt
 # Include setup.py
 #include setup.py
 
+# Include Templates
+include src/fastberry/scripts/templates/*.zip
+include src/fastberry/config/commands/templates/*.zip
+
+
 # Include the data files
 #recursive-include data *

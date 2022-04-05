@@ -1,0 +1,120 @@
+type Author {
+  id: ID!
+  Id: String!
+  firstName: String!
+  lastName: String!
+  fullName: String!
+  books: [Book!]!
+}
+
+type AuthorConnection {
+  pageInfo: PageInfo!
+  edges: [AuthorEdge!]!
+}
+
+type AuthorEdge {
+  node: Author!
+  cursor: String!
+}
+
+union AuthorError = Author | Error
+
+type Book {
+  id: ID!
+  Id: String!
+  title: String!
+  authorId: String
+  author: Author
+}
+
+union BookError = Book | Error
+
+type Error {
+  messages: [ErrorMessage!]!
+  meta: JSON!
+  error: Boolean!
+}
+
+type ErrorMessage {
+  type: String!
+  message: String!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type Mutation {
+  """Read the Docs"""
+  demoCreate: String!
+
+  """Read the Docs"""
+  demoDelete: String!
+
+  """Read the Docs"""
+  demoUpdate: String!
+
+  """Read the Docs"""
+  authorCreate(firstName: String!, lastName: String!): AuthorError!
+
+  """Read the Docs"""
+  authorDelete: Int!
+
+  """Read the Docs"""
+  authorUpdate(id: ID!, firstName: String, lastName: String): AuthorError!
+
+  """Read the Docs"""
+  authorUpdateMany: Int!
+
+  """Read the Docs"""
+  bookCreate(title: String!, authorId: ID!): BookError!
+
+  """Read the Docs"""
+  bookDelete: Book!
+
+  """Read the Docs"""
+  bookUpdate: Book!
+}
+
+type PageInfo {
+  length: Int!
+  pages: Int!
+  extra: JSON!
+}
+
+input Pagination {
+  page: Int! = 1
+  limit: Int = 50
+  sortBy: String = "-id"
+  all: Boolean = false
+}
+
+type Query {
+  """Read the Docs"""
+  demoDetail: String!
+
+  """Read the Docs"""
+  demoSearch: String!
+
+  """Read the Docs"""
+  authorDetail(id: ID!): Author
+
+  """Read the Docs"""
+  authorSearch(search: SearchAuthor, page: Pagination!): AuthorConnection!
+
+  """Read the Docs"""
+  bookDetail: Book!
+
+  """Read the Docs"""
+  bookSearch(search: SearchBook): [Book!]!
+}
+
+input SearchAuthor {
+  firstName: String = null
+  lastName: String = null
+}
+
+input SearchBook {
+  title: String = null
+}

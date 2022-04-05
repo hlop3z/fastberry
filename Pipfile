@@ -4,16 +4,21 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pymongo = "*"
 motor = "*"
-dbcontroller = "*"
 sqlalchemy = "*"
 databases = "*"
+dbcontroller = "*"
+fastapi = "*"
+pydantic = "*"
+strawberry-graphql = {extras = ["fastapi"], version = "*"}
 
 [dev-packages]
 build = "*"
 isort = "*"
 black = "*"
 pylint = "*"
+bandit = "*"
 watchdog = "*"
 mkdocs = "*"
 mkdocs-material = "*"

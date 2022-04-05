@@ -1,0 +1,46 @@
+{
+    "python": {
+        "query": [
+            "author_detail",
+            "author_search",
+            "book_detail",
+            "book_search",
+            "demo_detail",
+            "demo_search"
+        ],
+        "mutation": [
+            "author_create",
+            "author_delete",
+            "author_update",
+            "author_update_many",
+            "book_create",
+            "book_delete",
+            "book_update",
+            "demo_create",
+            "demo_delete",
+            "demo_update"
+        ]
+    },
+    "graphql": {
+        "query": [
+            "authorDetail",
+            "authorSearch",
+            "bookDetail",
+            "bookSearch",
+            "demoDetail",
+            "demoSearch"
+        ],
+        "mutation": [
+            "authorCreate",
+            "authorDelete",
+            "authorUpdate",
+            "authorUpdateMany",
+            "bookCreate",
+            "bookDelete",
+            "bookUpdate",
+            "demoCreate",
+            "demoDelete",
+            "demoUpdate"
+        ]
+    }
+}
