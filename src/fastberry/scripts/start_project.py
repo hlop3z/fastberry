@@ -12,4 +12,6 @@ def cli():
     """Example Script."""
     
     shell_print("""* Starting-Project!""")            
-    unzip(TEMPLATES_DIR / "project-template.zip", os.getcwd())
+    unzip(TEMPLATES_DIR / "project-template.zip", pathlib.Path(os.getcwd()))
+    
+    
