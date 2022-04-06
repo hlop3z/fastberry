@@ -33,8 +33,6 @@ python -m pipenv --python 3.10 install fastberry
 python -m pipenv shell
 ```
 
-$~~$
-
 ---
 
 ## Start Project
