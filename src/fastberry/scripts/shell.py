@@ -34,12 +34,16 @@ def unzip_base(source, destination):
         zip_ref.extractall(destination)
 
 
-def unzip(source: str, destination: str):
+def unzip(source: pathlib.Path, destination: pathlib.Path):
     """Unzip Method"""
     zipfile_name = source.name.replace(".zip", "")
     unzip_base(source, TEMPORARY_DIR)
     tmp = TEMPORARY_DIR / zipfile_name
     file_names = os.listdir(tmp)        
+    try:    
+        os.remove(destination / "Pipfile")
+    except:
+        pass
     for file_name in file_names:
         shutil.move(os.path.join(tmp, file_name), destination)        
     os.rmdir(tmp)
