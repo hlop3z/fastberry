@@ -47,7 +47,13 @@ $~~$
 startproject
 ```
 
-### Run Server
+### Run (Command) Start-App
+
+```sh
+./manage.py start-app demo
+```
+
+### Run (Command) Run-Server
 
 ```sh
 ./manage.py run
