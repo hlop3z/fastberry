@@ -7,7 +7,7 @@ import shlex
 import shutil
 import subprocess
 import zipfile
-
+import os
 import click
 
 TEMPORARY_DIR = pathlib.Path(__file__).parents[0] / "tmp"
@@ -27,6 +27,7 @@ def shell_print(text: str, color: str = "green"):
     """Shell Print"""
     return click.secho(f"{ text }", fg=color, bold=True)
 
+
 def unzip_base(source, destination):
     """Unzip Base"""
     with zipfile.ZipFile(source, "r") as zip_ref:
@@ -35,7 +36,10 @@ def unzip_base(source, destination):
 
 def unzip(source: str, destination: str):
     """Unzip Method"""
-    file_name = source.name
-    file_name = file_name.replace(".zip", "")
+    zipfile_name = source.name.replace(".zip", "")
     unzip_base(source, TEMPORARY_DIR)
-    shutil.move(TEMPORARY_DIR / file_name, destination)
+    tmp = TEMPORARY_DIR / zipfile_name
+    file_names = os.listdir(tmp)        
+    for file_name in file_names:
+        shutil.move(os.path.join(tmp, file_name), destination)        
+    os.rmdir(tmp)

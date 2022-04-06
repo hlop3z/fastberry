@@ -12,6 +12,8 @@ dbcontroller = "*"
 fastapi = "*"
 pydantic = "*"
 strawberry-graphql = {extras = ["fastapi"], version = "*"}
+uvicorn = {extras = ["standard"], version = "*"}
+gunicorn = "*"
 
 [dev-packages]
 build = "*"
