@@ -53,6 +53,13 @@ startproject
 ./manage.py start-app demo
 ```
 
+### Inside `settings.yaml`
+
+```yaml
+INSTALLED_APPS:
+  - demo
+```
+
 ### Run (Command) Run-Server
 
 ```sh
