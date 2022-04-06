@@ -5,7 +5,6 @@ ADMIN_EMAIL: deadpool@example.com
 
 # Installed Apps
 INSTALLED_APPS:
-  - demo
 
 # Development Apps
 DEVELOPMENT_APPS:
