@@ -1,7 +1,7 @@
 # API Information
 VERSION: 0.1.0
 APP_NAME: Fastberry
-ADMIN_EMAIL: deadpool@example.com
+ADMIN_EMAIL: fastberry@example.com
 
 # Installed Apps
 INSTALLED_APPS:

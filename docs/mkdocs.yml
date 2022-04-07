@@ -1,0 +1,28 @@
+site_name: Fastberry
+site_url: https://hlop3z.github.io/dbcontroller
+repo_url: https://github.com/hlop3z/fastberry
+copyright: Copyright © Hlop3z
+
+nav:
+  - Introduction: index.md
+  - Getting Started:
+      - Installation:
+          - Installation: getting-started/installation.md
+          - Template: getting-started/template.md
+      - Apps:
+          - First-App: getting-started/firstapp.md
+
+theme:
+  name: material
+  locale: en
+  features:
+    - navigation.tabs
+  icon:
+    logo: material/bike-fast
+  palette:
+    primary: light purple
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true

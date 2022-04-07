@@ -21,15 +21,15 @@ settings = Settings()
     help="Server Mode.",
 )
 @click.option("-p", "--port", default=8000, help="Port Number.")
-@click.option("-w", "--workers", default=1, help="Workers Number.")
+@click.option("-w", "--workers", default=1, help="Number of Workers.")
 def run(mode, port, workers):
     """Start FastApi Server
 
     \b
     # Examples
-        - development : ./manage.py run --port 8001 --mode development
-        - staging     : ./manage.py run --port 8001 --mode staging
-        - production  : ./manage.py run --mode production
+        - development : ./manage.py run --port 8000 --mode development
+        - staging     : ./manage.py run --port 8000 --mode staging
+        - production  : ./manage.py run --port 8000 --mode production --workers 4
     """
 
     # SETUP

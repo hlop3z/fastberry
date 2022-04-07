@@ -1,8 +1,0 @@
-site_name: My Docs
-site_url : https://example.com/
-
-theme:
-  name: material
-
-nav:
-    - Root: index.md
