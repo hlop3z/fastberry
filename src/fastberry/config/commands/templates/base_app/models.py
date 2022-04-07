@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""API - Database Models"""
+"""
+    API - Database Models
+"""
 
 # Fastberry
 from fastberry import Database

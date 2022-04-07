@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""API - Complex Inputs"""
+"""
+    API - Complex Inputs
+"""
 
 import strawberry
 

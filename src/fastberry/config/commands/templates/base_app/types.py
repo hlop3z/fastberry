@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""API - Strawberry Types"""
+"""
+    API - Strawberry Types
+"""
 
 # Strawberry
 import strawberry
