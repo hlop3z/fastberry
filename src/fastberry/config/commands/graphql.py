@@ -33,11 +33,13 @@ def get_operations(base_dir):
     """Get App GraphQL Operations"""
     # Operations <Files>
     operations_location = base_dir / "operations"
+    operations_core = operations_location / "core"
     operations_desktop = operations_location / "desktop"
     operations_mobile = operations_location / "mobile"
 
     # Return Values
-    outputs = dict(desktop=[], mobile=[])
+    outputs = dict(core=[], desktop=[], mobile=[])
+    outputs["core"].extend(read_files(operations_core))
     outputs["desktop"].extend(read_files(operations_desktop))
     outputs["mobile"].extend(read_files(operations_mobile))
 
@@ -66,6 +68,7 @@ def graphql():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Output Paths <Files>
+    core_operations = output_dir / "core.graphql"
     desktop_operations = output_dir / "desktop.graphql"
     mobile_operations = output_dir / "mobile.graphql"
     schema_graphql = output_dir / "schema.graphql"
@@ -73,23 +76,31 @@ def graphql():
 
     # Outputs
     shell_print("* Collecting All Operations From...", color="magenta")
+    shell_print("\t * <app_name>/operations/core...", color="magenta")
     shell_print("\t * <app_name>/operations/desktop...", color="magenta")
     shell_print("\t * <app_name>/operations/mobile... \n", color="magenta")
-    outputs = dict(desktop=[], mobile=[])
+    outputs = dict(core=[], desktop=[], mobile=[])
     for path in settings.apps.paths:
         code = get_operations(path)
+        outputs["core"].extend(code["core"])
         outputs["desktop"].extend(code["desktop"])
         outputs["mobile"].extend(code["mobile"])
 
     # Finally
+    core = "\n\n".join(outputs["core"])
     desktop = "\n\n".join(outputs["desktop"])
     mobile = "\n\n".join(outputs["mobile"])
 
     shell_print("* Building Schema & Operations ...")
-    shell_print(f"\t * [schema]: { schema_graphql }")
-    shell_print(f"\t * [desktop]: { desktop_operations }")
-    shell_print(f"\t * [mobile]: { mobile_operations }")
-    shell_print(f"\t * [operations]: { schema_json }")
+    shell_print(f"\t * [schema]     : { schema_graphql }")
+    shell_print(f"\t * [core]       : { core_operations }")
+    shell_print(f"\t * [desktop]    : { desktop_operations }")
+    shell_print(f"\t * [mobile]     : { mobile_operations }")
+    shell_print(f"\t * [operations] : { schema_json }")
+
+    # Core (Operations)
+    with open(core_operations, "w", encoding="utf-8") as file:
+        file.write(core)
 
     # Desktop (Operations)
     with open(desktop_operations, "w", encoding="utf-8") as file:
