@@ -70,6 +70,8 @@ class Settings(Singleton):
             "debug",
             "secret_key",
             "apps",
+            "middleware",
+            "cli"
         ]
 
         # Include BASE_DIR / "apps"
@@ -125,6 +127,9 @@ class Settings(Singleton):
                     if is_click(cli):
                         all_clis.add(cli)
 
+        # All - CLI(s)
+        all_clis = list(all_clis)
+
         # Middleware
         installed_middleware = []
         for middleware in core.__dict__.get("middleware") or []:
@@ -136,6 +141,15 @@ class Settings(Singleton):
             for middleware in installed_middleware:
                 app.add_middleware(middleware)
             return app
+
+
+        # Extensions
+        graphql_extensions = []
+        for ext in core.__dict__.get("extensions") or []:
+            current = search_method(ext)
+            if current:
+                graphql_extensions.append(current)
+
 
         # Pagination
         items_per_page = core.querying.get("items_per_page", 50)
@@ -161,14 +175,11 @@ class Settings(Singleton):
             )
         )
 
-        # self.middleware
+        # SELF - Definitions
         self.middleware = add_middleware
-
-        # self.apps
+        self.extensions = graphql_extensions
         self.apps = super_api
         self.models = all_models
-
-        all_clis = list(all_clis)
 
         # Command-Line-Interface
         self.cli = None

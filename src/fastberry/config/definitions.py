@@ -15,7 +15,7 @@ FILE_DOCS = "config/docs.md"
 LOAD_ENVS = lambda mode: f"config/env/{ mode }.env"
 FILE_ENVS = "config/env/development.env"
 
-SETTING_YAML_QUERYING = {"items_per_page": 50}
+SETTING_YAML_QUERYING = {"items_per_page": 50, "max_depth": 3}
 SETTING_YAML = {
     "version": "0.0.1",
     "app_name": "FastAPI",
@@ -26,6 +26,7 @@ SETTING_YAML = {
     "allowed_hosts": [],
     "permissions": [],
     "middleware": [],
+    "extensions": [],
     "generates": "graphql",
 }
 

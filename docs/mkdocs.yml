@@ -4,7 +4,15 @@ repo_url: https://github.com/hlop3z/fastberry
 copyright: Copyright © Hlop3z
 
 nav:
-  - Introduction: index.md
+  - Fastberry:
+      - Introduction: index.md
+      - Settings: settings.md
+      - Environments:
+          - Variables: environments/variables.md
+          - Development: environments/development.md
+          - Staging: environments/staging.md
+          - Production: environments/production.md
+
   - Getting Started:
       - Installation:
           - Installation: getting-started/installation.md
