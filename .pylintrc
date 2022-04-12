@@ -103,7 +103,9 @@ disable=raw-checker-failed,
         bare-except,
         consider-using-with,
         C0411,
+        no-name-in-module,
         cyclic-import,
+        invalid-overridden-method,
         import-outside-toplevel
 
 # Enable the message, report, category or checker with the given id(s). You can

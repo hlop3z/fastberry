@@ -1,4 +1,4 @@
-Settings are in **YAML** format. Because **YAML . . .**
+Settings are in **YAML** format. Because **YAML . . .** is easy to read.
 
 > "is a human-readable data-serialization language". — **Wikipedia**
 
@@ -9,6 +9,9 @@ Settings are in **YAML** format. Because **YAML . . .**
 VERSION: 0.1.0
 APP_NAME: Fastberry
 ADMIN_EMAIL: fastberry@example.com
+
+# GraphQL Output Folder
+GENERATES: graphql
 
 ALLOWED_HOSTS:
   # 8080 (Front-End)
@@ -29,16 +32,13 @@ QUERYING:
 MIDDLEWARE:
   - myapp.middleware.AuthenticatedCookieMiddleware
 
-# [starlette-middleware](https://strawberry.rocks/docs/guides/custom-extensions)
+# [strawberry-extensions](https://strawberry.rocks/docs/guides/custom-extensions)
 EXTENSIONS:
   - myapp.extension.SomeExtension
 
 # [strawberry-permissions](https://strawberry.rocks/docs/guides/permissions)
 PERMISSIONS:
   - myapp.permissions.IsAuthorized
-
-# GraphQL Output Folder
-GENERATES: graphql
 ```
 
 ## **Breakdown** of the **Settings**
@@ -50,6 +50,12 @@ GENERATES: graphql
 - **VERSION**: API's Current Version
 - **APP_NAME**: API Name
 - **ADMIN_EMAIL**: API's Admin Email
+
+---
+
+#### GENERATES
+
+> Output folder for **GraphQL Schema & Operations**.
 
 ---
 
@@ -73,23 +79,37 @@ GENERATES: graphql
 
 #### QUERYING
 
-- **items_per_page**: Max number of items to grab from the database.
-- **max_depth**: Max number for the depth of GraphQL queries.
+- **items_per_page**: Max number of items to grab from the **Database**.
+- **max_depth**: Max number for the depth of **GraphQL Queries**.
 
 ---
 
-#### MIDDLEWARE
+#### MIDDLEWARE [(Starlette)](https://www.starlette.io/middleware/)
+
+> List of active **Middlewares**.
+
+You can create your own **middleware** by using the **base module**.
+
+The **BaseMiddleware** included is just a wrapper/rename for **BaseHTTPMiddleware** from **Starlette**
 
 ---
 
-#### EXTENSIONS
+#### EXTENSIONS [(Strawberry)](https://strawberry.rocks/docs/guides/custom-extensions)
+
+> List of active **Extensions**.
+
+You can create your own **extension** by using the **base module**.
+
+The **BaseExtension** included is just a wrapper/rename for **Extension** from **Strawberry**
 
 ---
 
-#### PERMISSIONS
+#### PERMISSIONS [(Strawberry)](https://strawberry.rocks/docs/guides/permissions)
 
----
+> List of active **Permissions**.
 
-#### GENERATES
+You can create your own **permissions** by using the **base module**.
+
+The **BasePermission** included is just a wrapper for **BasePermission** from **Strawberry**
 
 ---

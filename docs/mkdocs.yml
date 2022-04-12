@@ -12,10 +12,13 @@ nav:
           - Development: environments/development.md
           - Staging: environments/staging.md
           - Production: environments/production.md
+      - Middleware: middleware.md
+      - Extension: extension.md
+      - Permissions: permissions.md
 
   - Getting Started:
       - Installation:
-          - Installation: getting-started/installation.md
+          - PyPi with Pipenv: getting-started/installation.md
           - Template: getting-started/template.md
       - Apps:
           - First-App: getting-started/firstapp.md

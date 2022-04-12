@@ -3,6 +3,8 @@
 """
 
 from starlette.middleware.base import BaseHTTPMiddleware as BaseMiddleware
+from strawberry.extensions import Extension as BaseExtension
+from strawberry.permission import BasePermission
 
 from . import config
 from .config import Settings

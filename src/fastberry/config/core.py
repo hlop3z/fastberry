@@ -71,7 +71,7 @@ class Settings(Singleton):
             "secret_key",
             "apps",
             "middleware",
-            "cli"
+            "cli",
         ]
 
         # Include BASE_DIR / "apps"
@@ -142,14 +142,12 @@ class Settings(Singleton):
                 app.add_middleware(middleware)
             return app
 
-
         # Extensions
         graphql_extensions = []
         for ext in core.__dict__.get("extensions") or []:
             current = search_method(ext)
             if current:
                 graphql_extensions.append(current)
-
 
         # Pagination
         items_per_page = core.querying.get("items_per_page", 50)

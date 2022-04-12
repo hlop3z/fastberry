@@ -63,7 +63,7 @@ def run(mode, port, workers):
             run_server = f"python -m uvicorn main:app --reload --port { port }"
         case "production":
             run_server = f"python -m gunicorn main:app --workers { workers } --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:{ port }"
-                    
+
     return_value.append(run_server)
 
     # Message
