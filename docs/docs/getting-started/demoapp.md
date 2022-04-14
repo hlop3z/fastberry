@@ -26,11 +26,19 @@ my-app/                 --> <Directory> - Your App Root Directory.
 
 === "inputs.py"
 
+    > "**Input types** cannot have fields that are other objects, **only** basic scalar types, list types, and other input types". — **graphql.org**
+
     ```python
+    # -*- coding: utf-8 -*-
+    """
+        Inputs
+    """
+
     # Strawberry
     import strawberry
 
 
+    # Create your <inputs> here.
     @strawberry.input
     class SearchAuthor:
         name: str | None = None
@@ -48,25 +56,81 @@ my-app/                 --> <Directory> - Your App Root Directory.
 
 === "models.py"
 
-    ```python
-    # Fastberry
-    from fastberry import Database
+    > **Models** map to a single database table (**SQL**) or database collection (**Mongo**).
 
-    # Database Manager
-    model = Database()
+    - **SQL** : Pairs with **SQLAlchemy**
+    - **Mongo** : Pairs with (**Motor & PyMongo**)
 
-    # Create your <models> here.
-    Author = model.motor("Author")
+    > **SQLAlchemy** uses the ORM syntax. While **Mongo** is just the name of the collection you want to interact with.
 
-    # Create Index For Collection(s)
-    def create_indexes():
-        model.mongo["author"].create_index([("name", 1)], unique=True)
+    === "sql.py"
 
-    ```
+        ```python
+        # -*- coding: utf-8 -*-
+        """
+            Models
+        """
+
+        # SQLAlchemy
+        from sqlalchemy import Column, Integer, String
+        from sqlalchemy.orm import declarative_base
+
+        # Fastberry
+        from fastberry import Database
+
+        # (Base) SQLAlchemy
+        Base = declarative_base()
+
+        # Database Manager
+        model = Database()
+
+        # Create your <models> here.
+        class AuthorDB(Base):
+            """Database Model"""
+
+            __tablename__ = "Author"
+
+            id = Column(Integer, primary_key=True)
+            name = Column(String(80))
+
+
+        # Register your <models> here.
+        Author = model.sql(AuthorDB)
+        ```
+
+    === "mongo.py"
+
+        ```python
+        # -*- coding: utf-8 -*-
+        """
+            Models
+        """
+
+        # Fastberry
+        from fastberry import Database
+
+        # Database Manager
+        model = Database()
+
+        # Create your <models> here.
+        Author = model.motor("Author")
+
+        # Create Index For Collection(s)
+        def create_indexes():
+            """Create Collection Indexes"""
+            model.mongo["author"].create_index([("name", 1)], unique=True)
+        ```
 
 === "types.py"
 
+    > "**Object types**, which just represent a kind of object you can fetch from your service, and what fields it has". — **graphql.org**
+
     ```python
+    # -*- coding: utf-8 -*-
+    """
+        Types
+    """
+
     # Strawberry
     import strawberry
 
@@ -85,7 +149,7 @@ my-app/                 --> <Directory> - Your App Root Directory.
 
 ### Variables (optional)
 
-- **`schema`**: Requires a **type &lt;`strawberry.type`&gt;**.
+- **`schema`**: Requires a **(type) &lt;`strawberry.type`&gt;**.
 - **`prefix`**: A prefix(**str**) to use before the function name.
 
 ### Classes
@@ -98,6 +162,11 @@ my-app/                 --> <Directory> - Your App Root Directory.
 === "demo.py"
 
     ```python
+    # -*- coding: utf-8 -*-
+    """
+        API - CRUD
+    """
+
     # Fastberry
     from fastberry import CRUD
 
@@ -143,5 +212,10 @@ my-app/                 --> <Directory> - Your App Root Directory.
 === "\_\_init\_\_.py"
 
     ```python
+    # -*- coding: utf-8 -*-
+    """
+        CRUD - Init
+    """
+
     from .demo import Demo
     ```

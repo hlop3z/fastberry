@@ -21,7 +21,7 @@ nav:
           - PyPi with Pipenv: getting-started/installation.md
           - Template: getting-started/template.md
       - Apps:
-          - First-App: getting-started/firstapp.md
+          - Demo-App: getting-started/demoapp.md
 
 theme:
   name: material
