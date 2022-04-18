@@ -15,6 +15,14 @@ from .. import core
 from ..imports import search_method
 
 
+def api_name(self):
+    """API Name Maker"""
+
+    if self.name:
+        return f"{self.name}API"
+    return "API"
+
+
 def is_crud(crud):
     """Check if item is subclass of <CRUD>"""
 
@@ -100,7 +108,7 @@ class CRUD(Singleton):
         if dict_mutation:
             self.Mutation = strawberry.type(
                 type(
-                    f"{self.name}API",
+                    api_name(self.name),
                     (object,),
                     dict_mutation,
                 )
@@ -111,7 +119,7 @@ class CRUD(Singleton):
         if dict_query:
             self.Query = strawberry.type(
                 type(
-                    f"{self.name}API",
+                    api_name(self.name),
                     (object,),
                     dict_query,
                 )

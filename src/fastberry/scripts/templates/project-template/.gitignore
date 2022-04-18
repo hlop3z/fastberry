@@ -19,5 +19,3 @@ tests/coverage_html/
 tests/.coverage
 # build/
 tests/report/
-
-editor.main.js.map

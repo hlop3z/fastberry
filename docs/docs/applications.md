@@ -8,7 +8,7 @@ Also, easy to **share** and use **inside** other **`Fastberry`** projects.
 
 ---
 
-## Commnad
+## Command
 
 ```sh
 ./manage.py start-app my_awesome_app
@@ -18,11 +18,11 @@ Also, easy to **share** and use **inside** other **`Fastberry`** projects.
 
 ## Files **Layout**
 
-``` text
+```text
 root/
 |
 |--  apps/
-|    `--  MY_APPLICATION/       --> <Directory> - Your App is in HERE!
+|    `--  MY_APPLICATION/       --> <Directory> - Your App in HERE!
 |        |-- operations/        --> <Directory> - GraphQL-Operations in HERE!
 |        |-- __init__.py
 |        |-- commands.py
@@ -70,5 +70,5 @@ root/
 
     ``` mermaid
     graph LR;
-        A[Application] --> |Click| B[commands];
+        A[Application] --> |Click| B[Commands];
     ```

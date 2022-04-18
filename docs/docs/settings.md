@@ -12,7 +12,7 @@ Core **Settings** are in **`YAML`** format. Because **YAML** is easy to read.
 2. Load **`mode.json`**
 3. Load **`Environment Variables`**
 
-``` mermaid
+```mermaid
 graph LR;
     A[settings.yaml] --> D;
     B[mode.json] --> C;
@@ -52,17 +52,17 @@ root/                           --> <Directory> - Project's Root.
     # GraphQL (Output Folder) (4)
     GENERATES: graphql
 
-    # Allowed Hosts (5)
-    ALLOWED_HOSTS:      
-      - http://localhost:8080
-      - http://127.0.0.1:8080
-    
     QUERYING:
       items_per_page: 50 # (6)
       max_depth: 4 # (7)
 
+    # Allowed Hosts (5)
+    ALLOWED_HOSTS:
+      - http://localhost:8080
+      - http://127.0.0.1:8080
+
     # Applications (8)
-    INSTALLED_APPS: 
+    INSTALLED_APPS:
       - my_awesome_app
 
     # Development (9)
@@ -79,9 +79,9 @@ root/                           --> <Directory> - Project's Root.
 
     # Permissions (12)
     PERMISSIONS:
-      - myapp.permissions.SomePermission
+      - myapp.permission.SomePermission
     ```
-    
+
     1. **API** — Current **Version**.
     2. **API** — Project **Name**.
     3. **API** — Admin **Email**.

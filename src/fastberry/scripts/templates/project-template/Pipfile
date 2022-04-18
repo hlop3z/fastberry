@@ -11,6 +11,8 @@ allow_prereleases = true
 
 [packages]
 fastberry = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+gunicorn = "*"
 
 [dev-packages]
 build = "*"

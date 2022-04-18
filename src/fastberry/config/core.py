@@ -146,8 +146,8 @@ class Settings(Singleton):
 
         # Extensions
         graphql_extensions = []
-        for ext in core.__dict__.get("extensions") or []:
-            current = search_method(ext)
+        for extension in core.__dict__.get("extensions") or []:
+            current = search_method(extension)
             if current:
                 graphql_extensions.append(current)
 

@@ -1,8 +1,8 @@
-> Your code **needs** to be in a **file** named **`crud.py`**  or **folder** named **`crud`** inside your **Application**.
+> Your code **needs** to be in a **file** named **`crud.py`** or **folder** named **`crud`** inside your **Application**.
 
 ## File or Folder **Layout**
 
-=== "File"
+=== ":material-file: File"
 
     ``` text
     root/
@@ -14,7 +14,7 @@
     `-- etc...
     ```
 
-=== "Folder"
+=== ":material-folder: Folder"
 
     ``` text
     root/
@@ -30,33 +30,78 @@
 
 ## Python **Code**
 
-``` python title="crud.py"
-# -*- coding: utf-8 -*-
-"""
-    API - CRUD
-"""
+=== ":material-file: File"
 
-# Fastberry
-from fastberry import CRUD
+    ``` python title="crud.py"
+    # -*- coding: utf-8 -*-
+    """
+        API - CRUD
+    """
+
+    # Fastberry
+    from fastberry import CRUD
 
 
-# Create your API (GraphQL) here.
-class Demo(CRUD):
-    """Demo Api"""
+    # Create your API (GraphQL) here.
+    class Demo(CRUD):
+        """Demo Api"""
 
-    class Query:
-        """Query"""
+        class Query:
+            """Query"""
 
-        async def detail(info) -> str:
-            """Read the Docs"""
-            print(info)
-            return "Detail"
+            async def detail(info) -> str:
+                """Read the Docs"""
+                print(info)
+                return "Detail"
 
-    class Mutation:
-        """Mutation"""
+        class Mutation:
+            """Mutation"""
 
-        async def create(info) -> str:
-            """Read the Docs"""
-            print(info)
-            return "Create"
-```
+            async def create(info) -> str:
+                """Read the Docs"""
+                print(info)
+                return "Create"
+    ```
+
+=== ":material-folder: Folder"
+
+    ```python title="__init__.py"
+    # -*- coding: utf-8 -*-
+    """
+        CRUD - Init
+    """
+
+    # Import your <cruds> here.
+    from .demo import Demo
+    ```
+
+    ``` python title="demo.py"
+    # -*- coding: utf-8 -*-
+    """
+        API - CRUD
+    """
+
+    # Fastberry
+    from fastberry import CRUD
+
+
+    # Create your API (GraphQL) here.
+    class Demo(CRUD):
+        """Demo Api"""
+
+        class Query:
+            """Query"""
+
+            async def detail(info) -> str:
+                """Read the Docs"""
+                print(info)
+                return "Detail"
+
+        class Mutation:
+            """Mutation"""
+
+            async def create(info) -> str:
+                """Read the Docs"""
+                print(info)
+                return "Create"
+    ```

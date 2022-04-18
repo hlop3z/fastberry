@@ -6,23 +6,29 @@ The **`manager`** is built with **Click**.
 
 ### **Built** With:
 
-| Module                                                                            | Is Used To...                                                     |
-| --------------------------------------------------------------------------------- | ------------ |
-| [**Click**](https://github.com/pallets/click/)                                    | **Manage** the server, development process and custom **`Commands`**. |
-| [**FastAPI**](https://fastapi.tiangolo.com/)                                      | **Core** Web **`Framework`**                                          |
-| [**Strawberry**](https://strawberry.rocks/)                                       | **GraphQL** **`Library`**                                             |
-| [**Database-Controller (dbcontroller)**](https://hlop3z.github.io/dbcontroller/)  | **API** for requests to the databases (**`SQL`** and/or **`Mongo`**). |
-| [**PyYAML**](https://pypi.org/project/PyYAML/)                                    | **Load** the project **`Settings`**.                                  |
-| [**Python-Dotenv**](https://pypi.org/project/python-dotenv/)                      | **Load** the **`Environment Variables`**.                             |
-| [**Pydantic**](https://pydantic-docs.helpmanual.io/)                              | **Format** `Environment Variables` and more **FastAPI** uses.         |
-| [**Uvicorn**](https://www.uvicorn.org/)                                           | **Run** the server in **`Development`** mode.                         |
-| [**Gunicorn**](https://gunicorn.org/)                                             | **Run** the server in **`Staging`** and **`Production`** mode.        |
+| Module                                                                           | Is Used To...                                                         |
+| -------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [**Click**](https://github.com/pallets/click/)                                   | **Manage** the server, development process and custom **`Commands`**. |
+| [**FastAPI**](https://fastapi.tiangolo.com/)                                     | **Core** Web **`Framework`**                                          |
+| [**Strawberry**](https://strawberry.rocks/)                                      | **GraphQL** **`Library`**                                             |
+| [**Database-Controller (dbcontroller)**](https://hlop3z.github.io/dbcontroller/) | **API** for requests to the databases (**`SQL`** and/or **`Mongo`**). |
+| [**PyYAML**](https://pypi.org/project/PyYAML/)                                   | **Load** the project **`Settings`**.                                  |
+| [**Python-Dotenv**](https://pypi.org/project/python-dotenv/)                     | **Load** the **`Environment Variables`**.                             |
+| [**Pydantic**](https://pydantic-docs.helpmanual.io/)                             | **Format** `Environment Variables` and more **FastAPI** uses.         |
+| [**Uvicorn**](https://www.uvicorn.org/)                                          | **Run** the server in **`Development`** mode.                         |
+| [**Gunicorn**](https://gunicorn.org/)                                            | **Run** the server in **`Staging`** and **`Production`** mode.        |
 
 ---
 
+## **Install** Fastberry
+
+```sh
+python -m pip install fastberry
+```
+
 ## **Install** Uvicorn + Gunicorn
 
-``` sh
+```sh
 python -m pip install "uvicorn[standard]" gunicorn
 ```
 
@@ -32,10 +38,10 @@ python -m pip install "uvicorn[standard]" gunicorn
 
 > After the **`settings`** are loaded. You can then use the database(s) **`models`** if you wish.
 >
-> However, you can create **`commands`** or **`fastapi`** and **`strawberry-graphql`** endpoints. 
+> However, you can create **`commands`** or **`fastapi`** and **`strawberry-graphql`** endpoints.
 > Without using the **`Database-Controller`** module.
 
-``` mermaid
+```mermaid
 graph LR;
     A{Click} --> B[Uvicorn];
     A --> C[Gunicorn];
@@ -88,7 +94,7 @@ Some of the commands and the installation of **modules** (aka: **INSTALLED_APPS*
 - **`startproject`** Create a new **Fastberry** project.
 - **`./manage.py run`** Run **FastApi Server**.
 - **`./manage.py schema`** Build **GraphQL (Schema + Operations)**.
-- **`./manage.py start-app`** Create a **Fastberry App** Directory inside your "**`apps`**" directory.
+- **`./manage.py start-app`** Create a **Fastberry App** inside your "**`apps`**" directory.
 - **`./manage.py --help`** For **more information**.
 
 ## **Mode** (Options)

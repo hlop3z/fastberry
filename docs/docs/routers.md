@@ -2,20 +2,19 @@
 
 ## File **Layout**
 
-``` text
+```text
 root/
 |
 |--  apps/
-|    `--  MY_APP/               --> <Directory> - Your App is in HERE!
-|        |-- __init__.py
-|        `-- router.py          --> <File> - Your code goes in HERE!
+|    `--  MY_APP/               --> <Directory> - Your App in HERE!
+|        `-- router.py          --> <File> - Your code in HERE!
 |
 `-- etc...
 ```
 
 ## Python **Code**
 
-``` python title="router.py"
+```python title="router.py"
 # -*- coding: utf-8 -*-
 """
     Router-Example
@@ -28,6 +27,7 @@ router = APIRouter(
 )
 
 
+# Create <Routers> here.
 @router.get("/hello_world")
 async def hello_world():
     """Return: A `Hello World` Message."""

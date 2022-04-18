@@ -2,27 +2,13 @@
 
 Building a plugin with all **3 elements** (Middleware, Extension and Permissions).
 
----
-
-## File **Layout**
-
-``` text
-root/
-|
-|--  apps/
-|    `--  MY_PLUGIN/             --> <Directory> - Your App is in HERE!
-|        |-- extension.py
-|        |-- middleware.py
-|        `-- permissions.py
-|
-`-- etc...
-```
+> You can also **combine** them with a **`Router`**. For example: to create a **`User / Authentication`** API.
 
 ---
 
 ## Plugin **Workflow**
 
-``` mermaid
+```mermaid
 graph LR;
     Z[Client] --> A;
     A[Request] --> B;
@@ -39,9 +25,9 @@ graph LR;
 
 > User is **`Authenticated`** or **`Anonymous`**?
 >
-> Inject the  **`Authorization Token`** to the **`Headers`** if the is in the **`Cookies`**.
+> Inject the **`Authorization Token`** to the **`Headers`** if the is in the **`Cookies`**.
 
-``` mermaid
+```mermaid
 graph LR;
     A{My Middleware} --> |Request Headers| B[Authorization Token?];
     B --> |Yes| D[Authenticated-User];
@@ -59,7 +45,7 @@ graph LR;
 
 > Convert **`Authorization-Token`** or **`None`** to a **`User-Object`** and inject it to **`GraphQL`**'s context.
 
-``` mermaid
+```mermaid
 graph LR;
     A{My Extension} --> |Request:Headers| B;
     B[Authorization Token?] --> |Yes| C[Authenticated-User];
@@ -80,7 +66,7 @@ graph LR;
 >
 > Alternatively, you can use **`info.python_name`** if you prefer to use the python's original name of the function.
 
-``` mermaid
+```mermaid
 graph LR;
     A{My Permission} --> |info.context| B[User];
     B --> |is| C[Allowed?]

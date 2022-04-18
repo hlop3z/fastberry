@@ -1,4 +1,4 @@
-# **Permissions** Example
+# **Permission** Example
 
 > Check **GraphQL Context** for a { **User** } or { **Anonymous-User** }.
 
@@ -8,7 +8,7 @@
 
     ```python
     # -*- coding: utf-8 -*-
-    """ [Permissions]
+    """ [Permission]
         Check GraphQL Context for a { User } or { Anonymous-User }.
     """
 
@@ -28,6 +28,7 @@
 
     def get_perms(role: str = None):
         """Get Role And Check For Permissions"""
+
         found = ROLES.get(role, [])
         if found and role:
             perms = found
@@ -47,22 +48,23 @@
 
         message = "User is not authorized"  # Unauthorized
 
-        # This method can also be async!
         async def has_permission(self, source: typing.Any, info: Info, **kwargs) -> bool:
             """Check GraphQL's Info Context"""
 
             # if not user.is_authenticated and user.is_anonymous:
             operation = info.field_name  # info.python_name
             user = info.context.get("user")
-            permissions = get_perms(user.role)
-            return operation in permissions
+            if user:
+                permissions = get_perms(user.role)
+                return operation in permissions
+            return False
     ```
 
 === "Full-Code"
 
-    ```python
+    ``` python title="permissions.py"
     # -*- coding: utf-8 -*-
-    """ [Permissions]
+    """ [Permission]
         Check GraphQL Context for a { User } or { Anonymous-User }.
     """
 
@@ -77,6 +79,7 @@
 
     def get_perms(role: str = None):
         """Get Role And Check For Permissions"""
+
         found = ROLES.get(role, [])
         if found and role:
             perms = found
@@ -90,13 +93,14 @@
 
         message = "User is not authorized"  # Unauthorized
 
-        # This method can also be async!
         async def has_permission(self, source: typing.Any, info: Info, **kwargs) -> bool:
             """Check GraphQL's Info Context"""
 
             # if not user.is_authenticated and user.is_anonymous:
             operation = info.field_name  # info.python_name
             user = info.context.get("user")
-            permissions = get_perms(user.role)
-            return operation in permissions
+            if user:
+                permissions = get_perms(user.role)
+                return operation in permissions
+            return False
     ```

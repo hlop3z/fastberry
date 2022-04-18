@@ -6,7 +6,7 @@
 
     ## **Import** your Basics
 
-    ```python
+    ``` python
     # -*- coding: utf-8 -*-
     """ [Middleware]
         Get { Authorization } from the { Cookies } and inject it to the { Headers }.
@@ -20,12 +20,13 @@
 
     For more information about **custom middleware** go to [**starlette**: BaseHTTPMiddleware](https://www.starlette.io/middleware/)
 
-    ```python
+    ``` python
     class AuthenticatedCookieMiddleware(BaseMiddleware):
         """Get Authorization From Cookie"""
 
         async def dispatch(self, request, call_next):
             """Process Request and Inject Header"""
+
             if (
                 "Authorization" not in request.headers
                 and "Authorization" in request.cookies
@@ -43,7 +44,7 @@
 
 === "Full-Code"
 
-    ```python
+    ``` python title="middleware.py"
     # -*- coding: utf-8 -*-
     """ [Middleware]
         Get { Authorization } from the { Cookies } and inject it to the { Headers }.
@@ -57,6 +58,7 @@
 
         async def dispatch(self, request, call_next):
             """Process Request and Inject Header"""
+
             if (
                 "Authorization" not in request.headers
                 and "Authorization" in request.cookies

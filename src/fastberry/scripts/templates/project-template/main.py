@@ -1,5 +1,8 @@
-# Framework
-# Settings
+# -*- coding: utf-8 -*-
+""" [Main]
+    FastAPI Main File.
+"""
+
 from config import settings
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,9 +11,6 @@ from strawberry.fastapi import GraphQLRouter
 
 # API (Schema)
 from fastberry import Schema
-
-# Apps
-APPS = settings.apps
 
 # FastAPI
 app = FastAPI(
@@ -24,31 +24,33 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 settings.middleware(app)
 
 # CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=settings.base.allowed_hosts,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+if settings.base.allowed_hosts:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=settings.base.allowed_hosts,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
 # All Routers
 app.include_router(settings.router)
 
 # GraphQL (Schema)
 schema = Schema(
-    query=APPS.schema.Query,
-    mutation=APPS.schema.Mutation,
+    query=settings.apps.schema.Query,
+    mutation=settings.apps.schema.Mutation,
     extensions=[],
     introspection=(not settings.mode == "production"),
 )
 
 # GraphQL (Router)
-app.include_router(
-    GraphQLRouter(
-        schema,
-        graphiql=(not settings.mode == "production"),
-    ),
-    prefix="/graphql",
-    tags=["GraphQL"],
-)
+if schema:
+    app.include_router(
+        GraphQLRouter(
+            schema,
+            graphiql=(not settings.mode == "production"),
+        ),
+        prefix="/graphql",
+        tags=["GraphQL"],
+    )

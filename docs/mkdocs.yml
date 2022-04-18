@@ -10,15 +10,16 @@ nav:
       - Environments:
           - Variables: environments/variables.md
       - Applications:
-        - Introduction: applications.md
-        - CRUD: crud.md
-        - Commands: commands.md        
-        - Router: routers.md
+          - Introduction: applications.md
+          - CRUD: crud.md
+          - Commands: commands.md
+          - Router: routers.md
       - Middleware, Extension and Permissions:
-        - Workflow: middleware/workflow.md
-        - Middleware: middleware/middleware.md
-        - Extension: middleware/extension.md
-        - Permissions: middleware/permissions.md
+          - Workflow: middleware/workflow.md
+          - Middleware: middleware/middleware.md
+          - Extension: middleware/extension.md
+          - Permission: middleware/permissions.md
+          - Plugin: middleware/plugin.md
 
   - Getting Started:
       - Installation:
@@ -33,22 +34,22 @@ theme:
   locale: en
   features:
     - navigation.tabs
-    - navigation.instant    
+    - navigation.instant
     - navigation.tracking
-    - navigation.sections    
+    - navigation.sections
     - navigation.top
     - content.code.annotate
-    # - navigation.expand    
+    # - navigation.expand
   icon:
     logo: material/bike-fast
   palette:
-    - media: "(prefers-color-scheme: light)" 
+    - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: pink
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)" 
+    - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: pink
       toggle:

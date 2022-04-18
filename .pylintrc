@@ -106,7 +106,7 @@ disable=raw-checker-failed,
         no-name-in-module,
         cyclic-import,
         invalid-overridden-method,
-        import-outside-toplevel
+        import-outside-toplevel,
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option

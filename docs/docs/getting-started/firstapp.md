@@ -1,3 +1,25 @@
+## App Layout
+
+```text
+my-app/                 --> <Directory> - Your App Root Directory.
+|
+|--  crud/              --> <Directory> - Your API's CRUD(s) Code in HERE.
+|    |-- __init__.py    --> <File> - Import All Your CRUD Models in HERE.
+|    `-- demo.py        --> <File> - CRUD Model Demo.
+|
+|--  operations/        --> <Directory> - Your GraphQL's Operations in HERE.
+|    |-- core/          --> <File> - Used in both (Desktop & Mobile).
+|    |-- desktop/       --> <File> - Used in Desktop.
+|    `-- mobile/        --> <File> - Used in Mobile.
+|
+|-- __init__.py
+|-- inputs.py           --> <File> - GraphQL Inputs.
+|-- models.py           --> <File> - Database(s) Models.
+`-- types.py            --> <File> - GraphQL Types.
+```
+
+---
+
 === "inputs.py"
 
     > "**Input types** cannot have fields that are other objects, **only** basic scalar types, list types, and other input types". — **graphql.org**

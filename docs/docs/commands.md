@@ -1,8 +1,10 @@
-> Your code **needs** to be in a **file** named **`commands.py`**  or **folder** named **`commands`** inside your **Application**.
+> Your code **needs** to be in a **file** named **`commands.py`** or **folder** named **`commands`** inside your **Application**.
+
+> Your **`click.group`** **needs** to be named **`cli`**.
 
 ## File or Folder **Layout**
 
-=== "File"
+=== ":material-file: File"
 
     ``` text
     root/
@@ -14,7 +16,7 @@
     `-- etc...
     ```
 
-=== "Folder"
+=== ":material-folder: Folder"
 
     ``` text
     root/
@@ -30,21 +32,68 @@
 
 ## Python **Code**
 
-``` python title="commands.py"
-# -*- coding: utf-8 -*-
-"""
-    Project - Commands
-"""
-import click
+=== ":material-file: File"
+
+    ```python title="commands.py"
+    # -*- coding: utf-8 -*-
+    """
+        Custom - Command-Line-Group
+    """
+
+    import click
 
 
-@click.group()
-def cli():
-    pass
+    # Init Group
+    @click.group()
+    def cli():
+        """Click (CLI) Group"""
+
+    # Create <Commands> here.
+    @cli.command()
+    def hello_world():
+        """Demo CLI Function"""
+
+        print("Hello World")
+    ```
+
+=== ":material-folder: Folder"
+
+    ```python title="__init__.py"
+    # -*- coding: utf-8 -*-
+    """
+        Custom - Command-Line-Group
+    """
+
+    import click
+
+    # Import <Commands> Here
+    from .hello_world import hello_world
 
 
-@cli.command()
-def hello_world():
-    """Demo CLI Function"""
-    print("Hello World")
-```
+    # Init Group
+    @click.group()
+    def cli():
+        """Click (CLI) Group"""
+
+
+    # Register <Commands> Here
+    cli.add_command(hello_world)
+    ```
+
+    ```python title="hello_world.py"
+    # -*- coding: utf-8 -*-
+    """
+        Command - Hello World
+    """
+
+    import click
+
+
+    # Create <Commands> here.
+    @click.command()
+    def hello_world():
+        """Demo CLI Function"""
+
+        print("Hello World")
+
+    ```

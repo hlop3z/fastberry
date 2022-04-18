@@ -28,8 +28,8 @@
 
         id: str
         role: str
-        username: str
-        email: str
+        username: str | None = None
+        email: str | None = None
         full_name: str | None = None
         disabled: bool = False
         is_staff: bool = False
@@ -44,12 +44,11 @@
     ``` python
     def anonymous_user():
         """Default Anonymous User"""
+
         token = f"anonymous-{secrets.token_urlsafe(38)}"
         user = User(
             id=token,
             role="public",
-            username="fastberry",
-            email="fake@example.com",
             is_anonymous=True,
         )
         return user
@@ -57,17 +56,18 @@
 
     async def get_request_user(request):
         """Get User from Request the Header or Cookie"""
+
         print(request)
         return None
     ```
 
     ## Create your Strawberry / Fastberry **Extension**
-    
+
     For more information about **custom extensions** go to [**strawberry**: custom-extensions](https://strawberry.rocks/docs/guides/custom-extensions)
 
     ``` python
     class InjectUser(BaseExtension):
-        """Login Required Extension"""
+        """Inject User Extension"""
 
         async def on_executing_start(self):
             request = self.execution_context.context.get("request")
@@ -86,7 +86,7 @@
 
 === "Full-Code"
 
-    ``` python
+    ``` python title="extension.py"
     # -*- coding: utf-8 -*-
     """ [Extension]
         Inject { User } or { Anonymous-User } to GraphQL Context.
@@ -104,8 +104,8 @@
 
         id: str
         role: str
-        username: str
-        email: str
+        username: str | None = None
+        email: str | None = None
         full_name: str | None = None
         disabled: bool = False
         is_staff: bool = False
@@ -116,12 +116,11 @@
 
     def anonymous_user():
         """Default Anonymous User"""
+
         token = f"anonymous-{secrets.token_urlsafe(38)}"
         user = User(
             id=token,
             role="public",
-            username="fastberry",
-            email="fake@example.com",
             is_anonymous=True,
         )
         return user
@@ -129,12 +128,13 @@
 
     async def get_request_user(request):
         """Get User from Request the Header or Cookie"""
+
         print(request)
         return None
 
 
     class InjectUser(BaseExtension):
-        """Login Required Extension"""
+        """Inject User Extension"""
 
         async def on_executing_start(self):
             request = self.execution_context.context.get("request")
