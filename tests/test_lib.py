@@ -18,6 +18,4 @@ dir_up(1)
 # Test
 import fastberry
 
-print(
-    dir(fastberry)
-)
+print(dir(fastberry))

@@ -2,12 +2,13 @@
     Shell Functions
 """
 
+import os
 import pathlib
 import shlex
 import shutil
 import subprocess
 import zipfile
-import os
+
 import click
 
 TEMPORARY_DIR = pathlib.Path(__file__).parents[0] / "tmp"
@@ -39,11 +40,11 @@ def unzip(source: pathlib.Path, destination: pathlib.Path):
     zipfile_name = source.name.replace(".zip", "")
     unzip_base(source, TEMPORARY_DIR)
     tmp = TEMPORARY_DIR / zipfile_name
-    file_names = os.listdir(tmp)        
-    try:    
+    file_names = os.listdir(tmp)
+    try:
         os.remove(destination / "Pipfile")
     except:
         pass
     for file_name in file_names:
-        shutil.move(os.path.join(tmp, file_name), destination)        
+        shutil.move(os.path.join(tmp, file_name), destination)
     os.rmdir(tmp)

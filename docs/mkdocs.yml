@@ -9,12 +9,16 @@ nav:
       - Settings: settings.md
       - Environments:
           - Variables: environments/variables.md
-          - Development: environments/development.md
-          - Staging: environments/staging.md
-          - Production: environments/production.md
-      - Middleware: middleware.md
-      - Extension: extension.md
-      - Permissions: permissions.md
+      - Applications:
+        - Introduction: applications.md
+        - CRUD: crud.md
+        - Commands: commands.md        
+        - Router: routers.md
+      - Middleware, Extension and Permissions:
+        - Workflow: middleware/workflow.md
+        - Middleware: middleware/middleware.md
+        - Extension: middleware/extension.md
+        - Permissions: middleware/permissions.md
 
   - Getting Started:
       - Installation:
@@ -22,18 +26,48 @@ nav:
           - Template: getting-started/template.md
       - Apps:
           - Demo-App: getting-started/demoapp.md
+          - First-App: getting-started/firstapp.md
 
 theme:
   name: material
   locale: en
   features:
     - navigation.tabs
+    - navigation.instant    
+    - navigation.tracking
+    - navigation.sections    
+    - navigation.top
+    - content.code.annotate
+    # - navigation.expand    
   icon:
     logo: material/bike-fast
   palette:
-    primary: light purple
+    - media: "(prefers-color-scheme: light)" 
+      scheme: default
+      primary: pink
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" 
+      scheme: slate
+      primary: pink
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
 markdown_extensions:
-  - pymdownx.superfences
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg

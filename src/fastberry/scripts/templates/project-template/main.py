@@ -1,14 +1,13 @@
 # Framework
+# Settings
+from config import settings
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+from strawberry.fastapi import GraphQLRouter
 
 # API (Schema)
 from fastberry import Schema
-from strawberry.fastapi import GraphQLRouter
-
-# Settings
-from config import settings
 
 # Apps
 APPS = settings.apps

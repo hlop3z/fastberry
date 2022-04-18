@@ -55,7 +55,6 @@ class Settings(Singleton):
         self.mode = env_mode
         self.debug = env.debug
         self.secret_key = env.secret_key
-        self.debug = env.debug
 
         # Router
         router = APIRouter()
@@ -65,12 +64,15 @@ class Settings(Singleton):
         self.keys = [
             "base_dir",
             "base",
+            "env",
             "docs",
             "mode",
             "debug",
             "secret_key",
-            "apps",
             "middleware",
+            "extensions",
+            "apps",
+            "models",
             "cli",
         ]
 
