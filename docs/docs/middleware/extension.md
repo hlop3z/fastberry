@@ -78,7 +78,9 @@
                 user = anonymous_user()
             else:
                 # User-Authenticated
-                user = User(**user.__dict__, is_authenticated=True)
+                user_dict = user.__dict__
+                user_dict["is_authenticated"] = True
+                user = User(**user_dict)
 
             # Set-User (Context)
             self.execution_context.context["user"] = user
@@ -145,7 +147,9 @@
                 user = anonymous_user()
             else:
                 # User-Authenticated
-                user = User(**user.__dict__, is_authenticated=True)
+                user_dict = user.__dict__
+                user_dict["is_authenticated"] = True
+                user = User(**user_dict)
 
             # Set-User (Context)
             self.execution_context.context["user"] = user

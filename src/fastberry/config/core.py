@@ -62,18 +62,20 @@ class Settings(Singleton):
 
         # Keys
         self.keys = [
-            "base_dir",
-            "base",
-            "env",
-            "docs",
-            "mode",
-            "debug",
-            "secret_key",
-            "middleware",
-            "extensions",
             "apps",
-            "models",
+            "base",
+            "base_dir",
             "cli",
+            "debug",
+            "docs",
+            "env",
+            "extensions",
+            "middleware",
+            "mode",
+            "models",
+            "router",
+            "secret_key",
+            "pagination",
         ]
 
         # Include BASE_DIR / "apps"

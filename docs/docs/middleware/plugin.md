@@ -4,6 +4,21 @@
 
 ---
 
+## Plugin **Workflow**
+
+```mermaid
+graph LR;
+    Z[Client] --> A;
+    A[Request] --> B;
+    B{Middleware} --> C;
+    C{Extension} --> D;
+    D{Permissions} --> E;
+    E[Resolver] --> F;
+    F[Response] --> Z;
+```
+
+---
+
 ## Command
 
 ```sh
@@ -12,13 +27,14 @@
 
 ---
 
-## File **Layout**
+## Files **Layout**
 
 ```text
 root/
 |
 |--  apps/
 |    `--  MY_PLUGIN/             --> <Directory> - Your App in HERE!
+|        |
 |        |-- extension.py
 |        |-- middleware.py
 |        |-- permission.py
@@ -36,6 +52,9 @@ root/
 python -m pip install "python-jose[cryptography]" "passlib[bcrypt]"
 ```
 
+- [Jose](https://pypi.org/project/python-jose/)
+- [Passlib](https://pypi.org/project/passlib/)
+
 ---
 
 ## Demo **Credentials**
@@ -44,6 +63,8 @@ python -m pip install "python-jose[cryptography]" "passlib[bcrypt]"
 - **Password**: **`secret`**
 
 ---
+
+## Python **Code**
 
 === "users.py"
 
@@ -291,7 +312,7 @@ python -m pip install "python-jose[cryptography]" "passlib[bcrypt]"
 
     from fastberry import BaseExtension
 
-    from .user import User, get_request_user
+    from .users import User, get_request_user
 
 
     def anonymous_user():
@@ -318,7 +339,9 @@ python -m pip install "python-jose[cryptography]" "passlib[bcrypt]"
                 user = anonymous_user()
             else:
                 # User-Authenticated
-                user = User(**user.__dict__, is_authenticated=True)
+                user_dict = user.__dict__
+                user_dict["is_authenticated"] = True
+                user = User(**user_dict)
 
             # Set-User (Context)
             self.execution_context.context["user"] = user
@@ -370,7 +393,10 @@ python -m pip install "python-jose[cryptography]" "passlib[bcrypt]"
 
     from fastberry import BasePermission
 
-    ROLES = {"public": ["SomeMethod"]}
+    ROLES = {
+        "public": ["SomeMethod"],
+        "admin": ["demoDetail", "demoSearch", "demoCreate", "demoUpdate", "demoDelete"],
+    }
 
 
     def get_perms(role: str = None):

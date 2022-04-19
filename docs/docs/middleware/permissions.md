@@ -23,8 +23,10 @@
     ## Get User **Permissions**
 
     ```python
-    ROLES = {"public": ["SomeMethod"]}
-
+    ROLES = {
+        "public": ["SomeMethod"],
+        "admin": ["demoDetail", "demoSearch", "demoCreate", "demoUpdate", "demoDelete"],
+    }
 
     def get_perms(role: str = None):
         """Get Role And Check For Permissions"""
@@ -74,7 +76,10 @@
 
     from fastberry import BasePermission
 
-    ROLES = {"public": ["SomeMethod"]}
+    ROLES = {
+        "public": ["SomeMethod"],
+        "admin": ["demoDetail", "demoSearch", "demoCreate", "demoUpdate", "demoDelete"],
+    }
 
 
     def get_perms(role: str = None):

@@ -4,7 +4,7 @@ Project Settings
 
 import pathlib
 
-from fastberry.config import Settings
+from fastberry import Settings
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = pathlib.Path(__file__).resolve().parents[1]

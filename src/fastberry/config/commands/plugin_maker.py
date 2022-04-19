@@ -42,6 +42,20 @@ from fastberry import BasePermission
 
 '''
 
+ROUTER = '''
+# -*- coding: utf-8 -*-
+""" 
+    [Router]
+"""
+
+from fastapi import APIRouter
+
+router = APIRouter()
+
+# Create <Router> here.
+
+'''
+
 
 def create_plugin(the_dir):
     """Create A Plugin"""
@@ -56,4 +70,4 @@ def create_plugin(the_dir):
         file.write(PERMISSION)
 
     with open(the_dir / "router.py", "w", encoding="utf-8") as file:
-        file.write("")
+        file.write(ROUTER)

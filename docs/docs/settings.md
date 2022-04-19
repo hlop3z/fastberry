@@ -16,7 +16,7 @@ Core **Settings** are in **`YAML`** format. Because **YAML** is easy to read.
 graph LR;
     A[settings.yaml] --> D;
     B[mode.json] --> C;
-    C[env_mode.env] --> D{Project Settings};
+    C[mode.env] --> D{Project Settings};
 ```
 
 ---

@@ -20,6 +20,9 @@ nav:
           - Extension: middleware/extension.md
           - Permission: middleware/permissions.md
           - Plugin: middleware/plugin.md
+      - Application Programming Interface:
+          - Fastberry API: apis/fastberry.md
+          - GraphQL API: apis/graphql.md
 
   - Getting Started:
       - Installation:
@@ -42,6 +45,7 @@ theme:
     # - navigation.expand
   icon:
     logo: material/bike-fast
+
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default

@@ -108,7 +108,7 @@ class CRUD(Singleton):
         if dict_mutation:
             self.Mutation = strawberry.type(
                 type(
-                    api_name(self.name),
+                    api_name(self),
                     (object,),
                     dict_mutation,
                 )
@@ -119,7 +119,7 @@ class CRUD(Singleton):
         if dict_query:
             self.Query = strawberry.type(
                 type(
-                    api_name(self.name),
+                    api_name(self),
                     (object,),
                     dict_query,
                 )
