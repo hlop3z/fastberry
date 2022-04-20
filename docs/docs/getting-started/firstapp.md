@@ -14,7 +14,6 @@ my-app/                 --> <Directory> - Your App Root Directory.
 |
 |-- __init__.py
 |-- inputs.py           --> <File> - GraphQL Inputs.
-|-- models.py           --> <File> - Database(s) Models.
 `-- types.py            --> <File> - GraphQL Types.
 ```
 
