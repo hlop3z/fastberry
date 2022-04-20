@@ -12,8 +12,10 @@ nav:
       - Applications:
           - Introduction: applications.md
           - CRUD: crud.md
+          - Operations: operations.md
           - Commands: commands.md
           - Router: routers.md
+          - CRUD-App: crud-app.md
       - Middleware, Extension and Permissions:
           - Workflow: middleware/workflow.md
           - Middleware: middleware/middleware.md
@@ -29,7 +31,6 @@ nav:
           - PyPi with Pipenv: getting-started/installation.md
           - Template: getting-started/template.md
       - Apps:
-          - Demo-App: getting-started/demoapp.md
           - First-App: getting-started/firstapp.md
 
 theme:

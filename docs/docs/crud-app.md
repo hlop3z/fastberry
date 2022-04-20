@@ -1,6 +1,8 @@
-# Demo-App (**Default** Setup)
+# CRUD-App (**Default** Setup)
 
-> The **demo** application is created by **default** when you run the **`start-app`** command.
+> The **CRUD** application is created when you run the **`start-app`** command.
+>
+> With the **`--crud` flag** .
 
 ## CRUD
 
@@ -13,7 +15,7 @@ That means you don't use **`self`** inside your functions.
 ### Command
 
 ```sh
-./manage.py start-app my_app --demo
+./manage.py start-app my_app --crud
 ```
 
 ### PyLint (**disable**)

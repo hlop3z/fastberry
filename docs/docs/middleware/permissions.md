@@ -2,6 +2,14 @@
 
 > Check **GraphQL Context** for a { **User** } or { **Anonymous-User** }.
 
+---
+
+#### PERMISSIONS [(Strawberry)](https://strawberry.rocks/docs/guides/permissions)
+
+You can create your own **permissions** by using the **base module**.
+
+The **BasePermission** included is just a wrapper for **BasePermission** from **Strawberry**
+
 === "Tutorial"
 
     ## **Import** your Basics

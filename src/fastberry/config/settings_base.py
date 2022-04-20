@@ -10,8 +10,6 @@ class Settings(BaseSettings):
 
     secret_key: str
     debug: bool = False
-    mongo: str | None
-    sql: str | None
 
     class Config:
         """Default Environmental File"""

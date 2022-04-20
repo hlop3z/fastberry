@@ -2,6 +2,14 @@
 
 > Inject { **User** } or { **Anonymous-User** } to **GraphQL Context**.
 
+---
+
+#### EXTENSIONS [(Strawberry)](https://strawberry.rocks/docs/guides/custom-extensions)
+
+You can create your own **extension** by using the **base module**.
+
+The **BaseExtension** included is just a wrapper/rename for **Extension** from **Strawberry**
+
 === "Tutorial"
 
     ## **Import** your Basics

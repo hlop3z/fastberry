@@ -25,14 +25,25 @@ from fastberry.graphql.types import (
 
 ---
 
-## Responses
+## Methods **Descriptions**
 
-- **`Response`**
-- **`Error`** + **`ErrorMessage`**
+| Method         | Connects With ...                            | Description                                                                  |
+| -------------- | -------------------------------------------- | ---------------------------------------------------------------------------- |
+| **`BaseType`** | Everything :material-emoticon-happy-outline: | Use **BaseType** to **create** custom **GraphQL** **`Type(s)`**              |
+| **`Edges`**    | **`Response`**                               | Use **Edges** for **`annotations`**                                          |
+| **`Response`** | **`Edges`**                                  | Use **Response** to **`return`** a **list** of custom **GraphQL** **`Type`** |
+| **`Error`**    | **`[ErrorMessage]`**                         | Use **Error** to **`return`** a **list** of **ErrorMessage**(s)              |
+| **`Mutation`** | Type(**`BaseType`**)                         | Use **Mutation** for **`annotations`**                                       |
+| **`Query`**    | Type(**`BaseType`**)                         | Use **Query** for **`annotations`**                                          |
 
 ## Usage **Example**
 
 === "types.py"
+
+    > **BaseType ** is **`optional`** and it **only** has **2 Required Fields**.
+
+    1. **`_id` :** Meant to be the **original** **`Database`** unique identifier.
+    2. **`id` :** Meant to be the **client's** **`GraphQL`** unique identifier.
 
     ```python title="types.py"
     # -*- coding: utf-8 -*-
@@ -46,6 +57,10 @@ from fastberry.graphql.types import (
     # Create your <types> here.
     @strawberry.type
     class Author(BaseType):
+        name: str
+
+    @strawberry.type
+    class AuthorWithoutBase:
         name: str
     ```
 
@@ -130,51 +145,51 @@ from fastberry.graphql.types import (
 
     ```graphql
     query Item {
-    singleInstance(search: null) {
-        id
-        name
-    }
-    }
-
-    query List {
-    multipleInstances(pagination: null) {
-        edges {
-        node {
+        singleInstance(search: null) {
             id
             name
         }
-        }
     }
+
+    query List {
+        multipleInstances(pagination: null) {
+            edges {
+                node {
+                    id
+                    name
+                }
+            }
+        }
     }
 
     mutation createGood {
-    createGood {
-        ... on Author {
-        id
-        name
+        createGood {
+            ... on Author {
+                id
+                name
+            }
+            ... on Error {
+                messages {
+                    type
+                    message
+                }
+            }
         }
-        ... on Error {
-        messages {
-            type
-            message
-        }
-        }
-    }
     }
 
     mutation createBad {
-    createBad {
-        ... on Author {
-        id
-        name
+        createBad {
+            ... on Author {
+                id
+                name
+            }
+            ... on Error {
+            error
+                messages {
+                    type
+                    message
+                }
+            }
         }
-        ... on Error {
-        error
-        messages {
-            type
-            message
-        }
-        }
-    }
     }
     ```

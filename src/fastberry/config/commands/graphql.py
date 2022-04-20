@@ -7,9 +7,9 @@ import os.path
 
 import click
 
-from ... import Schema, Settings
+from ... import Schema, Fastberry
 
-settings = Settings()
+settings = Fastberry()
 
 
 def to_camel_case(text):

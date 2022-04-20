@@ -6,10 +6,10 @@ import json
 
 import click
 
-from ... import Settings
+from ... import Fastberry
 from .shell import shell_commands, shell_print
 
-settings = Settings()
+settings = Fastberry()
 
 
 @click.command()
@@ -41,7 +41,7 @@ def run(mode, port, workers):
 
     # Create Path(s)
     conf_dir.mkdir(parents=True, exist_ok=True)
-
+    
     # Write Mode <File>
     click.secho("")
     with open(conf_dir / "mode.json", "w", encoding="utf-8") as file:
@@ -53,6 +53,8 @@ def run(mode, port, workers):
 
     # PY-Lint
     if mode == "development":
+        logs_dir = base_dir / "logs"
+        logs_dir.mkdir(parents=True, exist_ok=True)
         return_value.append("""python scripts/pylint.py > logs/pylint.log 2>&1 &""")
 
     # FastAPI-Server

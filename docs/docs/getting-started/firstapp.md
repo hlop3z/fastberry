@@ -1,4 +1,4 @@
-## App Layout
+## App **Layout**
 
 ```text
 my-app/                 --> <Directory> - Your App Root Directory.
@@ -8,14 +8,22 @@ my-app/                 --> <Directory> - Your App Root Directory.
 |    `-- demo.py        --> <File> - CRUD Model Demo.
 |
 |--  operations/        --> <Directory> - Your GraphQL's Operations in HERE.
-|    |-- core/          --> <File> - Used in both (Desktop & Mobile).
-|    |-- desktop/       --> <File> - Used in Desktop.
-|    `-- mobile/        --> <File> - Used in Mobile.
+|    |-- core/          --> <File> - Use in both (Desktop & Mobile).
+|    |-- desktop/       --> <File> - Use in Desktop.
+|    `-- mobile/        --> <File> - Use in Mobile.
 |
 |-- __init__.py
 |-- inputs.py           --> <File> - GraphQL Inputs.
 |-- models.py           --> <File> - Database(s) Models.
 `-- types.py            --> <File> - GraphQL Types.
+```
+
+---
+
+### Create App **Command**
+
+```sh
+./manage.py start-app my_app --crud
 ```
 
 ---
@@ -49,73 +57,6 @@ my-app/                 --> <Directory> - Your App Root Directory.
             return query
 
     ```
-
-=== "models.py"
-
-    > **Models** map to a single database table (**SQL**) or database collection (**Mongo**).
-
-    - **SQL** : Pairs with **SQLAlchemy**
-    - **Mongo** : Pairs with (**Motor & PyMongo**)
-
-    > **SQLAlchemy** uses the ORM syntax. While **Mongo** is just the name of the collection you want to interact with.
-
-    === "SQL"
-
-        ``` python
-        # -*- coding: utf-8 -*-
-        """
-            Models
-        """
-
-        # SQLAlchemy
-        from sqlalchemy import Column, Integer, String
-        from sqlalchemy.orm import declarative_base
-
-        # Fastberry
-        from fastberry import Database
-
-        # (Base) SQLAlchemy
-        Base = declarative_base()
-
-        # Database Manager
-        model = Database()
-
-        # Create your <models> here.
-        class AuthorDB(Base):
-            """Database Model"""
-
-            __tablename__ = "Author"
-
-            id = Column(Integer, primary_key=True)
-            name = Column(String(80))
-
-
-        # Register your <models> here.
-        Author = model.sql(AuthorDB)
-        ```
-
-    === "Mongo"
-
-        ``` python
-        # -*- coding: utf-8 -*-
-        """
-            Models
-        """
-
-        # Fastberry
-        from fastberry import Database
-
-        # Database Manager
-        model = Database()
-
-        # Create your <models> here.
-        Author = model.motor("Author")
-
-        # Create Index For Collection(s)
-        def create_indexes():
-            """Create Collection Indexes"""
-            model.mongo["author"].create_index([("name", 1)], unique=True)
-        ```
 
 === "types.py"
 

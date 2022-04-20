@@ -4,15 +4,7 @@
 """
 
 # Fastberry
-from fastberry import CRUD, Settings
-
-# Global Settings
-settings = Settings()
-
-# Models
-def AppModel():
-    return settings.models.get("app_name.model")
-
+from fastberry import CRUD
 
 # Create your API (GraphQL) here.
 class Demo(CRUD):

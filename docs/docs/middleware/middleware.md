@@ -2,6 +2,14 @@
 
 > Get { **Authorization** } from the { **Cookies** } and inject it to the { **Headers** }.
 
+---
+
+#### MIDDLEWARE [(Starlette)](https://www.starlette.io/middleware/)
+
+You can create your own **middleware** by using the **base module**.
+
+The **BaseMiddleware** included is just a wrapper/rename for **BaseHTTPMiddleware** from **Starlette**
+
 === "Tutorial"
 
     ## **Import** your Basics

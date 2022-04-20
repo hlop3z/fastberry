@@ -30,7 +30,6 @@ root/
 |        |-- extension.py
 |        |-- middleware.py
 |        |-- inputs.py
-|        |-- models.py
 |        |-- permissions.py
 |        |-- router.py
 |        `-- types.py
@@ -51,17 +50,19 @@ root/
         A[Application] --> |GraphQL| B[Operations];
         A --> |Fastberry| C[CRUD];
         A --> |Strawberry| D[Inputs];
-        A --> |Databases| E[Models];
-        A --> |Strawberry| F[Types];
+        A --> |Strawberry| E[Types];
     ```
 
-=== "Router"
+=== "Operations"
 
-    ### Application **Router**
+    ### Application **Operations**
 
     ``` mermaid
     graph LR;
-        A[Application] --> |FastAPI| B[Router];
+        A[Application] --> |GraphQL| B;
+        B[Client] --> C[Core]
+        B --> D[Desktop]
+        B --> E[Mobile]
     ```
 
 === "Commands"
@@ -71,4 +72,13 @@ root/
     ``` mermaid
     graph LR;
         A[Application] --> |Click| B[Commands];
+    ```
+
+=== "Router"
+
+    ### Application **Router**
+
+    ``` mermaid
+    graph LR;
+        A[Application] --> |FastAPI| B[Router];
     ```

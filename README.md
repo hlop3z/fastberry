@@ -1,12 +1,20 @@
 # Welcome to **Fastberry**
 
+## Links
+
+- ### [PyPi](https://pypi.org/project/dbcontroller)
+- ### [Github](https://github.com/hlop3z/dbcontroller)
+- ### [Read the Documents](https://hlop3z.github.io/dbcontroller/)
+
+---
+
 ## Built With:
- - [Click](https://github.com/pallets/click/)
- - [Uvicorn](https://www.uvicorn.org/)
- - [Gunicorn](https://gunicorn.org/)
- - [FastAPI](https://fastapi.tiangolo.com/)
- - [Strawberry](https://strawberry.rocks/)
- - [DataBase-Controller](https://hlop3z.github.io/dbcontroller/)
+
+- [Click](https://github.com/pallets/click/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Strawberry](https://strawberry.rocks/)
+- [Uvicorn](https://www.uvicorn.org/)
+- [Gunicorn](https://gunicorn.org/)
 
 ---
 
@@ -48,7 +56,7 @@ startproject
 ### Run (Command) Start-App
 
 ```sh
-./manage.py start-app demo
+./manage.py start-app demo --crud
 ```
 
 ### Inside `settings.yaml`

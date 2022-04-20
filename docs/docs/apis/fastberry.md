@@ -24,7 +24,6 @@ print(manager.mode)
 | **`base`**       | **`settings.yaml`** | (**`object`**) — Project Core **Settings**                                              |
 | **`base_dir`**   | `None`              | (**`path`**) — Project Core **Directory**                                               |
 | **`debug`**      | `None`              | (**`bool`**) — Debug **Mode**                                                           |
-| **`models`**     | `None`              | (**`dict`**) — Database(s) **Models** accessed by using **`App_Name.Model_Name`**       |
 | **`secret_key`** | `None`              | (**`str`**) — **`Secret Key`** is used to provide **cryptographic** signing.            |
 
 ---

@@ -7,13 +7,13 @@ import pathlib
 
 import click
 
-from ... import Settings
+from ... import Fastberry
 from .plugin_maker import create_plugin
 from .shell import shell_print, unzip
 
 TEMPLATES_DIR = pathlib.Path(__file__).parents[0] / "templates"
 
-settings = Settings()
+settings = Fastberry()
 
 
 @click.command()
@@ -23,12 +23,12 @@ settings = Settings()
     nargs=1,
 )
 @click.option(
-    "--demo/--no-demo", default=False, type=bool, help="Init with sample code."
+    "--crud/--no-crud", default=False, type=bool, help="Init with sample code."
 )
 @click.option(
     "--plugin/--no-plugin", default=False, type=bool, help="Init <App> as a plugin."
 )
-def start_app(app_name, demo, plugin):
+def start_app(app_name, crud, plugin):
     """Creates a Fastberry App Directory."""
 
     # Get Path(s)
@@ -45,7 +45,7 @@ def start_app(app_name, demo, plugin):
         shell_print(
             f"""* Starting App: "{ app_name }" ...""",
         )
-        if demo:
+        if crud:
             unzip(TEMPLATES_DIR / "base_app.zip", the_dir)
         else:
             the_dir.mkdir(parents=True, exist_ok=True)

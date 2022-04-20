@@ -6,17 +6,16 @@ The **`manager`** is built with **Click**.
 
 ### **Built** With:
 
-| Module                                                                           | Is Used To...                                                         |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [**Click**](https://github.com/pallets/click/)                                   | **Manage** the server, development process and custom **`Commands`**. |
-| [**FastAPI**](https://fastapi.tiangolo.com/)                                     | **Core** Web **`Framework`**                                          |
-| [**Strawberry**](https://strawberry.rocks/)                                      | **GraphQL** **`Library`**                                             |
-| [**Database-Controller (dbcontroller)**](https://hlop3z.github.io/dbcontroller/) | **API** for requests to the databases (**`SQL`** and/or **`Mongo`**). |
-| [**PyYAML**](https://pypi.org/project/PyYAML/)                                   | **Load** the project **`Settings`**.                                  |
-| [**Python-Dotenv**](https://pypi.org/project/python-dotenv/)                     | **Load** the **`Environment Variables`**.                             |
-| [**Pydantic**](https://pydantic-docs.helpmanual.io/)                             | **Format** `Environment Variables` and more **FastAPI** uses.         |
-| [**Uvicorn**](https://www.uvicorn.org/)                                          | **Run** the server in **`Development`** mode.                         |
-| [**Gunicorn**](https://gunicorn.org/)                                            | **Run** the server in **`Staging`** and **`Production`** mode.        |
+| Module                                                       | Is Used To...                                                         |
+| ------------------------------------------------------------ | --------------------------------------------------------------------- |
+| [**Click**](https://github.com/pallets/click/)               | **Manage** the server, development process and custom **`Commands`**. |
+| [**FastAPI**](https://fastapi.tiangolo.com/)                 | **Core** Web **`Framework`**                                          |
+| [**Strawberry**](https://strawberry.rocks/)                  | **GraphQL** **`Library`**                                             |
+| [**PyYAML**](https://pypi.org/project/PyYAML/)               | **Load** the project **`Settings`**.                                  |
+| [**Python-Dotenv**](https://pypi.org/project/python-dotenv/) | **Load** the **`Environment Variables`**.                             |
+| [**Pydantic**](https://pydantic-docs.helpmanual.io/)         | **Format** `Environment Variables` and more **FastAPI** uses.         |
+| [**Uvicorn**](https://www.uvicorn.org/)                      | **Run** the server in **`Development`** mode.                         |
+| [**Gunicorn**](https://gunicorn.org/)                        | **Run** the server in **`Staging`** and **`Production`** mode.        |
 
 ---
 
@@ -36,23 +35,20 @@ python -m pip install "uvicorn[standard]" gunicorn
 
 ## **Module** Workflow
 
-> After the **`settings`** are loaded. You can then use the database(s) **`models`** if you wish.
->
-> However, you can create **`commands`** or **`fastapi`** and **`strawberry-graphql`** endpoints.
-> Without using the **`Database-Controller`** module.
+> You can create **`commands`** or **`fastapi`** and **`strawberry-graphql`** endpoints.
 
 ```mermaid
 graph LR;
     A{Click} --> B[Uvicorn];
     A --> C[Gunicorn];
-    A --> D[Load Settings];
-    B --> E[FastAPI];
+    A --- D[Load Settings & APIs];
+    B --> E{FastAPI};
     C --> E;
-    E --> F[Load Settings];
-    D --> G{Your Commands};
-    F --> H{Your API};
-    H --> |Optional| Z[Database-Controller];
-    G --> |Optional| Z;
+    E --- F[Load Settings & APIs];
+    D --- |Strawberry-GraphQL| G{Your Commands};
+    F --- |Strawberry-GraphQL| H{Your API};
+    H --> Z{Your Code};
+    G --> Z;
 ```
 
 ---

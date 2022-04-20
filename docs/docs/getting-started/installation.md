@@ -7,20 +7,20 @@
 
 ---
 
-### Create New Directory
+### Create **New Directory**
 
 ```sh
 mkdir my-project
 cd my-project/
 ```
 
-### (PipEnv) Install Fastberry
+### (PipEnv) Install **Fastberry + Uvicorn**
 
 ```sh
-python -m pipenv --python 3.10 install fastberry
+python -m pipenv --python 3.10 install fastberry "uvicorn[standard]"
 ```
 
-### (PipEnv) Shell
+### (PipEnv) **Shell**
 
 ```sh
 python -m pipenv shell
@@ -28,38 +28,40 @@ python -m pipenv shell
 
 ---
 
-## Start Project
+## Start **Project**
 
 ---
 
 ### Run (Command) **Start-Project**
 
+> Make sure you created a new **`directory/`**. Because the **`startproject`** command creates the files in the **CURRENT** **`directory/`**
+
 ```sh
 startproject
 ```
 
-## Start App
+## Start **App**
 
 ---
 
-### Run (Command) **Start-App**
+### Run (**`command`**) **Start-App**
 
 ```sh
-./manage.py start-app demo
+./manage.py start-app demo --crud
 ```
 
 ### Inside **`settings.yaml`**
 
-```yaml
+```yaml title="settings.yaml"
 INSTALLED_APPS:
   - demo
 ```
 
-## Run Server
+## Run **Server**
 
 ---
 
-### Run (Command) **Run-Server**
+### Run (**`command`**) **Run-Server**
 
 ```sh
 ./manage.py run

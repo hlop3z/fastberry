@@ -23,7 +23,6 @@ from fastapi.routing import APIRouter
 from ..utils.objects import Singleton, get_attr
 from .definitions import load_docs, load_env, load_mode, load_yaml
 from .extras.click import command_collection, is_click
-from .extras.models import process_models
 from .extras.strawberry import process_strawberry_crud
 from .imports import import_modules, search_method
 
@@ -72,7 +71,6 @@ class Settings(Singleton):
             "extensions",
             "middleware",
             "mode",
-            "models",
             "router",
             "secret_key",
             "pagination",
@@ -93,7 +91,6 @@ class Settings(Singleton):
 
         # Auto-Load Modules
         modules = {}
-        all_models = {}
         all_clis = set()
         gql_schema = {"Query": [], "Mutation": []}
         gql_field_names = {"query": [], "mutation": []}
@@ -117,9 +114,6 @@ class Settings(Singleton):
                     if gql_path.name == "crud":
                         gql_path = gql_path.parents[0]
                     gql_paths.add(gql_path)
-                elif app_name.endswith(".models"):
-                    # Load Model
-                    all_models.update(process_models(app_name, app_module))
                 elif app_name.endswith(".router"):
                     router = get_attr(app_module, "router")
                     # Load Routers
@@ -170,7 +164,6 @@ class Settings(Singleton):
             **dict(
                 modules=modules,
                 schema=types.SimpleNamespace(**gql_schema),
-                models=all_models,
                 pagination=pagination,
                 paths=gql_paths,
                 operations=types.SimpleNamespace(**gql_field_names),
@@ -181,7 +174,6 @@ class Settings(Singleton):
         self.middleware = add_middleware
         self.extensions = graphql_extensions
         self.apps = super_api
-        self.models = all_models
 
         # Command-Line-Interface
         self.cli = None
