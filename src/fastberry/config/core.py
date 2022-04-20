@@ -136,7 +136,7 @@ class Settings(Singleton):
                 installed_middleware.append(current_method)
 
         def add_middleware(app):
-            for middleware in installed_middleware:
+            for middleware in reversed(installed_middleware):
                 app.add_middleware(middleware)
             return app
 
