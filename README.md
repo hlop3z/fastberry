@@ -2,9 +2,9 @@
 
 ## Links
 
-- ### [PyPi](https://pypi.org/project/dbcontroller)
-- ### [Github](https://github.com/hlop3z/dbcontroller)
-- ### [Read the Documents](https://hlop3z.github.io/dbcontroller/)
+- ### [PyPi](https://pypi.org/project/fastberry)
+- ### [Github](https://github.com/hlop3z/fastberry)
+- ### [Read the Documents](https://hlop3z.github.io/fastberry/)
 
 ---
 
