@@ -92,6 +92,8 @@ disable=raw-checker-failed,
         deprecated-pragma,
         use-symbolic-message-instead,
         # Custom Disable
+        R0914,
+        R0903,
         invalid-name,
         arguments-differ,
         too-few-public-methods,
