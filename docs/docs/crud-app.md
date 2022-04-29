@@ -67,11 +67,11 @@ That means you don't use **`self`** inside your functions.
     """
 
     # Fastberry
-    from fastberry import CRUD
+    from fastberry import GQL
 
 
     # Create your API (GraphQL) here.
-    class Demo(CRUD):
+    class Demo(GQL):
         """Demo Api"""
 
         schema = None

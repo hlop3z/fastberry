@@ -80,6 +80,14 @@ root/                           --> <Directory> - Project's Root.
     # Permissions (12)
     PERMISSIONS:
       - myapp.permission.SomePermission
+
+    # Event-Startup (13)
+    ON_STARTUP:
+      - myapp.events.OnStartup
+
+    # Event-Shutdown (14)
+    ON_SHUTDOWN:
+      - myapp.events.OnShutdown
     ```
 
     1. **API** — Current **Version**.
@@ -94,6 +102,8 @@ root/                           --> <Directory> - Project's Root.
     10. List of **BaseMiddleware**(s) and uses **(Starlette)**
     11. List of **BaseExtension**(s) and uses **(Strawberry)**
     12. List of **BasePermission**(s) and uses **(Strawberry)**
+    13. **FastAPI** **`Startup`** event. Everything You want to **load** before the **`SERVER`** starts.
+    14. **FastAPI** **`Shutdown`** event. Everything You want to **stop** before the **`SERVER`** shutdown.
 
 === "Middleware, Extension and Permissions"
 

@@ -26,8 +26,8 @@ root/
 |        |-- operations/        --> <Directory> - GraphQL-Operations in HERE!
 |        |-- __init__.py
 |        |-- commands.py
-|        |-- crud.py
 |        |-- extension.py
+|        |-- graphql.py
 |        |-- middleware.py
 |        |-- inputs.py
 |        |-- permissions.py
@@ -41,16 +41,16 @@ root/
 
 ## Application **Diagrams**
 
-=== "CRUD"
+=== "GraphQL"
 
-    ### Application **CRUD**
+    ### Application **GraphQL**
 
     ``` mermaid
     graph LR;
         A[Application] --> |GraphQL| B[Operations];
-        A --> |Fastberry| C[CRUD];
+        A --> |Fastberry| C[GraphQL];
         A --> |Strawberry| D[Inputs];
-        A --> |Strawberry| E[Types];
+        A --> |Fastberry & Strawberry| E[Types];
     ```
 
 === "Operations"

@@ -8,7 +8,7 @@ methods:
 """
 
 from ...utils.objects import get_attr, get_fields
-from .crud import is_crud
+from .gql import is_crud
 
 
 def process_strawberry_crud(app_module):

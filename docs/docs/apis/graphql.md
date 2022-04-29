@@ -5,9 +5,12 @@ In this section we will learn about all the different available options to creat
 ## **Import** your Basics
 
 ```python
-from fastberry import BaseType # (1)
-from fastberry import CRUD # (2)
-from fastberry.graphql.inputs import Pagination # (3)
+from fastberry import Model # (1)
+from fastberry import Text # (2)
+from fastberry import JSON # (3)
+
+from fastberry import GQL # (4)
+from fastberry.graphql.inputs import Pagination # (5)
 from fastberry.graphql.types import (
     Edges,
     Error,
@@ -15,13 +18,15 @@ from fastberry.graphql.types import (
     Mutation,
     Query,
     Response,
-) # (4)
+) # (6)
 ```
 
-1. Base **`class`** for **`GraphQL`** **types**.
-2. Base **`class`** to create **`Query`** and **`Mutation`** methods.
-3. **`Pagination`** method. Uses the **`manager.base.querying.items_per_page`** to **limit** the request.
-4. Used for python **annotations**. Either for pure **`annotations`** or also to **`return`** a value that is **compliant** with your **GraphQL**
+1. Base to **`create`** a **SQL**, **Mongo** or **Generic** **`{ Types }`**.
+2. **Field:** Database **`Text`** and GraphQL **`String`**.
+3. **Field:** Database **`JSON`** and GraphQL **`JSON`**.
+4. Base **`class`** to create **`Query`** and **`Mutation`** methods.
+5. **`Pagination`** method. Uses the **`manager.base.querying.items_per_page`** to **limit** the request.
+6. Used for python **annotations**. Either for pure **`annotations`** or also to **`return`** a value that is **compliant** with your **GraphQL**
 
 ---
 
@@ -29,21 +34,21 @@ from fastberry.graphql.types import (
 
 | Method         | Connects With ...                            | Description                                                                  |
 | -------------- | -------------------------------------------- | ---------------------------------------------------------------------------- |
-| **`BaseType`** | Everything :material-emoticon-happy-outline: | Use **BaseType** to **create** custom **GraphQL** **`Type(s)`**              |
+| **`Model`**    | Everything :material-emoticon-happy-outline: | Use **Model** to **create** custom **GraphQL** **`Type(s)`**                 |
 | **`Edges`**    | **`Response`**                               | Use **Edges** for **`annotations`**                                          |
 | **`Response`** | **`Edges`**                                  | Use **Response** to **`return`** a **list** of custom **GraphQL** **`Type`** |
 | **`Error`**    | **`[ErrorMessage]`**                         | Use **Error** to **`return`** a **list** of **ErrorMessage**(s)              |
-| **`Mutation`** | Type(**`BaseType`**)                         | Use **Mutation** for **`annotations`**                                       |
-| **`Query`**    | Type(**`BaseType`**)                         | Use **Query** for **`annotations`**                                          |
+| **`Mutation`** | Type(**`CustomType`**)                       | Use **Mutation** for **`annotations`**                                       |
+| **`Query`**    | Type(**`CustomType`**)                       | Use **Query** for **`annotations`**                                          |
 
 ## Usage **Example**
 
 === "types.py"
 
-    > **BaseType ** is **`optional`** and it **only** has **2 Required Fields**.
+    > **Model(s)** is **`optional`** and it has **2 Required Fields**.
 
-    1. **`_id` :** Meant to be the **original** **`Database`** unique identifier.
-    2. **`id` :** Meant to be the **client's** **`GraphQL`** unique identifier.
+    1. **`_id` :** **(str)** Meant to be the **original** **`Database`** unique identifier.
+    2. **`id` :** **(str)** Meant to be the **client's** **`GraphQL`** unique identifier.
 
     ```python title="types.py"
     # -*- coding: utf-8 -*-
@@ -52,15 +57,53 @@ from fastberry.graphql.types import (
     """
 
     import strawberry
-    from fastberry import BaseType
 
     # Create your <types> here.
-    @strawberry.type
-    class Author(BaseType):
+    from fastberry import JSON, Model, Text
+
+    model = Model()
+
+    @model.type
+    class Author:
         name: str
 
-    @strawberry.type
-    class AuthorWithoutBase:
+    @model.type
+    class Product:
+        """
+        query MyQuery {
+            demoDetail {
+                name
+                aliases
+                stock
+                isAvailable
+                createdAt
+                sameDayShippingBefore
+                price
+                notes
+                isObject
+                category {
+                    name
+                }
+            }
+        }
+        """
+        name: str
+        aliases: list[str] | None = None
+        stock: int | None = None
+        is_available: bool | None = None
+        available_from: datetime.date | None = None
+        created_at: datetime.datetime | None = None
+        same_day_shipping_before: datetime.time | None = None
+        price: decimal.Decimal | None = None
+        notes: list[Text] = dc.field(default_factory=list)
+        is_object: JSON = dc.field(default_factory=dict)
+
+        async def category(self) -> typing.Optional["Category"]:
+            return Category(name="awesome")
+
+
+    @model.type
+    class Category:
         name: str
     ```
 
@@ -80,15 +123,15 @@ from fastberry.graphql.types import (
         name: str | None = None
     ```
 
-=== "crud.py"
+=== "graphql.py"
 
-    ```python title="crud.py"
+    ```python title="graphql.py"
     # -*- coding: utf-8 -*-
     """
         API - CRUD
     """
 
-    from fastberry import CRUD
+    from fastberry import GQL
     from fastberry.graphql.inputs import Pagination
     from fastberry.graphql.types import (
         Edges,
@@ -102,11 +145,14 @@ from fastberry.graphql.types import (
     from . import inputs, types
 
 
-    class Demo(CRUD):
+    class Demo(GQL):
         """Demo Api"""
 
         class Query:
             """Query"""
+
+            async def detail() -> Query(types.Product):
+                return types.Product(name="Model", aliases=["type", "class", "object"])
 
             async def single_instance(
                 search: inputs.SearchAuthor | None

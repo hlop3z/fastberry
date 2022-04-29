@@ -41,7 +41,7 @@ def run(mode, port, workers):
 
     # Create Path(s)
     conf_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Write Mode <File>
     click.secho("")
     with open(conf_dir / "mode.json", "w", encoding="utf-8") as file:

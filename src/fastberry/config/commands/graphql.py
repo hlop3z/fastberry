@@ -7,7 +7,7 @@ import os.path
 
 import click
 
-from ... import Schema, Fastberry
+from ... import Fastberry, Schema
 
 settings = Fastberry()
 

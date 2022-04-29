@@ -11,7 +11,7 @@ nav:
           - Variables: environments/variables.md
       - Applications:
           - Introduction: applications.md
-          - CRUD: crud.md
+          - GraphQL: graphql.md
           - Operations: operations.md
           - Commands: commands.md
           - Router: routers.md
@@ -30,8 +30,6 @@ nav:
       - Installation:
           - PyPi with Pipenv: getting-started/installation.md
           - Template: getting-started/template.md
-      - Apps:
-          - First-App: getting-started/firstapp.md
 
 theme:
   name: material

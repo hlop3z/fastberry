@@ -74,6 +74,7 @@ def main():
 
     # Base Directory
     base_dir = Path(__file__).parents[1]
+    (base_dir / "logs").mkdir(parents=True, exist_ok=True)
 
     # Watchdog Handler
     event_handler = Handler()

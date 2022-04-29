@@ -1,7 +1,7 @@
 """C.R.U.D Base
 
 classes:
-    CRUD: The base for GraphQL (Query & Mutation) methods.
+    GQL: The base for GraphQL (Query & Mutation) methods.
 
 methods:
     is_crud: Check if value is a subclass ot <CRUD>.
@@ -24,18 +24,18 @@ def api_name(self):
 
 
 def is_crud(crud):
-    """Check if item is subclass of <CRUD>"""
+    """Check if item is subclass of <GQL>"""
 
     its_crud = False
     try:
-        if not crud == CRUD:
-            its_crud = issubclass(crud, CRUD)
+        if not crud == GQL:
+            its_crud = issubclass(crud, GQL)
     except TypeError:
         pass
     return its_crud
 
 
-class CRUD(Singleton):
+class GQL(Singleton):
     """CRUD (GraphQL) Singleton"""
 
     def init(self):

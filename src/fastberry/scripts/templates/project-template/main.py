@@ -3,11 +3,14 @@
     FastAPI Main File.
 """
 
-from config import settings
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import RedirectResponse
 from strawberry.fastapi import GraphQLRouter
+
+# API (Config)
+from config import settings
 
 # API (Schema)
 from fastberry import Schema
@@ -33,7 +36,7 @@ if settings.base.allowed_hosts:
         allow_headers=["*"],
     )
 
-# All Routers
+# ALL Routers
 app.include_router(settings.router)
 
 # GraphQL (Schema)
@@ -54,3 +57,22 @@ if schema:
         prefix="/graphql",
         tags=["GraphQL"],
     )
+
+# Startup
+@app.on_event("startup")
+async def startup_event():
+    for func in settings.on_event["startup"]:
+        func()
+
+
+# Shutdown
+@app.on_event("shutdown")
+def shutdown_event():
+    for func in settings.on_event["shutdown"]:
+        func()
+
+
+# Redirect To Docs
+@app.get("/", response_class=RedirectResponse)
+async def redirect_fastapi():
+    return "/docs"

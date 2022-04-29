@@ -19,3 +19,6 @@ tests/coverage_html/
 tests/.coverage
 # build/
 tests/report/
+
+# Fastberry
+config/env/production.env

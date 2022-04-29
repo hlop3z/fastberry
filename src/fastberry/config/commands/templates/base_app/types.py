@@ -3,10 +3,15 @@
     API - Strawberry Types
 """
 
-# Strawberry
-import strawberry
 
-# Fastberry
-from fastberry import BaseType
+import dataclasses as dc
+import datetime
+import decimal
+import typing
+
+import fastberry
+
+# Model
+model = fastberry.Model()
 
 # Create your <types> here.

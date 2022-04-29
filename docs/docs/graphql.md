@@ -1,4 +1,4 @@
-> Your code **needs** to be in a **file** named **`crud.py`** or **folder** named **`crud`** inside your **Application**.
+> Your code **needs** to be in a **file** named **`graphql.py`** or **folder** named **`graphql`** inside your **Application**.
 
 ## File or Folder **Layout**
 
@@ -9,7 +9,7 @@
     |
     |--  apps/
     |    `--  MY_APP/
-    |         `-- crud.py            --> <File> - Your code in HERE!
+    |         `-- graphql.py            --> <File> - Your code in HERE!
     |
     `-- etc...
     ```
@@ -21,7 +21,7 @@
     |
     |--  apps/
     |    `--  MY_APP/
-    |         `-- crud/               --> <Directory> - Your CRUD in HERE!
+    |         `-- graphql/            --> <Directory> - Your GraphQL in HERE!
     |             |-- __init__.py     --> <File> - Your IMPORTS in HERE!
     |             `-- etc...
     |
@@ -39,11 +39,11 @@
     """
 
     # Fastberry
-    from fastberry import CRUD
+    from fastberry import GQL
 
 
     # Create your API (GraphQL) here.
-    class Demo(CRUD):
+    class Demo(GQL):
         """Demo Api"""
 
         class Query:
@@ -82,11 +82,11 @@
     """
 
     # Fastberry
-    from fastberry import CRUD
+    from fastberry import GQL
 
 
     # Create your API (GraphQL) here.
-    class Demo(CRUD):
+    class Demo(GQL):
         """Demo Api"""
 
         class Query:

@@ -20,7 +20,8 @@ import types
 import click
 from fastapi.routing import APIRouter
 
-from ..utils.objects import Singleton, get_attr
+from ..types import Model
+from ..utils.objects import Singleton, get_attr, get_fields
 from .definitions import load_docs, load_env, load_mode, load_yaml
 from .extras.click import command_collection, is_click
 from .extras.strawberry import process_strawberry_crud
@@ -95,12 +96,19 @@ class Settings(Singleton):
         gql_schema = {"Query": [], "Mutation": []}
         gql_field_names = {"query": [], "mutation": []}
         gql_paths = set()
+        app_models = {}
 
         # IF Found Apps
         if installed_apps:
             modules = import_modules(installed_apps)
             for app_name, app_module in modules.items():
-                if app_name.endswith(".crud"):
+                if app_name.endswith(".types"):
+                    for possible_type in get_fields(app_module):
+                        current_type = get_attr(app_module, possible_type)
+                        if hasattr(current_type, "__meta__"):
+                            app_models[current_type.__meta__.table_uri] = current_type
+                    # router = get_attr(app_module, "router")
+                elif app_name.endswith(".graphql"):
                     # Load CRUD(Query, Mutation)
                     gql_types = process_strawberry_crud(app_module)
                     gql_schema["Query"].extend(gql_types["Query"])
@@ -147,6 +155,20 @@ class Settings(Singleton):
             if current:
                 graphql_extensions.append(current)
 
+        # EVENTS
+        events_extensions = {
+            "startup": [],
+            "shutdown": [],
+        }
+        for func in core.__dict__.get("on_startup") or []:
+            current = search_method(func)
+            if current:
+                events_extensions["startup"].append(current)
+        for func in core.__dict__.get("on_shutdown") or []:
+            current = search_method(func)
+            if current:
+                events_extensions["shutdown"].append(current)
+
         # Pagination
         items_per_page = core.querying.get("items_per_page", 50)
 
@@ -170,10 +192,18 @@ class Settings(Singleton):
             )
         )
 
+        # Load Lazy SQL Objects
+        for current_type in app_models.values():
+            if current_type._lazy_object:
+                current_type.objects()
+
         # SELF - Definitions
         self.middleware = add_middleware
         self.extensions = graphql_extensions
         self.apps = super_api
+        self.models = app_models
+        self.sqlalchemy_orm = Model.sqlalchemy_base
+        self.on_event = events_extensions
 
         # Command-Line-Interface
         self.cli = None
