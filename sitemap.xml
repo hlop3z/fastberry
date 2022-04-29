@@ -2,97 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://hlop3z.github.io/fastberry/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/applications/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/commands/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/crud-app/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hlop3z.github.io/fastberry/crud/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <loc>https://hlop3z.github.io/fastberry/graphql/</loc>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/operations/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/routers/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/settings/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/apis/fastberry/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/apis/graphql/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/environments/variables/</loc>
-         <lastmod>2022-04-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hlop3z.github.io/fastberry/getting-started/firstapp/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/getting-started/installation/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/getting-started/template/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/middleware/extension/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/middleware/middleware/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/middleware/permissions/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/middleware/plugin/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hlop3z.github.io/fastberry/middleware/workflow/</loc>
-         <lastmod>2022-04-20</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
