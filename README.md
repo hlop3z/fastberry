@@ -32,7 +32,7 @@ cd my-project/
 ### (PipEnv) Install Fastberry
 
 ```sh
-python -m pipenv --python 3.10 install fastberry
+python -m pipenv --python 3.10 install fastberry "uvicorn[standard]"
 ```
 
 ### (PipEnv) Shell

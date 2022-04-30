@@ -32,11 +32,13 @@ print(manager.mode)
 
 > Everything in the section below is **automatically** placed inside your project's **code**. Mostly inside your **`main.py`** or **`manage.py`**
 
-| Key              | Description                            |
-| ---------------- | -------------------------------------- |
-| **`apps`**       | All **apps** get loaded here           |
-| **`cli`**        | All **commands** get loaded here       |
-| **`docs`**       | The **documentation** gets loaded here |
-| **`extensions`** | All **extensions** get loaded here     |
-| **`middleware`** | All **middleware** gets loaded here    |
-| **`router`**     | All **routers** get loaded here        |
+| Key              | Description                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| **`apps`**       | All **Apps** get loaded here                                |
+| **`cli`**        | All **Commands** get loaded here                            |
+| **`docs`**       | The **Documentation** gets loaded here                      |
+| **`types`**      | All **Types** get loaded here                               |
+| **`extensions`** | All **Extensions** get loaded here                          |
+| **`middleware`** | All **Middleware** gets loaded here                         |
+| **`router`**     | All **Routers** get loaded here                             |
+| **`on_event`**   | All **`ON_STARTUP`** and **`ON_SHUTDOWN`** gets loaded here |

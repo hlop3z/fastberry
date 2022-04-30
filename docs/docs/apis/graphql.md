@@ -56,7 +56,10 @@ from fastberry.graphql.types import (
         API - Strawberry Types
     """
 
-    import strawberry
+    import dataclasses as dc
+    import datetime
+    import decimal
+    import typing
 
     # Create your <types> here.
     from fastberry import JSON, Model, Text

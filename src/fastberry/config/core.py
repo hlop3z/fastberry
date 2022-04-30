@@ -20,7 +20,6 @@ import types
 import click
 from fastapi.routing import APIRouter
 
-from ..types import Model
 from ..utils.objects import Singleton, get_attr, get_fields
 from .definitions import load_docs, load_env, load_mode, load_yaml
 from .extras.click import command_collection, is_click
@@ -113,7 +112,8 @@ class Settings(Singleton):
                     gql_types = process_strawberry_crud(app_module)
                     gql_schema["Query"].extend(gql_types["Query"])
                     gql_schema["Mutation"].extend(gql_types["Mutation"])
-                    gql_field_names["query"].extend(gql_types["Operations"]["Query"])
+                    gql_field_names["query"].extend(
+                        gql_types["Operations"]["Query"])
                     gql_field_names["mutation"].extend(
                         gql_types["Operations"]["Mutation"]
                     )
@@ -201,8 +201,7 @@ class Settings(Singleton):
         self.middleware = add_middleware
         self.extensions = graphql_extensions
         self.apps = super_api
-        self.models = app_models
-        self.sqlalchemy_orm = Model.sqlalchemy_base
+        self.types = app_models
         self.on_event = events_extensions
 
         # Command-Line-Interface
