@@ -11,6 +11,7 @@ nav:
           - Variables: environments/variables.md
       - Applications:
           - Introduction: applications.md
+          - Types: types.md
           - GraphQL: graphql.md
           - Operations: operations.md
           - Commands: commands.md

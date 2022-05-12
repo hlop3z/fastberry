@@ -6,16 +6,16 @@ The **`manager`** is built with **Click**.
 
 ### **Built** With:
 
-| Module                                                       | Is Used To...                                                         |
-| ------------------------------------------------------------ | --------------------------------------------------------------------- |
-| [**Click**](https://github.com/pallets/click/)               | **Manage** the server, development process and custom **`Commands`**. |
-| [**FastAPI**](https://fastapi.tiangolo.com/)                 | **Core** Web **`Framework`**                                          |
-| [**Strawberry**](https://strawberry.rocks/)                  | **GraphQL** **`Library`**                                             |
-| [**PyYAML**](https://pypi.org/project/PyYAML/)               | **Load** the project **`Settings`**.                                  |
-| [**Python-Dotenv**](https://pypi.org/project/python-dotenv/) | **Load** the **`Environment Variables`**.                             |
-| [**Pydantic**](https://pydantic-docs.helpmanual.io/)         | **Format** `Environment Variables` and more **FastAPI** uses.         |
-| [**Uvicorn**](https://www.uvicorn.org/)                      | **Run** the server in **`Development`** mode.                         |
-| [**Gunicorn**](https://gunicorn.org/)                        | **Run** the server in **`Staging`** and **`Production`** mode.        |
+| Module                                                                                  | Is Used To...                                                         |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| <a href="https://github.com/pallets/click/" target="_blank">**Click**</a>               | **Manage** the server, development process and custom **`Commands`**. |
+| <a href="https://fastapi.tiangolo.com/" target="_blank">**FastAPI**</a>                 | **Core** Web **`Framework`**                                          |
+| <a href="https://strawberry.rocks/" target="_blank">**Strawberry**</a>                  | **GraphQL** **`Library`**                                             |
+| <a href="https://pypi.org/project/PyYAML/" target="_blank">**PyYAML**</a>               | **Load** the project **`Settings`**.                                  |
+| <a href="https://pypi.org/project/python-dotenv/" target="_blank">**Python-Dotenv**</a> | **Load** the **`Environment Variables`**.                             |
+| <a href="https://pydantic-docs.helpmanual.io/" target="_blank">**Pydantic**</a>         | **Format** `Environment Variables` and more **FastAPI** uses.         |
+| <a href="https://www.uvicorn.org/" target="_blank">**Uvicorn**</a>                      | **Run** the server in **`Development`** mode.                         |
+| <a href="https://gunicorn.org/" target="_blank">**Gunicorn**</a>                        | **Run** the server in **`Staging`** and **`Production`** mode.        |
 
 ---
 

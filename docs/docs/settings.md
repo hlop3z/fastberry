@@ -111,7 +111,7 @@ root/                           --> <Directory> - Project's Root.
 
     ---
 
-    #### MIDDLEWARE [(Starlette)](https://www.starlette.io/middleware/)
+    #### MIDDLEWARE <a href="https://www.starlette.io/middleware/" target="_blank" rel="noopener noreferrer">**(Starlette)**</a>
 
     > List of active **Middlewares**.
 
@@ -121,7 +121,7 @@ root/                           --> <Directory> - Project's Root.
 
     ---
 
-    #### EXTENSIONS [(Strawberry)](https://strawberry.rocks/docs/guides/custom-extensions)
+    #### EXTENSIONS <a href="https://strawberry.rocks/docs/guides/custom-extensions" target="_blank" rel="noopener noreferrer">**(Strawberry)**</a>
 
     > List of active **Extensions**.
 
@@ -131,7 +131,7 @@ root/                           --> <Directory> - Project's Root.
 
     ---
 
-    #### PERMISSIONS [(Strawberry)](https://strawberry.rocks/docs/guides/permissions)
+    #### PERMISSIONS <a href="https://strawberry.rocks/docs/guides/permissions" target="_blank" rel="noopener noreferrer">**(Strawberry)**</a>
 
     > List of active **Permissions**.
 
