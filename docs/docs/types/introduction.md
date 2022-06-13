@@ -52,6 +52,11 @@ The **database** layout is **optional**. You can start your model base anywhere 
 
     from project.databases import model
 
+    # DateTime Functions
+    class Date:
+        datetime = lambda: datetime.datetime.now()
+        date = lambda: datetime.date.today()
+        time = lambda: datetime.datetime.now().time()
 
     # Create your <types> here.
     @model.sql
@@ -60,9 +65,9 @@ The **database** layout is **optional**. You can start your model base anywhere 
         aliases: list[str] | None = None
         stock: int | None = None
         is_available: bool | None = None
-        available_from: datetime.date | None = None
-        created_at: datetime.datetime | None = None
-        same_day_shipping_before: datetime.time | None = None
+        created_on: datetime.datetime = dc.field(default_factory=Date.datetime)
+        available_from: datetime.date = dc.field(default_factory=Date.date)
+        same_day_shipping_before: datetime.time = dc.field(default_factory=Date.time)
         price: decimal.Decimal | None = None
         notes: list[fb.Text] = dc.field(default_factory=list)
         is_object: fb.JSON = dc.field(default_factory=dict)

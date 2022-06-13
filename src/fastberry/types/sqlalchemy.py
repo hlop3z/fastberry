@@ -17,6 +17,7 @@ def related_field(type_config, key, related_class_name):
     related_model = Manager.find_model(related_class_name)
     related_table = related_model.__meta__.table_name
     if not related_model.__meta__.sql:
+        # Mongo Database
         return SQLALCHEMY_FIELDS.Column(
             SQLALCHEMY_FIELDS.String,
             index=table_config.index(key),
@@ -24,6 +25,7 @@ def related_field(type_config, key, related_class_name):
             primary_key=table_config.primary_key(key),
             nullable=not table_config.required(key),
         )
+    # SQL Database
     return SQLALCHEMY_FIELDS.Column(
         SQLALCHEMY_FIELDS.Integer,
         SQLALCHEMY_FIELDS.ForeignKey(f"{related_table}._id"),

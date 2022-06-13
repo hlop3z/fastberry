@@ -9,9 +9,12 @@ nav:
       - Settings: settings.md
       - Environments:
           - Variables: environments/variables.md
+      - Types:
+          - Introduction: types/introduction.md
+          - Databases: types/databases.md
+          - Fields/Columns: types/introduction.md
       - Applications:
           - Introduction: applications.md
-          - Types: types.md
           - GraphQL: graphql.md
           - Operations: operations.md
           - Commands: commands.md
