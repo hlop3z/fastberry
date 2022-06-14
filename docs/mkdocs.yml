@@ -12,7 +12,7 @@ nav:
       - Types:
           - Introduction: types/introduction.md
           - Databases: types/databases.md
-          - Fields/Columns: types/introduction.md
+          - Scalars/Fields/Columns: types/scalars.md
       - Applications:
           - Introduction: applications.md
           - GraphQL: graphql.md
@@ -34,6 +34,9 @@ nav:
       - Installation:
           - PyPi with Pipenv: getting-started/installation.md
           - Template: getting-started/template.md
+
+extra_css:
+  - css/extra.css
 
 theme:
   name: material

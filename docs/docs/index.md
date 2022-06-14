@@ -41,10 +41,10 @@ python -m pip install "uvicorn[standard]" gunicorn
 graph LR;
     A{Click} --> B[Uvicorn];
     A --> C[Gunicorn];
-    A --- D[Load Settings & APIs];
+    A --- D[Load Settings & Modules];
     B --> E{FastAPI};
     C --> E;
-    E --- F[Load Settings & APIs];
+    E --- F[Load Settings & Modules];
     D --- |Strawberry-GraphQL| G{Your Commands};
     F --- |Strawberry-GraphQL| H{Your API};
     H --> Z{Your Code};
