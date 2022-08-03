@@ -73,7 +73,7 @@ class Settings(Singleton):
             "mode",
             "router",
             "secret_key",
-            "pagination",
+            #"pagination",
         ]
 
         # Include BASE_DIR / "apps"
@@ -178,7 +178,7 @@ class Settings(Singleton):
             if not limit:
                 limit = items_per_page
             limit = min(items_per_page, limit)
-            limit = min(1, page)
+            page = min(1, page)
             return types.SimpleNamespace(page=page, limit=limit)
 
         # Easy-to-Use Apps
@@ -206,6 +206,7 @@ class Settings(Singleton):
 
         # Command-Line-Interface
         self.cli = None
+        
         if is_cli:
             from .commands import cli as core_cli
 

@@ -14,7 +14,7 @@ from .config.extras.gql import GQL
 
 # from .graphql import BaseType
 from .schema import Schema
-from .types import Model
+from .types import Model, SQLFilters
 
 Text = Model.text
 JSON = Model.json
