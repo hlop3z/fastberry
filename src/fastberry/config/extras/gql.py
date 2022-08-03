@@ -62,6 +62,9 @@ class GQL(Singleton):
         dict_mutation = {}
         dict_query = {}
 
+        if isinstance(app_prefix, str):
+            app_prefix = app_prefix.lower()
+            
         # Naming
         def func_name(key, group=self.name, prefix=app_prefix):
             """Create the function's name."""
