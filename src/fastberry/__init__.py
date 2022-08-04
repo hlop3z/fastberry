@@ -15,7 +15,7 @@ from .config.extras.gql import GQL
 
 # from .graphql import BaseType
 from .schema import Schema
-from .types import Model, SQLFilters
+from .types import Model, SQLFilters, SQLBase
 
 # Custom Field Types
 Text = Model.text

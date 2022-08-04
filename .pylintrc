@@ -94,6 +94,8 @@ disable=raw-checker-failed,
         # Custom Disable
         R0914,
         R0903,
+        too-many-arguments,
+        broad-except,
         invalid-name,
         arguments-differ,
         too-few-public-methods,
