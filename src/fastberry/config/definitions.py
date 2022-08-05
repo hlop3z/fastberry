@@ -7,7 +7,10 @@ import types
 
 import yaml
 
-from .settings_base import Settings
+from dotenv import dotenv_values
+from types import SimpleNamespace
+
+
 
 FILE_YAML = "settings.yaml"
 FILE_MODE = "config/mode.json"
@@ -32,7 +35,7 @@ SETTING_YAML = {
 
 
 def load_yaml():
-    """Load <Yaml> File"""
+    """Load <YAML> File"""
     return_value = None
     with open(FILE_YAML, "r", encoding="utf-8") as stream:
         try:
@@ -49,7 +52,7 @@ def load_yaml():
 
 
 def load_mode():
-    """Load <Yaml> File"""
+    """Load <JSON> File"""
     return_value = {}
     with open(FILE_MODE, "r", encoding="utf-8") as file:
         try:
@@ -64,7 +67,8 @@ def load_mode():
 def load_env(mode: str = None):
     """Load <Dot.Env> File"""
     active_env = LOAD_ENVS(mode) if mode else FILE_ENVS
-    return Settings(_env_file=active_env)
+    config = dotenv_values(active_env)
+    return SimpleNamespace(**{key.lower() : val for key, val in config.items()})
 
 
 def load_docs():

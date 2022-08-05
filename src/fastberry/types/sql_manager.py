@@ -63,8 +63,8 @@ class SQLBase:
 
     def __init__(self, database_url, table):
         """__init__"""
-        self.table = table
-        self.Q = SQLFilters(table)
+        self.table = table.objects
+        self.Q = SQLFilters(table.objects)
         self.database = Database(database_url)
 
     async def find(
