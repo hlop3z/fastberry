@@ -2,6 +2,7 @@
     * SQLAlchemy + Databases — Controller
 """
 
+import functools
 import math
 from types import SimpleNamespace
 from typing import Any
@@ -33,6 +34,22 @@ def sql_response(
     )
 
 
+def clean_form(cols: list, form: dict):
+    """Clean User's Input
+
+    Args:
+        form (dict): User's Input.
+
+    Returns:
+        dict: Clean User's Input.
+    """
+    inputs = {}
+    for key, val in form.items():
+        if key in cols and key != "_id":
+            inputs[key] = val
+    return inputs
+
+
 # Testing
 class SQLBase:
     """SQlAlchemy & Databases (Manager)
@@ -41,6 +58,11 @@ class SQLBase:
     # Init
     -----------------------------------------------------------------------------------------------
     sql = SQL(SQlAlchemyORM.__table__)
+
+    -----------------------------------------------------------------------------------------------
+    # Form
+    -----------------------------------------------------------------------------------------------
+    - Clean-Inputs      : sql.form(dict)
 
     -----------------------------------------------------------------------------------------------
     # Read (Examples)
@@ -62,10 +84,11 @@ class SQLBase:
     """
 
     def __init__(self, database_url, table):
-        """__init__"""
+        """Start Manager"""
+        self.database = Database(database_url)
         self.table = table.objects
         self.Q = SQLFilters(table.objects)
-        self.database = Database(database_url)
+        self.form = functools.partial(clean_form, table.objects.columns.keys())
 
     async def find(
         self,
