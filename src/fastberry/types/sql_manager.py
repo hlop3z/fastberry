@@ -34,7 +34,7 @@ def sql_response(
     )
 
 
-def clean_form(cols: list, form: dict):
+def clean_form(base: Any, cols: list, form: dict):
     """Clean User's Input
 
     Args:
@@ -44,7 +44,8 @@ def clean_form(cols: list, form: dict):
         dict: Clean User's Input.
     """
     inputs = {}
-    for key, val in form.items():
+    base_form = base(**form)
+    for key, val in base_form.__dict__.items():
         if key in cols and key != "_id":
             inputs[key] = val
     return inputs
@@ -83,12 +84,12 @@ class SQLBase:
     - Delete            : await sql.delete(items: list[IDs])
     """
 
-    def __init__(self, database_url, table):
+    def __init__(self, database_url, custom_type):
         """Start Manager"""
         self.database = Database(database_url)
-        self.table = table.objects
-        self.Q = SQLFilters(table.objects)
-        self.form = functools.partial(clean_form, table.objects.columns.keys())
+        self.table = custom_type.objects
+        self.Q = SQLFilters(custom_type.objects)
+        self.form = functools.partial(clean_form, custom_type, custom_type.objects.columns.keys())
 
     async def find(
         self,
