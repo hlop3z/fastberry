@@ -4,7 +4,7 @@ The **database** layout is **optional**. You can start your model base anywhere 
 
 ## File **Layout**
 
-=== ":material-file: File"
+=== ":material-file: Types (Models)"
 
     ``` text
     root/

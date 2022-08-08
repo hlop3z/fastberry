@@ -1,49 +1,5 @@
 # Fastberry Template
 
-$~~$
-
-## Virtual Environment
-
----
-
-### (PipEnv) Shell
-
-```sh
-python -m pipenv shell
-```
-
-### Run Server
-
-```sh
-./manage.py run
-```
-
-### More Commands
-
-```sh
-./manage.py --help
-```
-
-$~~$
-
-## Dependencies Management
-
----
-
-### (PipEnv) Recreate in **Development**
-
-```sh
-python -m pipenv install --dev --skip-lock
-```
-
-### (PipEnv) Recreate in **Production**
-
-```sh
-python -m pipenv install --ignore-pipfile
-```
-
-$~~$
-
 ## Secret-Key
 
 ---
