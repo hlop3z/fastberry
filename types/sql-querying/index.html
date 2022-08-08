@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://hlop3z.github.io/fastberry/routers/">
+        <link rel="canonical" href="https://hlop3z.github.io/fastberry/types/sql-querying/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
     
     
       
-        <title>Router - Fastberry</title>
+        <title>SQL-Querying - Fastberry</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.644de097.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.644de097.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -37,9 +37,9 @@
       
     
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-layout" class="md-skip">
+        <a href="#sql-querying" class="md-skip">
           Skip to content
         </a>
       
@@ -81,7 +81,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Fastberry" class="md-header__button md-logo" aria-label="Fastberry" data-md-component="logo">
+    <a href="../.." title="Fastberry" class="md-header__button md-logo" aria-label="Fastberry" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 1.2c-1 0-1.8.8-1.8 1.8S15 4.8 16 4.8 17.8 4 17.8 3 17 1.2 16 1.2m-3.6 2.9c-.47 0-.9.19-1.2.5L7.5 8.29C7.19 8.6 7 9 7 9.5c0 .63.33 1.16.85 1.47L11.2 13v5H13v-6.5l-2.25-1.65 2.32-2.35L14.8 10H19V8.2h-3.2l-1.94-3.27c-.29-.5-.86-.83-1.46-.83M10 3H3c-.55 0-1-.45-1-1s.45-1 1-1h9.79c-.21.34-.38.71-.47 1.11-.86.02-1.67.34-2.32.89m-5 9c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5m0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5M19 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5m0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5M5.32 11H1c-.552 0-1-.45-1-1s.448-1 1-1h4.05c-.02.16-.05.33-.05.5 0 .53.12 1.04.32 1.5M6 7H2c-.55 0-1-.45-1-1s.45-1 1-1h5.97L6.09 6.87C6.05 6.91 6 6.96 6 7z"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Router
+              SQL-Querying
             
           </span>
         </div>
@@ -202,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
         Fastberry
       </a>
     </li>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../getting-started/installation/" class="md-tabs__link">
+      <a href="../../getting-started/installation/" class="md-tabs__link">
         Getting Started
       </a>
     </li>
@@ -253,7 +253,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Fastberry" class="md-nav__button md-logo" aria-label="Fastberry" data-md-component="logo">
+    <a href="../.." title="Fastberry" class="md-nav__button md-logo" aria-label="Fastberry" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 1.2c-1 0-1.8.8-1.8 1.8S15 4.8 16 4.8 17.8 4 17.8 3 17 1.2 16 1.2m-3.6 2.9c-.47 0-.9.19-1.2.5L7.5 8.29C7.19 8.6 7 9 7 9.5c0 .63.33 1.16.85 1.47L11.2 13v5H13v-6.5l-2.25-1.65 2.32-2.35L14.8 10H19V8.2h-3.2l-1.94-3.27c-.29-.5-.86-.83-1.46-.83M10 3H3c-.55 0-1-.45-1-1s.45-1 1-1h9.79c-.21.34-.38.71-.47 1.11-.86.02-1.67.34-2.32.89m-5 9c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5m0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5M19 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5m0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5M5.32 11H1c-.552 0-1-.45-1-1s.448-1 1-1h4.05c-.02.16-.05.33-.05.5 0 .53.12 1.04.32 1.5M6 7H2c-.55 0-1-.45-1-1s.45-1 1-1h5.97L6.09 6.87C6.05 6.91 6 6.96 6 7z"/></svg>
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -326,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/" class="md-nav__link">
+      <a href="../../settings/" class="md-nav__link">
         Settings
       </a>
     </li>
@@ -368,99 +368,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../environments/variables/" class="md-nav__link">
+      <a href="../../environments/variables/" class="md-nav__link">
         Variables
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_4">
-          Types
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Types" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_4">
-          <span class="md-nav__icon md-icon"></span>
-          Types
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../types/introduction/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../types/databases/" class="md-nav__link">
-        Databases
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../types/scalars/" class="md-nav__link">
-        Scalars/Fields/Columns
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../types/sql-querying/" class="md-nav__link">
-        SQL-Querying
       </a>
     </li>
   
@@ -487,7 +396,167 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          Types
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Types" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        Databases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scalars/" class="md-nav__link">
+        Scalars/Fields/Columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SQL-Querying
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SQL-Querying
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sqlalchemy" class="md-nav__link">
+    SQLAlchemy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manager" class="md-nav__link">
+    Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-table-type" class="md-nav__link">
+    Create Table (Type)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-table-type-to-manager" class="md-nav__link">
+    Connect Table (Type) to Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example-more-at-api-references" class="md-nav__link">
+    Usage Example more at ... API - References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
       
       
       
@@ -510,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../applications/" class="md-nav__link">
+      <a href="../../applications/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -524,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graphql/" class="md-nav__link">
+      <a href="../../graphql/" class="md-nav__link">
         GraphQL
       </a>
     </li>
@@ -538,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../operations/" class="md-nav__link">
+      <a href="../../operations/" class="md-nav__link">
         Operations
       </a>
     </li>
@@ -552,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/" class="md-nav__link">
+      <a href="../../commands/" class="md-nav__link">
         Commands
       </a>
     </li>
@@ -564,55 +633,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Router
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../routers/" class="md-nav__link">
         Router
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#file-layout" class="md-nav__link">
-    File Layout
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python-code" class="md-nav__link">
-    Python Code
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -624,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../crud-app/" class="md-nav__link">
+      <a href="../../crud-app/" class="md-nav__link">
         CRUD-App
       </a>
     </li>
@@ -673,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../middleware/workflow/" class="md-nav__link">
+      <a href="../../middleware/workflow/" class="md-nav__link">
         Workflow
       </a>
     </li>
@@ -687,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../middleware/middleware/" class="md-nav__link">
+      <a href="../../middleware/middleware/" class="md-nav__link">
         Middleware
       </a>
     </li>
@@ -701,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../middleware/extension/" class="md-nav__link">
+      <a href="../../middleware/extension/" class="md-nav__link">
         Extension
       </a>
     </li>
@@ -715,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../middleware/permissions/" class="md-nav__link">
+      <a href="../../middleware/permissions/" class="md-nav__link">
         Permission
       </a>
     </li>
@@ -729,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../middleware/plugin/" class="md-nav__link">
+      <a href="../../middleware/plugin/" class="md-nav__link">
         Plugin
       </a>
     </li>
@@ -778,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/fastberry/" class="md-nav__link">
+      <a href="../../apis/fastberry/" class="md-nav__link">
         Fastberry API
       </a>
     </li>
@@ -792,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/graphql/" class="md-nav__link">
+      <a href="../../apis/graphql/" class="md-nav__link">
         GraphQL API
       </a>
     </li>
@@ -806,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/sqlalchemy/" class="md-nav__link">
+      <a href="../../apis/sqlalchemy/" class="md-nav__link">
         SQL API
       </a>
     </li>
@@ -889,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         PyPi with Pipenv
       </a>
     </li>
@@ -903,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/template/" class="md-nav__link">
+      <a href="../../getting-started/template/" class="md-nav__link">
         Template
       </a>
     </li>
@@ -941,6 +966,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -949,15 +976,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#file-layout" class="md-nav__link">
-    File Layout
+  <a href="#sqlalchemy" class="md-nav__link">
+    SQLAlchemy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-code" class="md-nav__link">
-    Python Code
+  <a href="#manager" class="md-nav__link">
+    Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-table-type" class="md-nav__link">
+    Create Table (Type)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-table-type-to-manager" class="md-nav__link">
+    Connect Table (Type) to Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example-more-at-api-references" class="md-nav__link">
+    Usage Example more at ... API - References
   </a>
   
 </li>
@@ -974,45 +1022,69 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/hlop3z/fastberry/edit/master/docs/routers.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/hlop3z/fastberry/edit/master/docs/types/sql-querying.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-  <h1>Router</h1>
-
+<h1 id="sql-querying">SQL - <strong>Querying</strong></h1>
+<h2 id="sqlalchemy"><strong>SQL</strong>Alchemy</h2>
 <blockquote>
-<p>Your code <strong>needs</strong> to be in a <strong>file</strong> named <strong><code>router.py</code></strong> inside your <strong>Application</strong>.</p>
+<p>Start by creating the <strong>Basics</strong> of your database <strong>Controller</strong></p>
 </blockquote>
-<h2 id="file-layout">File <strong>Layout</strong></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>root/
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>|--  apps/
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>|    `--  MY_APP/               --&gt; &lt;Directory&gt; - Your App in HERE!
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>|        `-- router.py          --&gt; &lt;File&gt; - Your code in HERE!
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>|
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>`-- etc...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">fastberry</span> <span class="kn">import</span> <span class="n">Model</span> <span class="c1"># (1)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">declarative_base</span> <span class="c1"># (2)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Config</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">DATABASE_URL</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///test_database.db&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Base</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Models</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">Base</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="python-code">Python <strong>Code</strong></h2>
-<div class="highlight"><span class="filename">router.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="sd">    Router-Example</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Examples&quot;</span><span class="p">],</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">)</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Create &lt;Routers&gt; here.</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nd">@router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/hello_world&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="sd">&quot;&quot;&quot;Return: A `Hello World` Message.&quot;&quot;&quot;</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="k">return</span> <span class="s2">&quot;Hello World&quot;</span>
+<ol>
+<li>Each <strong>model</strong> maps to a single database <strong>(Table | Collection)</strong>.</li>
+<li><strong>SQLAlchemy</strong> — Model's Base.</li>
+</ol>
+<hr />
+<h2 id="manager"><strong>Manager</strong></h2>
+<blockquote>
+<p>Create a reusable <strong>Manager</strong></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">fastberry</span> <span class="kn">import</span> <span class="n">SQLBase</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span> <span class="nf">SQL</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="sd">&quot;&quot;&quot;SQL Manager&quot;&quot;&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">return</span> <span class="n">SQLBase</span><span class="p">(</span><span class="n">DATABASE_URL</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="create-table-type">Create <strong>Table (Type)</strong></h2>
+<blockquote>
+<p>Define a <code>database</code> <strong>Table</strong> (aka: <code>GraphQL</code> <strong>Type</strong>).</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@model</span><span class="o">.</span><span class="n">sql</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">class</span> <span class="nc">Category</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<h2 id="connect-table-type-to-manager">Connect <strong>Table (Type)</strong> to <strong>Manager</strong></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">sql_manager</span> <span class="o">=</span> <span class="n">SQL</span><span class="p">(</span><span class="n">Category</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="usage-example-more-at-api-references">Usage <strong>Example</strong> more at ... <a href="/fastberry/apis/sqlalchemy/">API - References</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Usage</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">create_category</span><span class="p">():</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">input_form</span> <span class="o">=</span> <span class="n">sql_manager</span><span class="o">.</span><span class="n">form</span><span class="p">(</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Awesome&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">sql_manager</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">input_form</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># Test</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">await</span> <span class="n">create_category</span><span class="p">()</span>
 </code></pre></div>
 
               
@@ -1032,7 +1104,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../commands/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Commands" rel="prev">
+        <a href="../scalars/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Scalars/Fields/Columns" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1041,20 +1113,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Commands
+              Scalars/Fields/Columns
             </div>
           </div>
         </a>
       
       
         
-        <a href="../crud-app/" class="md-footer__link md-footer__link--next" aria-label="Next: CRUD-App" rel="next">
+        <a href="../../applications/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              CRUD-App
+              Introduction
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1088,10 +1160,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.top", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c44cc438.min.js"></script>
       
     
   </body>
