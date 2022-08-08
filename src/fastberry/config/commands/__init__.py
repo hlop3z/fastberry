@@ -12,12 +12,14 @@ from .sql_alembic import cli as cli_sql
 
 
 @click.group()
-def cli():
+def cli_basics():
     """Click (CLI) Group"""
 
 
 # Add Commands Here
-cli.add_command(run)
-cli.add_command(graphql)
-cli.add_command(start_app)
-cli.add_command(cli_sql)
+cli_basics.add_command(run)
+cli_basics.add_command(graphql)
+cli_basics.add_command(start_app)
+
+
+cli = click.CommandCollection(sources=[cli_sql, cli_basics])

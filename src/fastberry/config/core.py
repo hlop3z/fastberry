@@ -208,7 +208,7 @@ class Settings(Singleton):
         self.cli = None
         
         if is_cli:
-            from .commands import cli as core_cli
+            from .commands import cli_basics as core_cli
 
             # Core CLI
             all_clis.append(core_cli)
