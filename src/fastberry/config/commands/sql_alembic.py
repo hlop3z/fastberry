@@ -3,6 +3,8 @@
 """
 
 import click
+import shutil
+import os
 
 try:
     from alembic import command
@@ -47,3 +49,16 @@ def db_downgrade(revision):
 def db_history():
     """Database Migrations History."""
     command.history(ALEMBIC_CONFIG)
+    
+    
+@cli.command()
+def db_reset():
+    """Database Delete Migrations (All-Versions)."""
+    dir_path = "./migrations/versions"
+    # Delete
+    try:
+        shutil.rmtree(dir_path)
+    except OSError as e:
+        print("Error: %s : %s" % (dir_path, e.strerror))
+    # Recreate
+    os.makedirs(dir_path)
