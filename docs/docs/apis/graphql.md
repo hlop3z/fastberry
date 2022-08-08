@@ -1,6 +1,6 @@
 # GraphQL **API**
 
-In this section we will learn about all the different available options to create **GraphQL** methods.
+In this section we will learn about all the available options to create **GraphQL** methods.
 
 ## **Import** your Basics
 

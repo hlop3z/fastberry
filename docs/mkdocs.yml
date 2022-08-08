@@ -13,6 +13,7 @@ nav:
           - Introduction: types/introduction.md
           - Databases: types/databases.md
           - Scalars/Fields/Columns: types/scalars.md
+          - SQL-Querying: types/sql-querying.md
       - Applications:
           - Introduction: applications.md
           - GraphQL: graphql.md
@@ -29,6 +30,7 @@ nav:
       - Application Programming Interface:
           - Fastberry API: apis/fastberry.md
           - GraphQL API: apis/graphql.md
+          - SQL API: apis/sqlalchemy.md
 
   - Getting Started:
       - Installation:

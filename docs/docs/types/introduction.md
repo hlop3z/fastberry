@@ -1,6 +1,14 @@
-> Your code **needs** to be in a **file** named **`types.py`** inside your **Application**.
+> Your **`GraphQL-Types`** **need** to be in a **file** named **`types.py`** inside your **Application**.
 
-The **database** layout is **optional**. You can start your model base anywhere you will like.
+The **databases** layout is **optional**. You can start your model's **`base`** anywhere you like.
+
+```mermaid
+graph LR;
+    A{DataBase} --> B;
+    A --> C;
+    B[SQL] --> D;
+    C[Mongo] --> D{GraphQL Type};
+```
 
 ## File **Layout**
 
@@ -33,6 +41,13 @@ The **database** layout is **optional**. You can start your model base anywhere 
 > Both **`Mongo`** and **`SQLAlchemy`** are **optional**. But I do recommend using **at least one**. Otherwise, there is **no point** in using this section and **instead** you should just declare your **`Types`** by using <a href="https://strawberry.rocks/docs/types/object-types/" target="_blank" rel="noopener noreferrer">**Strawberry**</a>
 
 ## Python **Code**
+
+```mermaid
+graph LR;
+    A[SQL] --> C;
+    B[Mongo] --> C[Databases];
+    C --> D{Types};
+```
 
 === "Types"
 
@@ -81,7 +96,7 @@ The **database** layout is **optional**. You can start your model base anywhere 
         name: str
     ```
 
-=== "Databases"
+=== "Databases (Base)"
 
     ```python title="__init__.py"
     # -*- coding: utf-8 -*-
@@ -97,7 +112,7 @@ The **database** layout is **optional**. You can start your model base anywhere 
     model = fastberry.Model(sql=Sql, mongo=Mongo)
     ```
 
-=== "SQL"
+=== "SQL (Config)"
 
     ```python title="sql.py"
     # -*- coding: utf-8 -*-
@@ -111,15 +126,11 @@ The **database** layout is **optional**. You can start your model base anywhere 
     # Config
     DATABASE_URL = "sqlite:///test_database.db"
 
-    # Engine
-    ENGINE = create_engine(DATABASE_URL, echo=True)
-
-
     # Base
     Base = declarative_base()
     ```
 
-=== "Mongo"
+=== "Mongo (Config)"
 
     ```python title="mongo.py"
     # -*- coding: utf-8 -*-
@@ -135,7 +146,6 @@ The **database** layout is **optional**. You can start your model base anywhere 
 
     # Engine
     ENGINE = motor.motor_asyncio.AsyncIOMotorClient(DATABASE_URL)
-
 
     # Base
     Base = ENGINE[DATABASE_NAME]
