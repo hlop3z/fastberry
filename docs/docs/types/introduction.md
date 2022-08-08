@@ -45,7 +45,7 @@ graph LR;
 ```mermaid
 graph LR;
     A[SQL] --> C;
-    B[Mongo] --> C[Databases];
+    B[Mongo] --> C[Databases Controller];
     C --> D{Types};
 ```
 
