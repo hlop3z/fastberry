@@ -890,15 +890,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipenv-install-fastberry-uvicorn" class="md-nav__link">
-    (PipEnv) Install Fastberry + Uvicorn
+  <a href="#initiate-pdm" class="md-nav__link">
+    Initiate (PDM)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipenv-shell" class="md-nav__link">
-    (PipEnv) Shell
+  <a href="#install-fastberry-uvicorn-pdm" class="md-nav__link">
+    Install Fastberry + Uvicorn (PDM)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-a-project" class="md-nav__link">
+    Start a Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-server" class="md-nav__link">
+    Run Server
   </a>
   
 </li>
@@ -909,31 +923,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-project" class="md-nav__link">
-    Start Project
+  <a href="#start-an-app" class="md-nav__link">
+    Start an App
   </a>
   
-    <nav class="md-nav" aria-label="Start Project">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run-command-start-project" class="md-nav__link">
-    Run (Command) Start-Project
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#start-app" class="md-nav__link">
-    Start App
-  </a>
-  
-    <nav class="md-nav" aria-label="Start App">
+    <nav class="md-nav" aria-label="Start an App">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -956,7 +950,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-server" class="md-nav__link">
+  <a href="#run-server_1" class="md-nav__link">
     Run Server
   </a>
   
@@ -1051,15 +1045,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipenv-install-fastberry-uvicorn" class="md-nav__link">
-    (PipEnv) Install Fastberry + Uvicorn
+  <a href="#initiate-pdm" class="md-nav__link">
+    Initiate (PDM)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipenv-shell" class="md-nav__link">
-    (PipEnv) Shell
+  <a href="#install-fastberry-uvicorn-pdm" class="md-nav__link">
+    Install Fastberry + Uvicorn (PDM)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-a-project" class="md-nav__link">
+    Start a Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-server" class="md-nav__link">
+    Run Server
   </a>
   
 </li>
@@ -1070,31 +1078,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-project" class="md-nav__link">
-    Start Project
+  <a href="#start-an-app" class="md-nav__link">
+    Start an App
   </a>
   
-    <nav class="md-nav" aria-label="Start Project">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run-command-start-project" class="md-nav__link">
-    Run (Command) Start-Project
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#start-app" class="md-nav__link">
-    Start App
-  </a>
-  
-    <nav class="md-nav" aria-label="Start App">
+    <nav class="md-nav" aria-label="Start an App">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1117,7 +1105,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-server" class="md-nav__link">
+  <a href="#run-server_1" class="md-nav__link">
     Run Server
   </a>
   
@@ -1163,40 +1151,39 @@
 <li><strong>Download</strong> the template and use <strong>pipenv</strong> to recreate the environment.</li>
 </ol>
 </blockquote>
+<hr />
 <h2 id="installation">Installation</h2>
 <hr />
 <h3 id="create-new-directory">Create <strong>New Directory</strong></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir my-project
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span> my-project/
 </code></pre></div>
-<h3 id="pipenv-install-fastberry-uvicorn">(PipEnv) Install <strong>Fastberry + Uvicorn</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python -m pipenv --python <span class="m">3</span>.10 install fastberry <span class="s2">&quot;uvicorn[standard]&quot;</span>
+<h3 id="initiate-pdm">Initiate (<strong>PDM</strong>)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pdm init
 </code></pre></div>
-<h3 id="pipenv-shell">(PipEnv) <strong>Shell</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python -m pipenv shell
+<h3 id="install-fastberry-uvicorn-pdm">Install <strong>Fastberry + Uvicorn</strong> (PDM)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pdm add fastberry <span class="s2">&quot;uvicorn[standard]&quot;</span>
+</code></pre></div>
+<h3 id="start-a-project">Start a <strong>Project</strong></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pdm run startproject
+</code></pre></div>
+<h3 id="run-server">Run <strong>Server</strong></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pdm run python manage.py run
 </code></pre></div>
 <hr />
-<h2 id="start-project">Start <strong>Project</strong></h2>
-<hr />
-<h3 id="run-command-start-project">Run (Command) <strong>Start-Project</strong></h3>
-<blockquote>
-<p>Make sure you created a new <strong><code>directory/</code></strong>. Because the <strong><code>startproject</code></strong> command creates the files in the <strong>CURRENT</strong> <strong><code>directory/</code></strong></p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>startproject
-</code></pre></div>
-<h2 id="start-app">Start <strong>App</strong></h2>
+<h2 id="start-an-app">Start an <strong>App</strong></h2>
 <hr />
 <h3 id="run-command-start-app">Run (<strong><code>command</code></strong>) <strong>Start-App</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./manage.py start-app demo --crud
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pdm run python manage.py start-app demo --crud
 </code></pre></div>
 <h3 id="inside-settingsyaml">Inside <strong><code>settings.yaml</code></strong></h3>
-<div class="highlight"><span class="filename">settings.yaml</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">INSTALLED_APPS</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span><span class="w"></span>
+<div class="highlight"><span class="filename">settings.yaml</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">INSTALLED_APPS</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span><span class="w"></span>
 </code></pre></div>
-<h2 id="run-server">Run <strong>Server</strong></h2>
+<h2 id="run-server_1">Run <strong>Server</strong></h2>
 <hr />
 <h3 id="run-command-run-server">Run (<strong><code>command</code></strong>) <strong>Run-Server</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./manage.py run
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pdm run python manage.py run
 </code></pre></div>
 
               
