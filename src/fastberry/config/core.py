@@ -73,7 +73,7 @@ class Settings(Singleton):
             "mode",
             "router",
             "secret_key",
-            #"pagination",
+            # "pagination",
         ]
 
         # Include BASE_DIR / "apps"
@@ -112,8 +112,7 @@ class Settings(Singleton):
                     gql_types = process_strawberry_crud(app_module)
                     gql_schema["Query"].extend(gql_types["Query"])
                     gql_schema["Mutation"].extend(gql_types["Mutation"])
-                    gql_field_names["query"].extend(
-                        gql_types["Operations"]["Query"])
+                    gql_field_names["query"].extend(gql_types["Operations"]["Query"])
                     gql_field_names["mutation"].extend(
                         gql_types["Operations"]["Mutation"]
                     )
@@ -206,7 +205,7 @@ class Settings(Singleton):
 
         # Command-Line-Interface
         self.cli = None
-        
+
         if is_cli:
             from .commands import cli as core_cli
 

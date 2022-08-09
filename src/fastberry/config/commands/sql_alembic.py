@@ -2,9 +2,10 @@
     SQLAlchemy + Alembic
 """
 
-import click
-import shutil
 import os
+import shutil
+
+import click
 
 try:
     from alembic import command
@@ -17,13 +18,26 @@ except ImportError:
 
 
 @click.group()
-def cli():
+def db():
     """Click (CLI) Group"""
 
 
-@cli.command()
+@db.command()
 @click.option("-m", "--message", help="Migration message.", type=str, default=None)
-def db_migrate(message):
+def make_migrations(message):
+    """Database Make-Migrations."""
+    command.revision(ALEMBIC_CONFIG, message=message, autogenerate=True)
+
+
+@db.command()
+def migrate():
+    """Database Migrate."""
+    command.upgrade(ALEMBIC_CONFIG, "head")
+
+
+@db.command()
+@click.option("-m", "--message", help="Migration message.", type=str, default=None)
+def auto_migrate(message):
     """Database Make-Migrations & Migrate."""
     # Make-Migrations
     command.revision(ALEMBIC_CONFIG, message=message, autogenerate=True)
@@ -31,34 +45,34 @@ def db_migrate(message):
     command.upgrade(ALEMBIC_CONFIG, "head")
 
 
-@cli.command()
+@db.command()
 @click.option("-r", "--revision", help="Revision ID.", type=str)
-def db_upgrade(revision):
+def upgrade(revision):
     """Database Migrate (Upgrade)."""
     command.upgrade(ALEMBIC_CONFIG, revision)
 
 
-@cli.command()
+@db.command()
 @click.option("-r", "--revision", help="Revision ID.", type=str)
-def db_downgrade(revision):
+def downgrade(revision):
     """Database Migrate (Downgrade)."""
     command.downgrade(ALEMBIC_CONFIG, revision)
 
 
-@cli.command()
-def db_history():
+@db.command()
+def history():
     """Database Migrations History."""
     command.history(ALEMBIC_CONFIG)
-    
-    
-@cli.command()
-def db_reset():
+
+
+@db.command()
+def reset():
     """Database Delete Migrations (All-Versions)."""
     dir_path = "./migrations/versions"
     # Delete
     try:
         shutil.rmtree(dir_path)
     except OSError as e:
-        print("Error: %s : %s" % (dir_path, e.strerror))
+        print(f"Error: {dir_path} : {e.strerror}")
     # Recreate
     os.makedirs(dir_path)
