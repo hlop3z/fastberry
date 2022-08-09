@@ -18,7 +18,7 @@ except ImportError:
 try:
     from databases import Database
 except ImportError:
-    Database = SimpleNamespace
+    Database = lambda x: SimpleNamespace(database_url=x)
 
 
 def sql_response(
