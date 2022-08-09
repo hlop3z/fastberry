@@ -4,7 +4,7 @@
 
 import os
 import shutil
-
+import pathlib
 import click
 
 try:
@@ -68,7 +68,7 @@ def history():
 @db.command()
 def reset():
     """Database Delete Migrations (All-Versions)."""
-    dir_path = "./migrations/versions"
+    dir_path = pathlib.Path("./migrations/versions")
     # Delete
     try:
         shutil.rmtree(dir_path)
@@ -76,3 +76,5 @@ def reset():
         print(f"Error: {dir_path} : {e.strerror}")
     # Recreate
     os.makedirs(dir_path)
+    with open(dir_path / "README", "w") as f:
+        f.write("Database Migrations Versions")
