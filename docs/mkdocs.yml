@@ -34,7 +34,7 @@ nav:
 
   - Getting Started:
       - Installation:
-          - PyPi with Pipenv: getting-started/installation.md
+          - PDM Tutorial: getting-started/installation.md
           - Template: getting-started/template.md
 
 extra_css:

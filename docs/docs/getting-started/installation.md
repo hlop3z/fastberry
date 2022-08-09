@@ -1,7 +1,9 @@
 > There are **two-ways** in which you can start using **fastberry**.
 >
 > 1. **Installing** and **Starting** a new Project.
-> 2. **Download** the template and use **pipenv** to recreate the environment.
+> 2. **Download** the template.
+
+---
 
 ## Installation
 
@@ -14,40 +16,40 @@ mkdir my-project
 cd my-project/
 ```
 
-### (PipEnv) Install **Fastberry + Uvicorn**
+### Initiate (**PDM**)
 
 ```sh
-python -m pipenv --python 3.10 install fastberry "uvicorn[standard]"
+pdm init
 ```
 
-### (PipEnv) **Shell**
+### Install **Fastberry + Uvicorn** (PDM)
 
 ```sh
-python -m pipenv shell
+pdm add fastberry "uvicorn[standard]"
+```
+
+### Start a **Project**
+
+```sh
+pdm run startproject
+```
+
+### Run **Server**
+
+```sh
+pdm run python manage.py run
 ```
 
 ---
 
-## Start **Project**
-
----
-
-### Run (Command) **Start-Project**
-
-> Make sure you created a new **`directory/`**. Because the **`startproject`** command creates the files in the **CURRENT** **`directory/`**
-
-```sh
-startproject
-```
-
-## Start **App**
+## Start an **App**
 
 ---
 
 ### Run (**`command`**) **Start-App**
 
 ```sh
-./manage.py start-app demo --crud
+pdm run python manage.py start-app demo --crud
 ```
 
 ### Inside **`settings.yaml`**
@@ -57,6 +59,8 @@ INSTALLED_APPS:
   - demo
 ```
 
+---
+
 ## Run **Server**
 
 ---
@@ -64,5 +68,15 @@ INSTALLED_APPS:
 ### Run (**`command`**) **Run-Server**
 
 ```sh
-./manage.py run
+pdm run python manage.py run
+```
+
+---
+
+## Add Development **Tools**
+
+---
+
+```
+pdm add -dG devops isort black pylint bandit watchdog pre-commit
 ```
