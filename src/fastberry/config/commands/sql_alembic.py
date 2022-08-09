@@ -19,7 +19,7 @@ except ImportError:
 
 @click.group()
 def db():
-    """Click (CLI) Group"""
+    """Database Migrations Commands"""
 
 
 @db.command()
