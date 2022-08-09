@@ -23,17 +23,11 @@ cd fastberry-template/
 ### Recreate Development **Environment**
 
 ```sh
-python -m pipenv install --dev --skip-lock
-```
-
-### Go to the Environment's **Shell**
-
-```sh
-python -m pipenv shell
+pdm sync
 ```
 
 ### Run the **Server**
 
 ```sh
-./manage.py run
+pdm run server
 ```
