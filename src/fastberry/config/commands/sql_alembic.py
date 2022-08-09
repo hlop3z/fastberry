@@ -46,14 +46,14 @@ def auto_migrate(message):
 
 
 @db.command()
-@click.option("-r", "--revision", help="Revision ID.", type=str)
+@click.argument("revision", type=str)
 def upgrade(revision):
     """Database Migrate (Upgrade)."""
     command.upgrade(ALEMBIC_CONFIG, revision)
 
 
 @db.command()
-@click.option("-r", "--revision", help="Revision ID.", type=str)
+@click.argument("revision", type=str)
 def downgrade(revision):
     """Database Migrate (Downgrade)."""
     command.downgrade(ALEMBIC_CONFIG, revision)
