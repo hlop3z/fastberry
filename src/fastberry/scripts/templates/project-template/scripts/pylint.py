@@ -79,7 +79,7 @@ def main():
     # Watchdog Handler
     event_handler = Handler()
     observer = watchdog.observers.Observer()
-    observer.schedule(event_handler, path=base_dir, recursive=True)
+    observer.schedule(event_handler, path=(base_dir / "apps"), recursive=True)
     observer.start()
 
     # Run "Server"
