@@ -52,8 +52,8 @@ def clean_form(base: Any, cols: list, form: dict):
 
 
 def clean_update_form(base: Any, cols: list, form: dict):
-    form = clean_form(base, cols, form)
-    return {key: val for key, val in form.items() if val}
+    clean = clean_form(base, cols, form)
+    return {key: val for key, val in clean.items() if val}
 
 # Testing
 class SQLBase:
