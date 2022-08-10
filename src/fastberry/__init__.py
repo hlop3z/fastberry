@@ -2,10 +2,10 @@
     Fastberry Main (Core-Methods)
 """
 
+import strawberry
 from starlette.middleware.base import BaseHTTPMiddleware as BaseMiddleware
 from strawberry.extensions import Extension as BaseExtension
 from strawberry.permission import BasePermission
-import strawberry
 
 from . import config
 
@@ -15,15 +15,11 @@ from .config.extras.gql import GQL
 
 # from .graphql import BaseType
 from .schema import Schema
-from .types import Model, SQLFilters, SQLBase
+from .types import Model, SQLBase, SQLFilters
+from .utils.coro import coro
+from .utils.to_camel_case import to_camel_case
 
 # Custom Field Types
 Text = Model.text
 JSON = Model.json
 ID = strawberry.ID
-
-# To Camel Case
-def to_camel_case(text):
-    """Converts to Camel-Case"""
-    init, *temp = text.split("_")
-    return "".join([init.lower(), *map(str.title, temp)])
