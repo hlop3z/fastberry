@@ -53,7 +53,7 @@ def clean_form(base: Any, cols: list, form: dict):
 
 def clean_update_form(base: Any, cols: list, form: dict):
     clean = clean_form(base, cols, form)
-    return {key: val for key, val in clean.items() if val and val in form.keys()}
+    return {key: val for key, val in clean.items() if val and key in form.keys()}
 
 # Testing
 class SQLBase:
