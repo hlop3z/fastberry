@@ -18,7 +18,7 @@ except ImportError:
 try:
     from databases import Database
 except ImportError:
-    Database = lambda x: SimpleNamespace(database_url=x)
+    def Database(x): return SimpleNamespace(database_url=x)
 
 
 def sql_response(
@@ -56,6 +56,8 @@ def clean_update_form(base: Any, cols: list, form: dict):
     return {key: val for key, val in clean.items() if val and key in form.keys()}
 
 # Testing
+
+
 class SQLBase:
     """SQlAlchemy & Databases (Manager)
 
@@ -94,8 +96,17 @@ class SQLBase:
         self.database = Database(database_url)
         self.table = custom_type.objects
         self.Q = SQLFilters(custom_type.objects)
-        self.form = functools.partial(clean_form, custom_type, custom_type.objects.columns.keys())
-        self.form_update = functools.partial(clean_update_form, custom_type, custom_type.objects.columns.keys())
+        self.form = functools.partial(
+            clean_form, custom_type, custom_type.objects.columns.keys())
+        self.form_update = functools.partial(
+            clean_update_form, custom_type, custom_type.objects.columns.keys())
+
+    async def all(
+        self,
+    ):
+        """Get All-Rows from Database"""
+        items = await self.database.fetch_all(self.Q.select())
+        return items
 
     async def find(
         self,
@@ -106,7 +117,8 @@ class SQLBase:
     ):
         """Get Multiple-Rows from Database Table by <SQLAlchemy-BinaryExpression>"""
         try:
-            query = self.Q.find(search, page=page, limit=limit, sort_by=sort_by)
+            query = self.Q.find(search, page=page,
+                                limit=limit, sort_by=sort_by)
             items = await self.database.fetch_all(query.query)
             count = await self.database.fetch_val(query.count)
             _limit = limit or 1
