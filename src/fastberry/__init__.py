@@ -15,7 +15,7 @@ from .config.extras.gql import GQL
 
 # from .graphql import BaseType
 from .schema import Schema
-from .types import Model, SQLBase, SQLFilters
+from .types import Model
 from .utils.coro import coro
 from .utils.to_camel_case import to_camel_case
 
