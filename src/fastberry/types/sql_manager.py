@@ -106,7 +106,7 @@ class SQLBase:
     ):
         """Get All-Rows from Database"""
         items = await self.database.fetch_all(self.Q.select())
-        return items
+        return sql_response(data=to_obj(items, sql=True), count=len(items), pages=1)
 
     async def find(
         self,
