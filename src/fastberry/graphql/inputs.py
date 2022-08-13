@@ -22,7 +22,7 @@ class Pagination:
 
     page: int = 1
     limit: typing.Optional[int] = ITEMS_PER_PAGE
-    sort_by: typing.Optional[str] = "-_id"
+    sort_by: typing.Optional[str] = "-id"
     all: typing.Optional[bool] = False
 
     def init(self):
