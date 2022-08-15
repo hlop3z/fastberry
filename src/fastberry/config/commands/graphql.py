@@ -68,11 +68,13 @@ def graphql():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Output Paths <Files>
+    schema_graphql = output_dir / "schema.graphql"
+    schema_json = output_dir / "operations.json"
+
+    """
     core_operations = output_dir / "core.graphql"
     desktop_operations = output_dir / "desktop.graphql"
     mobile_operations = output_dir / "mobile.graphql"
-    schema_graphql = output_dir / "schema.graphql"
-    schema_json = output_dir / "operations.json"
 
     # Outputs
     shell_print("* Collecting All Operations From...", color="magenta")
@@ -90,13 +92,17 @@ def graphql():
     core = "\n\n".join(outputs["core"])
     desktop = "\n\n".join(outputs["desktop"])
     mobile = "\n\n".join(outputs["mobile"])
+    """
 
+    # Core Information
     shell_print("* Building Schema & Operations ...")
     shell_print(f"\t * [schema]     : { schema_graphql }")
+    shell_print(f"\t * [operations] : { schema_json }")
+    """
+    # User Operations
     shell_print(f"\t * [core]       : { core_operations }")
     shell_print(f"\t * [desktop]    : { desktop_operations }")
     shell_print(f"\t * [mobile]     : { mobile_operations }")
-    shell_print(f"\t * [operations] : { schema_json }")
 
     # Core (Operations)
     with open(core_operations, "w", encoding="utf-8") as file:
@@ -117,6 +123,7 @@ def graphql():
     )
     with open(schema_graphql, "w", encoding="utf-8") as file:
         file.write(str(schema))
+    """
 
     # Names (Operations)
     query_names = settings.apps.operations.query
