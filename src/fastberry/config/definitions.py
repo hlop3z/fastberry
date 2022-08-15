@@ -4,19 +4,21 @@
 
 import json
 import types
-
-import yaml
-
-from dotenv import dotenv_values
 from types import SimpleNamespace
 
-
+import yaml
+from dotenv import dotenv_values
 
 FILE_YAML = "settings.yaml"
 FILE_MODE = "config/mode.json"
 FILE_DOCS = "config/docs.md"
-LOAD_ENVS = lambda mode: f"config/env/{ mode }.env"
 FILE_ENVS = "config/env/development.env"
+
+
+def LOAD_ENVS(mode):
+    """Load Environment Variables"""
+    return f"config/env/{ mode }.env"
+
 
 SETTING_YAML_QUERYING = {"items_per_page": 50, "max_depth": 3}
 SETTING_YAML = {
@@ -68,7 +70,7 @@ def load_env(mode: str = None):
     """Load <Dot.Env> File"""
     active_env = LOAD_ENVS(mode) if mode else FILE_ENVS
     config = dotenv_values(active_env)
-    return SimpleNamespace(**{key.lower() : val for key, val in config.items()})
+    return SimpleNamespace(**{key.lower(): val for key, val in config.items()})
 
 
 def load_docs():

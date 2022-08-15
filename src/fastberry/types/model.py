@@ -1,3 +1,7 @@
+"""
+    [API Types] aka [Models]
+"""
+
 import dataclasses as dc
 import functools
 import typing
@@ -27,10 +31,12 @@ class Globals:
 
     @staticmethod
     def set(key, value):
+        """Set"""
         globals().update({key: value})
 
     @staticmethod
     def get(key):
+        """Get"""
         return globals().get(key)
 
 
@@ -68,6 +74,7 @@ def get_annotations_args(single_annotation: typing.Any):
     is_custom_type = isinstance(real_arg, typing.ForwardRef)
     is_optional = type(None) in found_args
     scalar_arg = None
+    is_list = False
 
     if isinstance(real_arg, str):
         is_custom_type = True
@@ -83,8 +90,6 @@ def get_annotations_args(single_annotation: typing.Any):
     # IS -> List <YES or NO>
     if found_args and len(typing.get_args(found_args[0])) > 0:
         is_list = True
-    else:
-        is_list = False
 
     # IS -> Step 2 ...
     if len(found_args) == 1:
@@ -116,6 +121,7 @@ def get_function_fields(model: object):
 
 
 class Model:
+    """Strawberry Type (Basic, SQL, Mongo)"""
     sqlalchemy_base = SQLALCHEMY_BASE
     load = staticmethod(Manager.load)
     json = JSON
@@ -145,7 +151,7 @@ class Model:
             is_sql: bool = False,
             is_mongo: bool = False,
         ):
-            """DECORATOR-OPTIONAL-ARGUMENT: https://pybit.es/articles/decorator-optional-argument/"""
+            """DECORATOR-OPTIONAL-ARGUMENT"""
             primary_key = primary_key or []
             required = required or []
             index = index or []

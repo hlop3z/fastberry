@@ -8,7 +8,7 @@ import click
 from .app_manager import start_app
 from .graphql import graphql
 from .run import run
-from .sql_alembic import db, ALEMBIC_CONFIG
+from .sql_alembic import ALEMBIC_CONFIG, db
 
 
 @click.group()

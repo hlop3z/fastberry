@@ -1,4 +1,6 @@
-"""[API Types] - Map DataClass(Fields) to SQL(Fields) and GQL(Types)."""
+"""
+    [API Types] - Map DataClass(Fields) to SQL(Fields) and GQL(Types).
+"""
 
 import dataclasses
 import datetime
@@ -105,6 +107,7 @@ class Singleton:
     """Create a Singleton"""
 
     def __new__(cls, *args, **kwargs):
+        """Real INIT"""
         it_id = "__it__"
         it = cls.__dict__.get(it_id, None)
         if it is not None:
@@ -124,14 +127,18 @@ class Globals:
 
     @staticmethod
     def set(key, value):
+        """set"""
         globals().update({key: value})
 
     @staticmethod
     def get(key):
+        """get"""
         return globals().get(key)
 
 
 class SQLManager(Singleton):
+    """SQL Manager"""
+
     def init(self, *args, **kwargs):
         """Class __init__ Replacement"""
         self.active = SQLALCHEMY_ACTIVE
@@ -140,6 +147,7 @@ class SQLManager(Singleton):
         self.globals = Globals
 
     def register_model(self, name: str, model: TypeConfig):
+        """Register Model"""
         if name in self.models.keys():
             raise Exception(
                 f"Duplicate Type: {name}\nExisting Model: {model.module_path}"
@@ -148,10 +156,12 @@ class SQLManager(Singleton):
         self.globals.set(name, model.custom_class)
 
     def find_model(self, name: str):
+        """Find Model"""
         return self.globals.get(name)
 
     @staticmethod
     def load(*models):
+        """Load"""
         for model in models:
             if model._lazy_object:
                 model.objects()
@@ -257,7 +267,7 @@ if STRAWBERRY_ACTIVE:
     STRAWBERRY_FIELDS.JSON = strawberry.scalars.JSON
 
 # Core Init
-CORE = dict()
+CORE = {}
 
 # Core Values
 CORE[TEXT] = APIType(

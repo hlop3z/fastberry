@@ -3,8 +3,9 @@
 """
 
 import os
-import shutil
 import pathlib
+import shutil
+
 import click
 
 try:
@@ -76,5 +77,5 @@ def reset():
         print(f"Error: {dir_path} : {e.strerror}")
     # Recreate
     os.makedirs(dir_path)
-    with open(dir_path / "README", "w") as f:
+    with open(dir_path / "README", "w", encoding="utf-8") as f:
         f.write("Database Migrations Versions")

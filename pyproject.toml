@@ -52,4 +52,4 @@ devops = [
 ]
 
 [tool.pdm.scripts]
-manage = "echo hello world"
+watch = "python scripts/watcher.py"

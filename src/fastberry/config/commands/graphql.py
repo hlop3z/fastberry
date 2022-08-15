@@ -52,26 +52,8 @@ def shell_print(text: str, color: str = "green"):
     return click.secho(f"{ text }", fg=color, bold=True)
 
 
-@click.command(name="schema")
-def graphql():
-    """Build GraphQL (Schema + Operations)"""
-
-    # Get Path(s)
-    output_dir = settings.base_dir
-    generates_file = settings.base.generates
-    if generates_file == "" or not generates_file:
-        generates_file = "graphql"
-    for path in generates_file.split("/"):
-        output_dir = output_dir / path
-
-    # Create Path(s)
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    # Output Paths <Files>
-    schema_graphql = output_dir / "schema.graphql"
-    schema_json = output_dir / "operations.json"
-
-    """
+def graphql_older_methods(output_dir):
+    """GraphQL (Operations)"""
     core_operations = output_dir / "core.graphql"
     desktop_operations = output_dir / "desktop.graphql"
     mobile_operations = output_dir / "mobile.graphql"
@@ -92,14 +74,9 @@ def graphql():
     core = "\n\n".join(outputs["core"])
     desktop = "\n\n".join(outputs["desktop"])
     mobile = "\n\n".join(outputs["mobile"])
-    """
 
-    # Core Information
-    shell_print("* Building Schema & Operations ...")
-    shell_print(f"\t * [schema]     : { schema_graphql }")
-    shell_print(f"\t * [operations] : { schema_json }")
-    """
     # User Operations
+    shell_print("* Building Operations ...")
     shell_print(f"\t * [core]       : { core_operations }")
     shell_print(f"\t * [desktop]    : { desktop_operations }")
     shell_print(f"\t * [mobile]     : { mobile_operations }")
@@ -115,7 +92,32 @@ def graphql():
     # Mobile (Operations)
     with open(mobile_operations, "w", encoding="utf-8") as file:
         file.write(mobile)
-    """
+
+
+@click.command(name="schema")
+def graphql():
+    """Build GraphQL (Schema + Operations)"""
+
+    # Get Path(s)
+    output_dir = settings.base_dir
+    generates_file = settings.base.generates
+    if generates_file == "" or not generates_file:
+        generates_file = "graphql"
+    for path in generates_file.split("/"):
+        output_dir = output_dir / path
+
+    # Create Path(s)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Output Paths <Files>
+    schema_graphql = output_dir / "schema.graphql"
+    schema_json = output_dir / "operations.json"
+
+    # Core Information
+    shell_print("* Building Schema & Operations ...")
+    shell_print(f"\t * [schema]     : { schema_graphql }")
+    shell_print(f"\t * [operations] : { schema_json }")
+
     # GraphQL (Schema)
     schema = Schema(
         query=settings.apps.schema.Query,
@@ -135,8 +137,10 @@ def graphql():
     for x in mutation_names:
         mutation_names_camel.add(to_camel_case(x))
 
-    # Pretty (Operations)
-    pretty = lambda items: sorted(list(set(items)))
+    def pretty(items):
+        """Pretty (Operations)"""
+        return sorted(list(set(items)))
+
     operations_names = dict(
         python=dict(query=pretty(query_names), mutation=pretty(mutation_names)),
         graphql=dict(
