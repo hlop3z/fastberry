@@ -122,6 +122,7 @@ def get_function_fields(model: object):
 
 class Model:
     """Strawberry Type (Basic, SQL, Mongo)"""
+
     sqlalchemy_base = SQLALCHEMY_BASE
     load = staticmethod(Manager.load)
     json = JSON
