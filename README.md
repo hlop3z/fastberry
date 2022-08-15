@@ -29,16 +29,16 @@ mkdir my-project
 cd my-project/
 ```
 
+### Run (Command) Init PDM
+
+```sh
+pdm init
+```
+
 ### (PipEnv) Install Fastberry
 
 ```sh
-python -m pipenv --python 3.10 install fastberry "uvicorn[standard]"
-```
-
-### (PipEnv) Shell
-
-```sh
-python -m pipenv shell
+python -m pdm add fastberry "uvicorn[standard]"
 ```
 
 ---
@@ -50,13 +50,13 @@ python -m pipenv shell
 ### Run (Command) Start-Project
 
 ```sh
-startproject
+python -m pdm run startproject
 ```
 
 ### Run (Command) Start-App
 
 ```sh
-./manage.py start-app demo --crud
+python -m pdm run python ./manage.py start-app demo --crud
 ```
 
 ### Inside `settings.yaml`
@@ -69,5 +69,5 @@ INSTALLED_APPS:
 ### Run (Command) Run-Server
 
 ```sh
-./manage.py run
+python -m pdm run python ./manage.py run
 ```
