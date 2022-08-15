@@ -4,7 +4,7 @@ build-backend = "pdm.pep517.api"
 
 [project]
 name = "fastberry"
-version = "0.0.44"
+version = "0.0.45"
 description = "Easy FastAPI & Strawberry"
 requires-python = ">=3.10"
 readme = "README.md"
