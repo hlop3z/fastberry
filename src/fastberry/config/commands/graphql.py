@@ -115,7 +115,7 @@ def graphql():
     # Mobile (Operations)
     with open(mobile_operations, "w", encoding="utf-8") as file:
         file.write(mobile)
-
+    """
     # GraphQL (Schema)
     schema = Schema(
         query=settings.apps.schema.Query,
@@ -123,7 +123,6 @@ def graphql():
     )
     with open(schema_graphql, "w", encoding="utf-8") as file:
         file.write(str(schema))
-    """
 
     # Names (Operations)
     query_names = settings.apps.operations.query
