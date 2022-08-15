@@ -69,6 +69,9 @@ def get_annotations_args(single_annotation: typing.Any):
     is_optional = type(None) in found_args
     scalar_arg = None
 
+    if isinstance(real_arg, str):
+        is_custom_type = True
+
     # print(real_arg)
     if real_arg in CUSTOM_SCALARS:
         fake_arg = Scalars.get(real_arg)
@@ -85,8 +88,7 @@ def get_annotations_args(single_annotation: typing.Any):
 
     # IS -> Step 2 ...
     if len(found_args) == 1:
-        if found_args[0] in CUSTOM_SCALARS:
-            is_list = True
+        is_list = True
 
     # IS -> Step 3 ...
     if is_list:
@@ -139,6 +141,7 @@ class Model:
             unique: list = None,
             unique_together: list = None,
             many_to_many: list = None,
+            ignore: list = None,
             is_sql: bool = False,
             is_mongo: bool = False,
         ):
@@ -149,6 +152,7 @@ class Model:
             unique = unique or []
             unique_together = unique_together or []
             many_to_many = many_to_many or []
+            ignore = ignore or []
 
             # Starting Wrapper. . .
             if original_object is None:
@@ -161,6 +165,7 @@ class Model:
                     unique=unique,
                     unique_together=unique_together,
                     many_to_many=many_to_many,
+                    ignore=ignore,
                     is_sql=is_sql,
                     is_mongo=is_mongo,
                 )
@@ -267,6 +272,7 @@ class Model:
                 unique=lambda key: (key in unique),
                 unique_together=unique_together,
                 many_to_many=many_to_many,
+                ignore=ignore,
             )
 
             # Type Config

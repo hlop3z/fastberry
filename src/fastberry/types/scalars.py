@@ -69,6 +69,7 @@ class TableConfig:
     unique: list = None
     unique_together: list = None
     many_to_many: dict = None
+    ignore: list = None
     # is_sql: bool = False
     # is_mongo: bool = False
 

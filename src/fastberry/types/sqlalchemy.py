@@ -69,53 +69,54 @@ def create_sqlalchemy_model(base, type_config):
         one_or_more_sqlalchemy_lazy_load = False
         # Get Fields
         for key, setup in type_config.custom_annotations.items():
-            sqlalchemy_lazy_load = False
-            if not setup.types:
-                column_name = f"{key}_id"
-                if isinstance(setup.real, typing.ForwardRef):
-                    related_class_name = setup.real.__forward_arg__
-                elif isinstance(setup.real, str):
-                    related_class_name = setup.real
-                related_model = Manager.find_model(related_class_name)
-                if not related_model:
-                    sqlalchemy_lazy_load = True
-                    one_or_more_sqlalchemy_lazy_load = True
-                # Many-To-Many Relationship or Regular Relationship?
-                if not key in table_config.many_to_many:
-                    # Lazy Load or Load Now?
-                    if sqlalchemy_lazy_load:
-                        sqlalchemy_setup_lazy_load[column_name] = functools.partial(
-                            related_field, type_config, key, related_class_name
-                        )
+            if not setup.is_list and not key in table_config.ignore:
+                sqlalchemy_lazy_load = False
+                if not setup.types:
+                    column_name = f"{key}_id"
+                    if isinstance(setup.real, typing.ForwardRef):
+                        related_class_name = setup.real.__forward_arg__
+                    elif isinstance(setup.real, str):
+                        related_class_name = setup.real
+                    related_model = Manager.find_model(related_class_name)
+                    if not related_model:
+                        sqlalchemy_lazy_load = True
+                        one_or_more_sqlalchemy_lazy_load = True
+                    # Many-To-Many Relationship or Regular Relationship?
+                    if not key in table_config.many_to_many:
+                        # Lazy Load or Load Now?
+                        if sqlalchemy_lazy_load:
+                            sqlalchemy_setup_lazy_load[column_name] = functools.partial(
+                                related_field, type_config, key, related_class_name
+                            )
+                        else:
+                            sqlalchemy_class_setup[column_name] = related_field(
+                                type_config, key, related_class_name
+                            )
                     else:
-                        sqlalchemy_class_setup[column_name] = related_field(
-                            type_config, key, related_class_name
-                        )
-                else:
-                    if sqlalchemy_lazy_load:
-                        do_many_to_many = functools.partial(
-                            related_many_to_many,
-                            sqlalchemy_base[0],
-                            type_config,
-                            related_class_name,
-                        )
-                        sqlalchemy_many_to_many_lazy_load[key] = do_many_to_many
-                    else:
-                        do_many_to_many = related_many_to_many(
-                            sqlalchemy_base[0],
-                            type_config,
-                            related_class_name,
-                        )
-                        sqlalchemy_many_to_many[key] = do_many_to_many
+                        if sqlalchemy_lazy_load:
+                            do_many_to_many = functools.partial(
+                                related_many_to_many,
+                                sqlalchemy_base[0],
+                                type_config,
+                                related_class_name,
+                            )
+                            sqlalchemy_many_to_many_lazy_load[key] = do_many_to_many
+                        else:
+                            do_many_to_many = related_many_to_many(
+                                sqlalchemy_base[0],
+                                type_config,
+                                related_class_name,
+                            )
+                            sqlalchemy_many_to_many[key] = do_many_to_many
 
-            else:
-                sqlalchemy_class_setup[key] = SQLALCHEMY_FIELDS.Column(
-                    setup.types.sql,
-                    index=table_config.index(key),
-                    unique=table_config.unique(key),
-                    primary_key=table_config.primary_key(key),
-                    nullable=not table_config.required(key),
-                )
+                else:
+                    sqlalchemy_class_setup[key] = SQLALCHEMY_FIELDS.Column(
+                        setup.types.sql,
+                        index=table_config.index(key),
+                        unique=table_config.unique(key),
+                        primary_key=table_config.primary_key(key),
+                        nullable=not table_config.required(key),
+                    )
 
         for config in table_config.unique_together:
             unique_together = SQLALCHEMY_FIELDS.UniqueTogether(*config)
