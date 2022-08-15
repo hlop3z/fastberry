@@ -35,7 +35,7 @@ cd my-project/
 pdm init
 ```
 
-### (PipEnv) Install Fastberry
+### (PDM) Install Fastberry
 
 ```sh
 python -m pdm add fastberry "uvicorn[standard]"
