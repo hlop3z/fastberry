@@ -41,3 +41,15 @@ where = ["src"]  # list of folders that contain the packages
 
 [tool]
 [tool.pdm]
+[tool.pdm.dev-dependencies]
+devops = [
+    "isort>=5.10.1",
+    "black>=22.6.0",
+    "pylint>=2.14.5",
+    "bandit>=1.7.4",
+    "watchdog>=2.1.9",
+    "pre-commit>=2.20.0",
+]
+
+[tool.pdm.scripts]
+manage = "echo hello world"
