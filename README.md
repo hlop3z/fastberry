@@ -32,7 +32,7 @@ cd my-project/
 ### Run (Command) Init PDM
 
 ```sh
-pdm init
+python -m pdm init
 ```
 
 ### (PDM) Install Fastberry
