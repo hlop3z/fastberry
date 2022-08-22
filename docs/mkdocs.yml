@@ -13,11 +13,11 @@ nav:
           - Introduction: types/introduction.md
           - Databases: types/databases.md
           - Scalars/Fields/Columns: types/scalars.md
-          - SQL-Querying: types/sql-querying.md
+          # - SQL-Querying: types/sql-querying.md
       - Applications:
           - Introduction: applications.md
           - GraphQL: graphql.md
-          - Operations: operations.md
+          # - Operations: operations.md
           - Commands: commands.md
           - Router: routers.md
           - CRUD-App: crud-app.md
@@ -30,7 +30,7 @@ nav:
       - Application Programming Interface:
           - Fastberry API: apis/fastberry.md
           - GraphQL API: apis/graphql.md
-          - SQL API: apis/sqlalchemy.md
+          # - SQL API: apis/sqlalchemy.md
 
   - Getting Started:
       - Installation:

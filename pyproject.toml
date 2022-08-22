@@ -50,6 +50,15 @@ devops = [
     "watchdog>=2.1.9",
     "pre-commit>=2.20.0",
 ]
+docs = [
+    "mkdocs>=1.3.1",
+    "mkdocs-material>=8.4.1",
+]
 
 [tool.pdm.scripts]
 watch = "python scripts/watcher.py"
+docs-dev = {shell = "cd docs/ && python -m mkdocs serve --dev-addr 0.0.0.0:8055"}
+docs-gh = {shell = "cd docs/ && python -m mkdocs gh-deploy --force"}
+
+
+# - `python -m mkdocs gh-deploy --force` Deploy to GitHub Pages.

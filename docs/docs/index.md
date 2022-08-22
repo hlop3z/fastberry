@@ -89,7 +89,7 @@ Some of the commands and the installation of **modules** (aka: **INSTALLED_APPS*
 
 - **`startproject`** Create a new **Fastberry** project.
 - **`./manage.py run`** Run **FastApi Server**.
-- **`./manage.py schema`** Build **GraphQL (Schema + Operations)**.
+- **`./manage.py schema`** Build **GraphQL (Schema + Operations + ReturnTypes)**.
 - **`./manage.py start-app`** Create a **Fastberry App** inside your "**`apps`**" directory.
 - **`./manage.py --help`** For **more information**.
 
