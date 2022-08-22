@@ -12,6 +12,11 @@ from ... import Fastberry, Schema
 settings = Fastberry()
 
 
+def shell_print(text: str, color: str = "green"):
+    """Customized Click Echo"""
+    return click.secho(f"{ text }", fg=color, bold=True)
+
+
 def to_camel_case(text):
     """Converts to Camel-Case"""
     init, *temp = text.split("_")
@@ -47,9 +52,28 @@ def get_operations(base_dir):
     return outputs
 
 
-def shell_print(text: str, color: str = "green"):
-    """Customized Click Echo"""
-    return click.secho(f"{ text }", fg=color, bold=True)
+def get_graphql_types():
+    """Get All Custom-Types"""
+
+    setup = {}
+    for model in settings.types.values():
+        class_name = model.__name__
+        meta = model.__meta__
+        fields = meta.custom_annotations
+        setup[class_name] = {"id": True}
+        for key, val in fields.items():
+            camel_key = to_camel_case(key)
+            if val.types:
+                setup[class_name][camel_key] = True
+            else:
+                try:
+                    forward_name = val.real.__forward_arg__
+                except:
+                    forward_name = None
+                setup[class_name][camel_key] = forward_name
+
+    return setup
+    # json_setup = json.dumps(setup, indent=4)
 
 
 def graphql_older_methods(output_dir):
@@ -112,11 +136,13 @@ def graphql():
     # Output Paths <Files>
     schema_graphql = output_dir / "schema.graphql"
     schema_json = output_dir / "operations.json"
+    schema_types = output_dir / "types.json"
 
     # Core Information
     shell_print("* Building Schema & Operations ...")
     shell_print(f"\t * [schema]     : { schema_graphql }")
     shell_print(f"\t * [operations] : { schema_json }")
+    shell_print(f"\t * [types]      : { schema_types }")
 
     # GraphQL (Schema)
     schema = Schema(
@@ -151,3 +177,8 @@ def graphql():
     # Output (Operations)
     with open(schema_json, "w", encoding="utf-8") as file:
         file.write(json.dumps(operations_names, indent=4))
+
+    # Output (Operations)
+    with open(schema_types, "w", encoding="utf-8") as file:
+        custom_types = get_graphql_types()
+        file.write(json.dumps(custom_types, indent=4))
