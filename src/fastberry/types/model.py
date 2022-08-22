@@ -261,6 +261,9 @@ class Model:
             info_class_module_path = original_object.__module__
             info_class_module_name = get_module_name(info_class_module_path)
 
+            if not info_class_module_name:
+                info_class_module_name = "main"
+
             # Info Table
             info_class_table_name = (
                 f"{info_class_module_name.lower()}_{info_class_name.lower()}"
