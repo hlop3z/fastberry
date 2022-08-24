@@ -255,6 +255,8 @@ class Model:
             # Strawberry
             if STRAWBERRY_CORE:
                 custom_class = STRAWBERRY_CORE.type(custom_class)
+            elif not STRAWBERRY_CORE:
+                custom_class = dc.dataclass(custom_class)
 
             # Info
             info_class_name = original_object.__name__
