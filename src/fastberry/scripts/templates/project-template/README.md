@@ -35,3 +35,16 @@ sh scripts/keygen.sh
 - config/env/development.env
 - config/env/staging.env
 - config/env/production.env
+
+### PDM **Scripts**
+
+```sh
+pdm add -dG devops isort black pylint bandit watchdog pre-commit
+```
+
+```toml
+[tool.pdm.scripts]
+manage = "python manage.py"
+server = "python manage.py run"
+watch = "python scripts/pylint.py"
+```
