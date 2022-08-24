@@ -127,6 +127,7 @@ class Model:
     load = staticmethod(Manager.load)
     json = JSON
     text = TEXT
+    id = STRAWBERRY_FIELDS.ID
 
     def __init__(self, sql=None, mongo=None):
         """Create Custon <Type>"""

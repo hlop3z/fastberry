@@ -22,4 +22,4 @@ from .utils.to_camel_case import to_camel_case
 # Custom Field Types
 Text = Model.text
 JSON = Model.json
-ID = strawberry.ID
+ID = Model.id
