@@ -52,10 +52,12 @@ def run(mode, port, workers):
         file.write(mode_json)
 
     # PY-Lint
+    '''
     if mode == "development":
         logs_dir = base_dir / "logs"
         logs_dir.mkdir(parents=True, exist_ok=True)
         return_value.append("""python scripts/pylint.py > logs/pylint.log 2>&1 &""")
+    '''
 
     # FastAPI-Server
     match mode:

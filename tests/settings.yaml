@@ -1,0 +1,38 @@
+# API Information
+VERSION: 0.1.0
+APP_NAME: Fastberry
+ADMIN_EMAIL: fastberry@example.com
+
+# GraphQL (Output Folder)
+GENERATES: graphql
+
+QUERYING:
+  items_per_page: 50
+  max_depth: 4
+
+ALLOWED_HOSTS:
+  - http://localhost:8080
+  - http://localhost
+
+INSTALLED_APPS:
+  - fbauth
+  - frontend
+
+DEVELOPMENT_APPS:
+
+MIDDLEWARE:
+  - fbauth.middleware.AuthenticatedCookieMiddleware
+
+EXTENSIONS:
+  - fbauth.extension.InjectUser
+
+PERMISSIONS:
+  - fbauth.permissions.IsAuthorized
+
+ON_STARTUP:
+
+ON_SHUTDOWN:
+
+SECURITY:
+  access_token_url: login
+  access_token_expire_minutes: 1440

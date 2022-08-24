@@ -25,7 +25,7 @@ from .definitions import load_docs, load_env, load_mode, load_yaml
 from .extras.click import command_collection, is_click
 from .extras.strawberry import process_strawberry_crud
 from .imports import import_modules, search_method
-from ..types import Admin as TypesAdmin
+from ..types import Admin as TypeAdmin
 
 
 class Settings(Singleton):
@@ -96,7 +96,6 @@ class Settings(Singleton):
         gql_schema = {"Query": [], "Mutation": []}
         gql_field_names = {"query": [], "mutation": []}
         gql_paths = set()
-        app_models = {}
 
         # IF Found Apps
         if installed_apps:
@@ -106,8 +105,7 @@ class Settings(Singleton):
                     for possible_type in get_fields(app_module):
                         current_type = get_attr(app_module, possible_type)
                         if hasattr(current_type, "__meta__"):
-                            TypesAdmin.register(current_type)
-                            #app_models[current_type.__meta__.table_uri] = current_type
+                            TypeAdmin.register(current_type)
                     # router = get_attr(app_module, "router")
                 elif app_name.endswith(".graphql"):
                     # Load CRUD(Query, Mutation)
@@ -194,13 +192,13 @@ class Settings(Singleton):
         )
 
         # Load Lazy SQL Objects
-        TypesAdmin.load()
+        TypeAdmin.load()
 
         # SELF - Definitions
         self.middleware = add_middleware
         self.extensions = graphql_extensions
         self.apps = super_api
-        self.types = TypesAdmin.types
+        self.types = TypeAdmin.types
         self.on_event = events_extensions
 
         # Command-Line-Interface

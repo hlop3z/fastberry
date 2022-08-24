@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    API - Strawberry Types
+    API - Fastberry Types
 """
 
 
@@ -9,9 +9,9 @@ import datetime
 import decimal
 import typing
 
-import fastberry
+import fastberry as fb
 
 # Model
-model = fastberry.Model()
+model = fb.Model()
 
 # Create your <types> here.

@@ -1,5 +1,23 @@
 # Fastberry Template
 
+## Installation
+
+```sh
+pdm install
+```
+
+## Run Server
+
+```sh
+pdm run server
+```
+
+## Other Commands
+
+```sh
+pdm run manage --help
+```
+
 ## Secret-Key
 
 ---

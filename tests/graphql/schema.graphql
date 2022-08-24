@@ -1,0 +1,16 @@
+type Mutation {
+  """"""
+  create(name: String! = "My Note", text: String! = "Hello World"): Note!
+}
+
+type Note {
+  Id: String
+  id: ID
+  name: String
+  text: String
+}
+
+type Query {
+  """"""
+  detail: Note!
+}

@@ -1,0 +1,18 @@
+{
+    "python": {
+        "query": [
+            "detail"
+        ],
+        "mutation": [
+            "create"
+        ]
+    },
+    "graphql": {
+        "query": [
+            "detail"
+        ],
+        "mutation": [
+            "create"
+        ]
+    }
+}

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+[project]
+name = "my-project"
+version = "0.0.1"
+description = "project's info"
+authors = [
+    {name = "John Doe", email = "my-email@example.com"},
+]
+dependencies = [
+    "fastberry",
+    "uvicorn[standard]",
+]
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+
+[tool]
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+devops = [
+    "isort",
+    "black",
+    "pylint>=3.0.0a5",
+    "bandit>=1.7.4",
+    "watchdog>=2.1.9",
+    "pre-commit>=2.20.0",
+]
+
+[tool.pdm.scripts]
+watch = "python scripts/pylint.py"
+manage = "python manage.py"
+server = "python manage.py run"

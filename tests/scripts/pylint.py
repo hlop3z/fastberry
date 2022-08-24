@@ -66,7 +66,7 @@ class Handler(watchdog.events.PatternMatchingEventHandler):
 # < Script > - Run
 # -----------------------------------------------------------------------------
 def main():
-    """Watch-Application
+    """Dexter-Watch
 
     Watch over your project as you write it and ensure you follow code-style (black & isort).
     Also, it rates your code with (pylint).
@@ -74,14 +74,12 @@ def main():
 
     # Base Directory
     base_dir = Path(__file__).parents[1]
-    path_to_watch = (base_dir / "apps")
-
-    # (base_dir / "logs").mkdir(parents=True, exist_ok=True)
+    (base_dir / "logs").mkdir(parents=True, exist_ok=True)
 
     # Watchdog Handler
     event_handler = Handler()
     observer = watchdog.observers.Observer()
-    observer.schedule(event_handler, path=path_to_watch, recursive=True)
+    observer.schedule(event_handler, path=(base_dir / "apps"), recursive=True)
     observer.start()
 
     # Run "Server"
