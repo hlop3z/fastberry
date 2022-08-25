@@ -46,6 +46,8 @@
 | **`unique_together`** | (**`list[tuple]`**) — Group of Columns that are **Unique Together** |
 | **`many_to_many`**    | (**`list[str]`**) — Columns that relate and are **Many-To-Many**    |
 
+> **Note:** the **`many_to_many`** field is really only used for information purposes currently it doesn't handle that part automatically.
+
 ## Usage **Example**
 
 > The configurations are for the **SQL-Database (ONLY)** to configure the **Model / Type** just use regular **Typing** annotations.

@@ -16,3 +16,6 @@ docs/site
 
 # vscode
 .vscode/
+
+# Python
+.pdm.toml
