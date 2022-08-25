@@ -1038,11 +1038,18 @@
 <td>(<strong><code>list[tuple]</code></strong>) — Group of Columns that are <strong>Unique Together</strong></td>
 </tr>
 <tr>
+<td><strong><code>ignore</code></strong></td>
+<td>(<strong><code>list[str]</code></strong>) — Columns that are <strong>Virtual</strong> and do not get saved to the database</td>
+</tr>
+<tr>
 <td><strong><code>many_to_many</code></strong></td>
 <td>(<strong><code>list[str]</code></strong>) — Columns that relate and are <strong>Many-To-Many</strong></td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p><strong>Note:</strong> the <strong><code>many_to_many</code></strong> field is <strong>ONLY</strong> used for information purposes currently it doesn't handle that part automatically.</p>
+</blockquote>
 <h2 id="usage-example">Usage <strong>Example</strong></h2>
 <blockquote>
 <p>The configurations are for the <strong>SQL-Database (ONLY)</strong> to configure the <strong>Model / Type</strong> just use regular <strong>Typing</strong> annotations.</p>
@@ -1062,9 +1069,10 @@
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">unique</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col_one&quot;</span><span class="p">],</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="n">unique_together</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;col_one&quot;</span><span class="p">,</span> <span class="s2">&quot;col_two&quot;</span><span class="p">)],</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="n">many_to_many</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col_one&quot;</span><span class="p">],</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">)</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">class</span> <span class="nc">Product</span><span class="p">:</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="n">ignore</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col_three&quot;</span><span class="p">],</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="k">class</span> <span class="nc">Product</span><span class="p">:</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 
 
