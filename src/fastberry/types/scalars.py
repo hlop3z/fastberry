@@ -257,7 +257,7 @@ if SQLALCHEMY_ACTIVE:
     SQLALCHEMY_FIELDS.Date = sqlalchemy.Date
     SQLALCHEMY_FIELDS.DateTime = sqlalchemy.DateTime
     SQLALCHEMY_FIELDS.Time = sqlalchemy.Time
-    SQLALCHEMY_FIELDS.Decimal = sqlalchemy.DECIMAL
+    SQLALCHEMY_FIELDS.Decimal = sqlalchemy.String(length=255) # sqlalchemy.DECIMAL
     SQLALCHEMY_FIELDS.JSON = sqlalchemy.JSON
 
 
