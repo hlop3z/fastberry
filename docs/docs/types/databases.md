@@ -44,7 +44,7 @@
 | **`index`**           | (**`list[str]`**) — Columns that are **Index**                                        |
 | **`unique`**          | (**`list[str]`**) — Columns that are **Unique**                                       |
 | **`unique_together`** | (**`list[tuple]`**) — Group of Columns that are **Unique Together**                   |
-| **`ignore`**          | (**`list[str]`**) — Columns that are **Virtual** and do not get saved to the database |
+| **`ignore`**          | (**`list[str]`**) — Columns that are **Virtual** and not part of the database columns |
 | **`many_to_many`**    | (**`list[str]`**) — Columns that relate and are **Many-To-Many**                      |
 
 > **Note:** the **`many_to_many`** field is **ONLY** used for information purposes currently it doesn't handle that part automatically.
