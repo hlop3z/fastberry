@@ -45,7 +45,8 @@ class ModelSingleton(Singleton):
     def load(self):
         for current_type in self._core_models.values():
             if current_type._lazy_object:
-                current_type.objects()
+                if callable(current_type.objects):
+                    current_type.objects()
 
 
 # Admin
