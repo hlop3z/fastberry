@@ -23,12 +23,9 @@
 
 ---
 
-> **`ID`** is a special **Field** that represents the automatically created **`ID`** field for the database.
-> You **won't use it** directly in your code.
-
 ## Python **Fields**
 
-- **`str`**
+- **`fastberry.ID`**
 - **`fastberry.Text`**
 - **`int`**
 - **`float`**
