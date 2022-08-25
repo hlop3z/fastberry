@@ -4,7 +4,7 @@
 
 | GraphQL        | Python (Fastberry)      | SQLAlchemy         |
 | -------------- | ----------------------- | ------------------ |
-| **`ID`**       | **`str`**               | Integer            |
+| **`ID`**       | **`fastberry.ID`**      | Integer            |
 | **`String`**   | **`str`**               | String(length=255) |
 | **`String`**   | **`fastberry.Text`**    | Text               |
 | **`Integer`**  | **`int`**               | Integer            |
