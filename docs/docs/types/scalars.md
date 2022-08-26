@@ -13,7 +13,7 @@
 | **`Datetime`** | **`datetime.datetime`** | DateTime           |
 | **`Date`**     | **`datetime.date`**     | Date               |
 | **`Time`**     | **`datetime.time`**     | Time               |
-| **`Decimal`**  | **`decimal.Decimal`**   | Decimal            |
+| **`Decimal`**  | **`decimal.Decimal`**   | String(length=255) |
 | **`JSON`**     | **`fastberry.JSON`**    | JSON               |
 
 ## Your **instance** includes **two** fields
@@ -33,7 +33,7 @@
 - **`datetime.datetime`**
 - **`datetime.date`**
 - **`datetime.time`**
-- **`datetime.Decimal`**
+- **`decimal.Decimal`**
 - **`fastberry.JSON`**
 
 ## Usage **Example**
