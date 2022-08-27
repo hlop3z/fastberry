@@ -3,6 +3,7 @@
 """
 
 import typing
+import dataclasses as dc
 
 import strawberry
 
@@ -17,6 +18,7 @@ except:
 
 
 @strawberry.input
+@dc.dataclass
 class Pagination:
     """GraphQL Pagination"""
 
@@ -25,7 +27,7 @@ class Pagination:
     sort_by: typing.Optional[str] = "-id"
     all: typing.Optional[bool] = False
 
-    def init(self):
+    def __post_init__(self):
         """Add Search Parameters to Query"""
         page = settings.apps.pagination(
             page=self.page,
