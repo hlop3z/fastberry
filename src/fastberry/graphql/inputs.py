@@ -33,15 +33,5 @@ class Pagination:
             page=self.page,
             limit=self.limit,
         )
-        if self.sort_by == "-id":
-            sort_by = "-_id"
-        elif self.sort_by == "id":
-            sort_by = "_id"
-        else:
-            sort_by = self.sort_by
-        return Pagination(
-            page=page.page,
-            limit=page.limit,
-            sort_by=sort_by,
-            all=self.all,
-        )
+        self.page=page.page
+        self.limit=page.limit

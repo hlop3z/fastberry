@@ -145,7 +145,7 @@ from fastberry.graphql.types import (
         Response,
     )
 
-    from . import inputs, types
+    from .. import inputs, types
 
 
     class Demo(GQL):
@@ -163,9 +163,9 @@ from fastberry.graphql.types import (
                 return types.Author(_id=1, id=1, name="Ludwig Van Beethoven")
 
             async def multiple_instances(
-                pagination: Pagination | None,
+                pagination: Pagination,
             ) -> Edges(types.Author):
-                pagination = pagination or Pagination()
+                print(pagination)
                 return Response(
                     edges=[
                         types.Author(_id=1, id=1, name="Ludwig Van Beethoven"),

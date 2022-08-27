@@ -62,6 +62,7 @@ test = [
 watch = "python scripts/watcher.py"
 docs-dev = {shell = "cd docs/ && python -m mkdocs serve --dev-addr 0.0.0.0:8055"}
 docs-gh = {shell = "cd docs/ && python -m mkdocs gh-deploy --force"}
+test = {shell = "cd tests/ && python manage.py run"}
 
 
 # - `python -m mkdocs gh-deploy --force` Deploy to GitHub Pages.
