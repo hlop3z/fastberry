@@ -15,6 +15,12 @@ from fastberry.graphql.types import (
 )
 
 from .. import types
+from ..forms import query
+
+# controller = controller.x.admin([types.Author])
+# print(controller)
+# result = await controller.Author.all()
+# print(result)
 
 
 class Demo(GQL):
@@ -23,12 +29,11 @@ class Demo(GQL):
     class Query:
         """Query"""
 
-        async def detail() -> Query(types.Product):
-            return types.Product(name="Model", aliases=["type", "class", "object"])
+        async def detail(search: query.Search) -> Query(types.Product):
+            print(search.input)
+            return types.Product(name="Model")
 
-        async def single_instance(
-            search: str | None = None
-        ) -> Query(types.Author):
+        async def single_instance(search: str | None = None) -> Query(types.Author):
             return types.Author(_id=1, id=1, name="Ludwig Van Beethoven")
 
         async def multiple_instances(
@@ -56,3 +61,30 @@ class Demo(GQL):
             if False:
                 return None
             return Error([ErrorMessage(type="input", message="invalid input.")])
+
+
+DEMO_DOC = """
+```graphql
+query MyQuery {
+    detail(search: {}) {
+        name
+        aliases
+        stock
+        isAvailable
+        availableFrom
+        createdAt
+        sameDayShippingBefore
+        price
+        notes
+        isObject
+        isJson
+        demo {
+            author { name }
+            category { name }
+        }                        
+    }
+}
+```
+"""
+
+Demo.Query.detail.__doc__ = DEMO_DOC

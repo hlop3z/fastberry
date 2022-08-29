@@ -3,55 +3,72 @@
     API - Strawberry Types
 """
 
-import dataclasses as dc
-import datetime
-import decimal
-import typing
-
 # Create your <types> here.
-from fastberry import JSON, Model, Text
+import fastberry as fb
 
-model = Model()
+App = fb.Fastberry()
+    
+# print(App.types) 
 
-@model.type
+# print("SQL: \n", App.controller.sql.get("default"), end="\n\n")
+# print("Mongo: \n", App.controller.mongo.get("default"))
+
+@fb.type
+class Demo:
+    category: list["Category"]
+    author: list["Author"]
+
+@App.mongo
 class Author:
     name: str
-
-@model.type
+    
+@App.sql
 class Product:
-    """
-    query MyQuery {
-        demoDetail {
-            name
-            aliases
-            stock
-            isAvailable
-            createdAt
-            sameDayShippingBefore
-            price
-            notes
-            isObject
-            category {
-                name
-            }
-        }
-    }
-    """
+    # Core
     name: str
-    aliases: list[str] | None = None
-    stock: int | None = None
-    is_available: bool | None = None
-    available_from: datetime.date | None = None
-    created_at: datetime.datetime | None = None
-    same_day_shipping_before: datetime.time | None = None
-    price: decimal.Decimal | None = None
-    notes: list[Text] = dc.field(default_factory=list)
-    is_object: JSON = dc.field(default_factory=dict)
+    stock: int = fb.default(1000000)
+    is_available: bool = fb.default(False)
+    
+    # Date-Time
+    created_at: fb.datetime = fb.default(fb.Date.datetime)
+    available_from: fb.date = fb.default(fb.Date.date)
+    same_day_shipping_before: fb.time = fb.default(fb.Date.time)
+    
+    # Decimal
+    price: fb.decimal = fb.default(fb.decimal("100.20"))
+    
+    # Text
+    message: fb.text = fb.default("Hello World")
+    
+    # List
+    notes: list[fb.text] = fb.default(list)
+    aliases: list[str] = fb.default(lambda: ["type", "class", "object"])
+    
+    # JSON (Dict or List)
+    is_object: fb.json = fb.default(dict)
+    is_json: fb.json = fb.default(lambda: { "message" : "Hello World" })
 
-    async def category(self) -> typing.Optional["Category"]:
-        return Category(name="awesome")
+    # Via Functions
+    async def demo(self) -> fb.ref["Demo"]:
+        """
+        print(App.models.sql.keys())
+        print(App.models.mongo.keys())
+        """
+        category = App.models.sql.get("frontend.category")
+        author = App.models.mongo.get("frontend.author")
+
+        # await category.create({"name": "Awesome"})
+        # await author.create({"name": "John Doe"})
+
+        results_author = await author.all()
+        results_category = await category.all()
+
+        return Demo(
+            author=results_author.data,
+            category=results_category.data,
+        )
 
 
-@model.type
+@App.database.sql.model
 class Category:
     name: str

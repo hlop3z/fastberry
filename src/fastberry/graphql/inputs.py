@@ -2,8 +2,8 @@
     Strawberry Pagination
 """
 
-import typing
 import dataclasses as dc
+import typing
 
 import strawberry
 
@@ -33,5 +33,5 @@ class Pagination:
             page=self.page,
             limit=self.limit,
         )
-        self.page=page.page
-        self.limit=page.limit
+        self.page = page.page
+        self.limit = page.limit

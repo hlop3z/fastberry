@@ -3,17 +3,21 @@
     FastAPI Main File.
 """
 
+# API (Config)
+from config import settings
+
+# FastAPI & Strawberry
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import RedirectResponse
 from strawberry.fastapi import GraphQLRouter
 
-# API (Config)
-from config import settings
-
 # API (Schema)
 from fastberry import Schema
+
+# Fastberry (Load : Apps)
+settings.load_apps()
 
 # FastAPI
 app = FastAPI(
@@ -61,6 +65,8 @@ if schema:
 # Startup
 @app.on_event("startup")
 async def startup_event():
+    """FastAPI Startup Event"""
+
     for func in settings.on_event["startup"]:
         func()
 
@@ -68,6 +74,8 @@ async def startup_event():
 # Shutdown
 @app.on_event("shutdown")
 def shutdown_event():
+    """FastAPI Shutdown Event"""
+
     for func in settings.on_event["shutdown"]:
         func()
 
@@ -75,4 +83,6 @@ def shutdown_event():
 # Redirect To Docs
 @app.get("/", response_class=RedirectResponse)
 async def redirect_fastapi():
+    """Redirects To: { Documentation }"""
+
     return "/docs"

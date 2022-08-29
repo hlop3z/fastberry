@@ -74,7 +74,7 @@ def main():
 
     # Base Directory
     base_dir = Path(__file__).parents[1]
-    path_to_watch = (base_dir / "apps")
+    path_to_watch = base_dir / "apps"
 
     # (base_dir / "logs").mkdir(parents=True, exist_ok=True)
 

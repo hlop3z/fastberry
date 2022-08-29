@@ -12,4 +12,8 @@ BASE_DIR = pathlib.Path(__file__).resolve().parents[0]
 manager = Fastberry(base_dir=BASE_DIR, is_cli=True)
 
 if __name__ == "__main__":
+    # Fastberry (Load : Apps)
+    manager.load_apps()
+
+    # Run
     manager.cli()
