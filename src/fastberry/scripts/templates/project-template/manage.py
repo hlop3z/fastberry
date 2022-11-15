@@ -1,19 +1,9 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+""" { Command-Line-Interface }
+    Click's Main File.
 """
-Project Manager
-"""
-
-import pathlib
-
-from fastberry import Fastberry
-
-BASE_DIR = pathlib.Path(__file__).resolve().parents[0]
-
-manager = Fastberry(base_dir=BASE_DIR, is_cli=True)
+from fastberry.app import Controller
 
 if __name__ == "__main__":
-    # Fastberry (Load : Apps)
-    manager.load_apps()
-
-    # Run
-    manager.cli()
+    # Mode: { CLI }
+    Controller.cli()

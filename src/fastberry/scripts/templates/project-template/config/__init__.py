@@ -1,11 +1,4 @@
+# -*- coding: utf-8 -*-
 """
-Project Settings
+    { Project }
 """
-
-import pathlib
-
-from fastberry import Fastberry
-
-BASE_DIR = pathlib.Path(__file__).resolve().parents[1]
-
-settings = Fastberry(base_dir=BASE_DIR)

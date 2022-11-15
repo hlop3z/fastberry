@@ -1,0 +1,50 @@
+query Detail {
+  CategoryDetail(item: { id: "", ids: "" }) {
+    id
+    name
+  }
+}
+
+query Search {
+  CategorySearch(
+    pagination: { page: 1, sortBy: "id", limit: 100, all: false }
+    search: {
+      amount: "55.5"
+      cash: 44.4
+      count: 999
+      name: "Cool"
+      endDatetime: "2022-11-10T16:35:56.216344"
+      startDate: "2022-11-10"
+      timestamp: "16:35:04.872130"
+    }
+  ) {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+    pageInfo {
+      extra
+      length
+      pages
+    }
+  }
+}
+
+mutation Create {
+  CategoryCreate(form: { name: "cool" }) {
+    ... on Category {
+      id
+      name
+    }
+    ... on Error {
+      meta
+      messages {
+        type
+        text
+        field
+      }
+    }
+  }
+}

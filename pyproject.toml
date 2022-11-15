@@ -4,13 +4,13 @@ build-backend = "pdm.pep517.api"
 
 [project]
 name = "fastberry"
-version = "0.0.51"
-description = "Easy FastAPI & Strawberry"
+version = "0.0.54"
+description = "GraphQL Made Easy"
 requires-python = ">=3.10"
 readme = "README.md"
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 authors = [
-    {name = "hlop3z", email = "23062270+hlop3z@users.noreply.github.com"},
+    { name = "hlop3z", email = "23062270+hlop3z@users.noreply.github.com" },
 ]
 classifiers = [
     "License :: OSI Approved :: MIT License",
@@ -20,10 +20,10 @@ classifiers = [
 ]
 dependencies = [
     "click>=8.1.3",
-    "PyYAML>=6.0",
     "fastapi>=0.79.0",
     "strawberry-graphql>=0.125.0",
-    "python-dotenv>=0.20.0",
+    "spoc>=0.1.5",
+    "uvicorn[standard]>=0.18.3",
 ]
 
 [project.urls]
@@ -34,36 +34,32 @@ Documentation = "https://hlop3z.github.io/fastberry/"
 startproject = "fastberry.scripts.start_project:cli"
 
 [project.optional-dependencies]
+mongo = ["dbcontroller[mongo]>=0.1.41"]
+sql = ["dbcontroller[sql]>=0.1.41"]
+testing = ["dbcontroller[testing]>=0.1.41"]
 
 [tool.setuptools.packages.find]
-where = ["src"]  # list of folders that contain the packages
+where = ["src"]
 
-
-[tool]
 [tool.pdm]
+
 [tool.pdm.dev-dependencies]
 devops = [
     "isort>=5.10.1",
     "black>=22.6.0",
-    "pylint>=2.14.5",
+    "pylint>=2.15.0",
     "bandit>=1.7.4",
     "watchdog>=2.1.9",
-    "pre-commit>=2.20.0",
+    "twine>=4.0.1",
 ]
-docs = [
-    "mkdocs>=1.3.1",
-    "mkdocs-material>=8.4.1",
-]
-test = [
-    "uvicorn[standard]>=0.18.3",
-    "dbcontroller[testing]>=0.1.26",
-]
+docs = ["mkdocs", "mkdocs-material"]
 
 [tool.pdm.scripts]
-watch = "python scripts/watcher.py"
-docs-dev = {shell = "cd docs/ && python -m mkdocs serve --dev-addr 0.0.0.0:8055"}
-docs-gh = {shell = "cd docs/ && python -m mkdocs gh-deploy --force"}
-test = {shell = "cd tests/ && python manage.py run"}
-
-
-# - `python -m mkdocs gh-deploy --force` Deploy to GitHub Pages.
+lint-watch = "python scripts/linter.py"
+test = { shell = "cd tests/ && python manage.py" }
+# Docs
+docs-dev = { shell = "cd docs/ && python -m mkdocs serve --dev-addr 0.0.0.0:8055" }
+docs-build = { shell = "cd docs/ && python -m mkdocs build" }
+docs-gh = { shell = "cd docs/ && python -m mkdocs gh-deploy --force" }
+# PyPi Upload
+pypi = "twine upload dist/*"

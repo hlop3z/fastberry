@@ -5,31 +5,30 @@
 import dataclasses as dc
 import typing
 
+import fastberry as fb
 import strawberry
 
-from ..config import Settings
+DOC = """
+**Setting**: `(all: true)` 
 
-settings = Settings()
-
-try:
-    ITEMS_PER_PAGE = settings.base.querying.get("items_per_page")
-except:
-    ITEMS_PER_PAGE = 50
+**Returns**: **All** of the **items** in the **Database** (Mostly For **Admin(s) Use Only**).
+"""
 
 
-@strawberry.input
+@strawberry.input(description=DOC)
 @dc.dataclass
 class Pagination:
     """GraphQL Pagination"""
 
     page: int = 1
-    limit: typing.Optional[int] = ITEMS_PER_PAGE
+    limit: typing.Optional[int] = 50
     sort_by: typing.Optional[str] = "-id"
     all: typing.Optional[bool] = False
 
     def __post_init__(self):
         """Add Search Parameters to Query"""
-        page = settings.apps.pagination(
+        controller = fb.App()
+        page = controller.pagination(
             page=self.page,
             limit=self.limit,
         )

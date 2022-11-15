@@ -18,6 +18,8 @@
 
 - `production`
 
+- `custom`
+
 ---
 
 ## Settings Layout
@@ -26,16 +28,20 @@
 root/                           --> <Directory> - Project's Root.
 |
 |--  config/                    --> <Directory> - Configurations.
-|    |-- __init__.py            --> <File> - Load Settings.
+|    |
+|    |-- .env/                  --> <Directory> - Environments.
+|    |   |
+|    |   |-- development.toml   --> <File> - Development    | Settings.
+|    |   |-- production.toml    --> <File> - Production     | Settings.
+|    |   `-- staging.toml       --> <File> - Staging        | Settings.
+|    |
 |    |-- docs.md                --> <File> - This Documentation is in HERE.
-|    |
-|    |-- env/                   --> <Directory> - Environments.
-|    |   |-- development.env    --> <File> - Development.
-|    |   |-- production.env     --> <File> - Production.
-|    |   `-- staging.env        --> <File> - Staging.
-|    |
-|    `-- mode.json              --> <File> - Current Mode.
+|    |-- settings.py            --> <File> - Pythonic       | Settings.
+|    `-- spoc.toml              --> <File> - TOML           | Settings.
 |
-|-- settings.yaml               --> <File> - Base Settings.
+|-- pyproject.toml              --> <File> - Project | Settings.
+|
 `-- etc...
 ```
+
+---

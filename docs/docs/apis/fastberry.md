@@ -6,9 +6,9 @@ However, it can be initialized **outside** your **`functions`**.
 ## Python **Code**
 
 ```python
-from fastberry import Fastberry
+import fastberry as fb
 
-manager = Fastberry()
+Controller = fb.App()
 ```
 
 ## API **Usage**

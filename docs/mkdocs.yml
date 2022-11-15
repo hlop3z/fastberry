@@ -6,37 +6,29 @@ copyright: Copyright © Hlop3z
 nav:
   - Fastberry:
       - Introduction: index.md
+      - Diagram: diagram.md
       - Settings: settings.md
-      - Environments:
-          - Variables: environments/variables.md
-      - Types:
-          - Introduction: types/introduction.md
-          - Databases: types/databases.md
-          - Scalars/Fields/Columns: types/scalars.md
-          # - SQL-Querying: types/sql-querying.md
       - Applications:
-          - Introduction: applications.md
-          - GraphQL: graphql.md
-          # - Operations: operations.md
-          - Commands: commands.md
-          - Router: routers.md
-          - CRUD-App: crud-app.md
+          - Introduction: applications/index.md
+          - FOCT: applications/foct.md
+          - GraphQL: applications/graphql.md
+          - CRUD: applications/crud.md
+          - Types: applications/types.md
+          - Forms: applications/forms.md
+          - Commands: applications/commands.md
+          - Router: applications/routers.md
       - Middleware, Extension and Permissions:
           - Workflow: middleware/workflow.md
           - Middleware: middleware/middleware.md
           - Extension: middleware/extension.md
           - Permission: middleware/permissions.md
           - Plugin: middleware/plugin.md
-      - Application Programming Interface:
-          - Fastberry API: apis/fastberry.md
-          - GraphQL API: apis/graphql.md
-          # - SQL API: apis/sqlalchemy.md
+          - Events: middleware/events.md
+      # - Application Programming Interface:
+      # - Fastberry API: apis/fastberry.md
+      # - GraphQL API: apis/graphql.md
 
-  - Getting Started:
-      - Installation:
-          - PDM Tutorial: getting-started/installation.md
-          - Template: getting-started/template.md
-
+# Configurations
 extra_css:
   - css/extra.css
 
@@ -69,6 +61,7 @@ theme:
         name: Switch to light mode
 
 markdown_extensions:
+  - admonition
   - tables
   - pymdownx.highlight:
       anchor_linenums: true

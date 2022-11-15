@@ -1,0 +1,18 @@
+{
+	"name": "api",
+	"version": "1.0.0",
+	"scripts": {
+		"gql": "zeus backend/schema.graphql ./",
+		"es-build": "npm run gql && esbuild app.ts --outfile=dist/tmp.js --bundle --format=esm --target=esnext",
+		"step-one": "echo /* eslint-disable */ > dist/fastberry.mjs",
+		"step-two": "cat dist/tmp.js >> dist/fastberry.mjs && rm dist/tmp.js",
+		"build": "npm run es-build && npm run step-one && npm run step-two"
+	},
+	"dependencies": {
+		"fastberry": "^0.1.11"
+	},
+	"devDependencies": {
+		"esbuild": "^0.15.7",
+		"graphql-zeus": "^5.1.9"
+	}
+}

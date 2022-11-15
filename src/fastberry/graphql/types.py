@@ -22,8 +22,11 @@ from .edges import Connection, Edge, PageInfo
 class ErrorMessage:
     """GraphQL Error Message"""
 
-    type: str = None
-    message: str = None
+    # ['field', 'type', 'text']
+
+    field: str | None = None
+    type: str | None = None
+    text: str | None = None
 
 
 @strawberry.type
@@ -45,15 +48,15 @@ def Mutation(model):
     return model | Error
 
 
-def Edges(model):
+def Edges(model) -> Connection:
     """GraphQL Edges"""
     return Connection[model]
 
 
-def Response(
-    edges: list = None, length: int = None, pages: int = None, extra: dict = None
-):
-    """Edges Response"""
+def Page(
+    edges: list[Edge] = None, length: int = None, pages: int = None, extra: dict = None
+) -> Connection:
+    """Edges { Page } Response"""
     edges = edges or []
     extra = extra or {}
     items = [Edge(node=item, cursor=item.id) for item in edges]

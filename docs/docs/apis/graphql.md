@@ -11,35 +11,31 @@ from fastberry import JSON # (3)
 
 from fastberry import GQL # (4)
 from fastberry.graphql.inputs import Pagination # (5)
-from fastberry.graphql.types import (
-    Edges,
-    Error,
-    ErrorMessage,
-    Mutation,
-    Query,
-    Response,
-) # (6)
+from fastberry import edges, error, errors, mutation, page, query # (6)
 ```
 
 1. Base to **`create`** a **SQL**, **Mongo** or **Generic** **`{ Types }`**.
 2. **Field:** Database **`Text`** and GraphQL **`String`**.
 3. **Field:** Database **`JSON`** and GraphQL **`JSON`**.
 4. Base **`class`** to create **`Query`** and **`Mutation`** methods.
-5. **`Pagination`** method. Uses the **`manager.base.querying.items_per_page`** to **limit** the request.
+5. **`Pagination`** method. Used to **limit** the request.
 6. Used for python **annotations**. Either for pure **`annotations`** or also to **`return`** a value that is **compliant** with your **GraphQL**
 
 ---
 
 ## Methods **Descriptions**
 
-| Method         | Connects With ...                            | Description                                                                  |
-| -------------- | -------------------------------------------- | ---------------------------------------------------------------------------- |
-| **`Model`**    | Everything :material-emoticon-happy-outline: | Use **Model** to **create** custom **GraphQL** **`Type(s)`**                 |
-| **`Edges`**    | **`Response`**                               | Use **Edges** for **`annotations`**                                          |
-| **`Response`** | **`Edges`**                                  | Use **Response** to **`return`** a **list** of custom **GraphQL** **`Type`** |
-| **`Error`**    | **`[ErrorMessage]`**                         | Use **Error** to **`return`** a **list** of **ErrorMessage**(s)              |
-| **`Mutation`** | Type(**`CustomType`**)                       | Use **Mutation** for **`annotations`**                                       |
-| **`Query`**    | Type(**`CustomType`**)                       | Use **Query** for **`annotations`**                                          |
+| Method         | Connects With ... | Description                                                              |
+| -------------- | ----------------- | ------------------------------------------------------------------------ |
+| **`errors`**   | **`[error]`**     | Use **errors** to **`return`** a **list** of **error**(s)                |
+| **`mutation`** | **`Types`**       | Use **mutation** for **`annotations`**                                   |
+| **`query`**    | **`Types`**       | Use **query** for **`annotations`**                                      |
+| **`edges`**    | **`page`**        | Use **edges** for **`annotations`**                                      |
+| **`page`**     | **`[edges]`**     | Use **page** to **`return`** a **list** of custom **GraphQL** **`Type`** |
+
+| Method      | Connects With ...                            | Description                                                  |
+| ----------- | -------------------------------------------- | ------------------------------------------------------------ |
+| **`Model`** | Everything :material-emoticon-happy-outline: | Use **Model** to **create** custom **GraphQL** **`Type(s)`** |
 
 ## Usage **Example**
 
@@ -56,21 +52,19 @@ from fastberry.graphql.types import (
         API - Strawberry Types
     """
 
-    import dataclasses as dc
     import datetime
     import decimal
     import typing
 
     # Create your <types> here.
-    from fastberry import JSON, Model, Text
+    import fastberry as fb
 
-    model = Model()
-
-    @model.type
+    @fb.mongo.model
     class Author:
+        """(Type) Read The Docs"""
         name: str
 
-    @model.type
+    @fb.sql.model(description="(Type) Read The Docs")
     class Product:
         """
         query MyQuery {
@@ -105,8 +99,9 @@ from fastberry.graphql.types import (
             return Category(name="awesome")
 
 
-    @model.type
+    @fb.sql.model
     class Category:
+        """(Type) Read The Docs"""
         name: str
     ```
 
@@ -117,13 +112,35 @@ from fastberry.graphql.types import (
     """
         API - Complex Inputs
     """
+    import fastberry as fb
 
-    import strawberry
+    # Create Group "Form"
+    form = fb.input("form")
 
-    # Create your <inputs> here.
-    @strawberry.input
-    class SearchAuthor:
-        name: str | None = None
+    # Create your <forms> here.
+    @form
+    class Search:
+        """(Form) Read The Docs"""
+
+        email = fb.value(
+            str,
+            default="demo@helloworld.com",
+            regex={
+                r"[\w\.-]+@[\w\.-]+": "invalid email address"
+            },
+            rules=[
+                (lambda v: v.startswith("demo") or "invalid input")
+            ],
+            filters=fb.filters(
+                regex=[
+                    ("^hello", "hola"),
+                    ("com", "api"),
+                ],  # ("^hello"...) [Won't Work]: We used { regex } to check if it startswith "hello".
+                rules=[
+                    (lambda v: v.upper())
+                ],
+            ),
+        )
     ```
 
 === "graphql.py"
@@ -134,38 +151,32 @@ from fastberry.graphql.types import (
         API - CRUD
     """
 
-    from fastberry import GQL
     from fastberry.graphql.inputs import Pagination
-    from fastberry.graphql.types import (
-        Edges,
-        Error,
-        ErrorMessage,
-        Mutation,
-        Query,
-        Response,
-    )
+    import fastberry as fb
 
-    from .. import inputs, types
+    from .. import forms, manager, types
 
-
-    class Demo(GQL):
+    @fb.gql
+    class Demo:
         """Demo Api"""
 
         class Query:
             """Query"""
 
-            async def detail() -> Query(types.Product):
+            async def detail() -> fb.query(types.Product):
                 return types.Product(name="Model", aliases=["type", "class", "object"])
 
             async def single_instance(
                 search: inputs.SearchAuthor | None
-            ) -> Query(types.Author):
+            ) -> fb.query(types.Author):
                 return types.Author(_id=1, id=1, name="Ludwig Van Beethoven")
 
             async def multiple_instances(
-                pagination: Pagination,
-            ) -> Edges(types.Author):
+                search: forms.Search,
+                pagination: fb.pagination,
+            ) -> fb.edges(types.Author):
                 print(pagination)
+                print(search.input)
                 return Response(
                     edges=[
                         types.Author(_id=1, id=1, name="Ludwig Van Beethoven"),

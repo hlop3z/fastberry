@@ -1,0 +1,24 @@
+[spoc]
+mode = "custom" # development, production, staging, custom
+custom_mode = "development"
+docs = "config/docs.md"
+generates = "generated"
+client = "client"
+
+[spoc.api]
+graphql_path = "/graphql"
+max_depth = 4
+items_per_page = 50
+allowed_hosts = ["http://localhost", "http://localhost:8080"]
+ 
+[spoc.apps]
+production = ["demo", "good_app"]
+development = []
+staging = []
+
+[spoc.extras]
+#middleware = ["fastberry.extras.AuthenticatedCookieMiddleware"]
+#extensions = ["good_app.extension.InjectUser"]
+#permissions = ["good_app.permissions.IsAuthorized"]
+on_startup = ["fastberry.extras.redirect_root", "fastberry.extras.graphql_info", "good_app.on_event.step_1", "good_app.on_event.step_2"]
+on_shutdown = ["good_app.on_event.step_2"]

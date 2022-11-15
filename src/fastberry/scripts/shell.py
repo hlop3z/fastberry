@@ -41,10 +41,9 @@ def unzip(source: pathlib.Path, destination: pathlib.Path):
     unzip_base(source, TEMPORARY_DIR)
     tmp = TEMPORARY_DIR / zipfile_name
     file_names = os.listdir(tmp)
-    try:
-        os.remove(destination / "Pipfile")
-    except:
-        pass
     for file_name in file_names:
-        shutil.move(os.path.join(tmp, file_name), destination)
-    os.rmdir(tmp)
+        try:
+            shutil.move(os.path.join(tmp, file_name), destination)
+        except:
+            pass
+    shutil.rmtree(tmp, ignore_errors=False, onerror=None)

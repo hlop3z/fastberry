@@ -32,9 +32,9 @@ sh scripts/keygen.sh
 
 > After creating the **Secret-Key** add it inside your files.
 
-- config/env/development.env
-- config/env/staging.env
-- config/env/production.env
+- config/.env/development.toml
+- config/.env/staging.toml
+- config/.env/production.toml
 
 ### PDM **Scripts**
 

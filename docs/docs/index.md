@@ -2,53 +2,95 @@
 
 Fastberry, is built with **FastAPI** and **Strawberry** that is why is named **Fastberry**.
 
-The **`manager`** is built with **Click**.
-
-### **Built** With:
-
-| Module                                                                                  | Is Used To...                                                         |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| <a href="https://github.com/pallets/click/" target="_blank">**Click**</a>               | **Manage** the server, development process and custom **`Commands`**. |
-| <a href="https://fastapi.tiangolo.com/" target="_blank">**FastAPI**</a>                 | **Core** Web **`Framework`**                                          |
-| <a href="https://strawberry.rocks/" target="_blank">**Strawberry**</a>                  | **GraphQL** **`Library`**                                             |
-| <a href="https://pypi.org/project/PyYAML/" target="_blank">**PyYAML**</a>               | **Load** the project **`Settings`**.                                  |
-| <a href="https://pypi.org/project/python-dotenv/" target="_blank">**Python-Dotenv**</a> | **Load** the **`Environment Variables`**.                             |
-| <a href="https://pydantic-docs.helpmanual.io/" target="_blank">**Pydantic**</a>         | **Format** `Environment Variables` and more **FastAPI** uses.         |
-| <a href="https://www.uvicorn.org/" target="_blank">**Uvicorn**</a>                      | **Run** the server in **`Development`** mode.                         |
-| <a href="https://gunicorn.org/" target="_blank">**Gunicorn**</a>                        | **Run** the server in **`Staging`** and **`Production`** mode.        |
+The **`Command-Line-Interface` (CLI)** is built with **Click**.
 
 ---
 
-## **Install** Fastberry
+## **Description**
+
+A tool for building **`GraphQL — API(s)`** with **`Python`**.
+
+!!! info "You can create . . ."
+
+    1. **`GraphQL`** — **`Query`**(s) and **`Mutation`**(s).
+    2. **`API`** — HTTP **`Operation`**(s).
+    3. **`Commands`** — To create automated processes and more . . .
+
+---
+
+## **Built** With
+
+| Module                                                                                | Is Used To...                                                         |
+| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| <a href="https://github.com/pallets/click/" target="_blank">**Click**</a>             | **Manage** the server, development process and custom **`Commands`**. |
+| <a href="https://fastapi.tiangolo.com/" target="_blank">**FastAPI**</a>               | **Core** Web **`Framework`**                                          |
+| <a href="https://strawberry.rocks/" target="_blank">**Strawberry**</a>                | **GraphQL** **`Library`**                                             |
+| <a href="https://www.uvicorn.org/" target="_blank">**Uvicorn**</a>                    | **Run** the server in **`Development`** mode.                         |
+| <a href="https://gunicorn.org/" target="_blank">**Gunicorn**</a>                      | **Run** the server in **`Staging`** and **`Production`** mode.        |
+| <a href="https://pypi.org/project/spoc/" target="_blank">**SPOC**</a>                 | **FrameWork** tool for building this **`Framework`**.                 |
+| <a href="https://pypi.org/project/dbcontroller/" target="_blank">**DBController**</a> | **Database** Controller for **`SQL`** & **`Mongo`**.                  |
+
+---
+
+## Install **Fastberry** (Demo)
 
 ```sh
-python -m pip install fastberry
+python -m pip install "fastberry[testing]"
 ```
 
-## **Install** Uvicorn + Gunicorn
+## Install Fastberry **Mongo**
 
 ```sh
-python -m pip install "uvicorn[standard]" gunicorn
+python -m pip install "fastberry[mongo]"
+```
+
+## Install Fastberry **SQL**
+
+```sh
+python -m pip install "fastberry[sql]" "databases[sqlite]"
+```
+
+!!! info "SQL Options"
+
+    | Database   | Extra Installation(s)         |
+    | ---------- | ----------------------------- |
+    | PostgreSQL | **`"databases[postgresql]"`** |
+    | MySQL      | **`"databases[mysql]"`**      |
+    | Sqlite     | **`"databases[sqlite]"`**     |
+
+## **Install** Gunicorn
+
+```sh
+python -m pip install gunicorn
 ```
 
 ---
 
-## **Module** Workflow
+## Project **Flowchart**
 
-> You can create **`commands`** or **`fastapi`** and **`strawberry-graphql`** endpoints.
+!!! info "You can create . . ."
+
+    **`Command(s)`** | **`API(s)`** | **`GraphQL`** <span class="cool-text">**Components**</span>.
+
+| <span class="cool-text">**(API)**</span> Application Programming Interface | <span class="cool-text">**(CLI)**</span> Command-Line Interface    |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| 1. Load all **`Settings`**.                                                | 1. Load all **`Settings`**.                                        |
+| 2. Load **`Environment Variables`**.                                       | 2. Load **`Environment Variables`**.                               |
+| 3. Load all **`Apps (Modules)`**.                                          | 3. Load all **`Apps (Modules)`**.                                  |
+| 4. Start the **`API`** <span class="cool-text">**Server**</span>.          | 4. Start the **`CLI`** <span class="cool-text">**Manager**</span>. |
 
 ```mermaid
-graph LR;
+flowchart LR;
     A{Click} --> B[Uvicorn];
     A --> C[Gunicorn];
-    A --- D[Load Settings & Modules];
+    A <--> D[Load Settings & Modules];
     B --> E{FastAPI};
     C --> E;
-    E --- F[Load Settings & Modules];
-    D --- |Strawberry-GraphQL| G{Your Commands};
-    F --- |Strawberry-GraphQL| H{Your API};
-    H --> Z{Your Code};
-    G --> Z;
+    E <--> F[Load Settings & Modules];
+    D <--> |Strawberry-GraphQL| G{Your Commands};
+    F <--> |Strawberry-GraphQL| H{Your API};
+    H <--> Z{Your Code};
+    G <--> Z;
 ```
 
 ---
@@ -58,22 +100,21 @@ graph LR;
 ```text
 root/                           --> <Directory> - Project's Root.
 |
-|--  apps/                      --> <Directory> - Modules (aka: Apps) in HERE.
+|-- apps/                       --> <Directory> - Project's Apps.
 |
 |--  config/                    --> <Directory> - Configurations.
-|    |-- __init__.py            --> <File> - Load Settings.
+|    |
+|    |-- .env/                  --> <Directory> - Environments.
+|    |   |-- development.env    --> <File> - Development    | Settings.
+|    |   |-- production.env     --> <File> - Production     | Settings.
+|    |   `-- staging.env        --> <File> - Staging        | Settings.
+|    |
 |    |-- docs.md                --> <File> - API's Documentation in HERE.
-|    |
-|    |-- env/                   --> <Directory> - Environments.
-|    |   |-- development.env    --> <File> - Development Settings.
-|    |   |-- production.env     --> <File> - Production Settings.
-|    |   `-- staging.env        --> <File> - Staging Settings.
-|    |
-|    `-- mode.json              --> <File> - Current Mode.
+|    |-- settings.py            --> <File> - API (Pythonic) | Settings.
+|    `-- spoc.toml              --> <File> - API (TOML)     | Settings.
 |
-|-- main.py                     --> <File> - FastAPI main.py file.
-|-- manage.py                   --> <File> - Run (CLI) Command-Line-Interface.
-|-- settings.yaml               --> <File> - Base Settings.
+|-- pyproject.toml              --> <File> - Project (TOML) | Settings.
+|
 `-- etc...
 ```
 
@@ -87,20 +128,10 @@ Some of the commands and the installation of **modules** (aka: **INSTALLED_APPS*
 
 ### **Fastberry** comes with a few key **commands**:
 
-- **`startproject`** Create a new **Fastberry** project.
-- **`./manage.py run`** Run **FastApi Server**.
-- **`./manage.py schema`** Build **GraphQL (Schema + Operations + ReturnTypes)**.
-- **`./manage.py start-app`** Create a **Fastberry App** inside your "**`apps`**" directory.
-- **`./manage.py --help`** For **more information**.
-
-## **Mode** (Options)
-
-> **`./manage.py run`** Start **FastApi Server**
-
-- `development`
-
-- `staging`
-
-- `production`
-
-> **`./manage.py run --help`** For **more information**.
+| Command                     | Is Used To...                                                  |
+| --------------------------- | -------------------------------------------------------------- |
+| **`startproject`**          | Create a new **Fastberry** project.                            |
+| **`./manage.py run`**       | Run **FastApi Server**.                                        |
+| **`./manage.py schema`**    | Build **GraphQL (Schema + Operations + ReturnTypes)**.         |
+| **`./manage.py start-app`** | Create a **Fastberry App** inside your "**`apps`**" directory. |
+| **`./manage.py --help`**    | For **more information**.                                      |

@@ -1,0 +1,18 @@
+[spoc]
+mode = "custom"
+custom_mode = "development"
+
+# Mode(s)
+[spoc.apps]
+production = []
+development = []
+staging = []
+
+[spoc.extras]
+# Middlewares
+middleware = []
+extensions = []
+permissions = []
+# On-Event
+on_startup = []
+on_shutdown = []

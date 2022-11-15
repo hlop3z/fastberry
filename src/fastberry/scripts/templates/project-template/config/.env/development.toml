@@ -1,0 +1,3 @@
+[env]
+DEBUG       = "yes"
+SECRET_KEY  = "fastapi-insecure-09d25e094faa6ca2556c"

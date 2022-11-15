@@ -1,0 +1,13 @@
+[spoc]
+mode = "custom" # development, production, staging, custom
+custom_mode = "development"
+
+[spoc.apps]
+production = []
+development = []
+staging = []
+
+[spoc.extras]
+middleware = ["my_app.on_event.step_1"]
+on_startup = ["my_app.on_event.step_1"]
+on_shutdown = ["my_app.on_event.step_2"]

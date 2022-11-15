@@ -1,140 +1,211 @@
-Core **Settings** are in **`YAML`** format. Because **YAML** is easy to read.
+Core **Settings** are in **`TOML`** format. Because **TOML** is easy to read for humans and computers.
 
-> "is a human-readable data-serialization language". — **Wikipedia**
+!!! example "TOML"
 
-**Environment Variables** are in **`dot.env`** because are dependent in the current environment **mode**.
+    Since <a href="https://toml.io/en/" target="_blank">**`TOML`**</a>  is **`Python`**'s new best friend. Feels like a good fit for the core **settings** of the project.
 
 ---
 
 ## Settings **Workflow**
 
-1. Load **`settings.yaml`**
-2. Load **`mode.json`**
-3. Load **`Environment Variables`**
+!!! info "Settings"
+
+    1. Load **`pyproject.toml`**
+    2. Load **`spoc.toml`**
+    3. Load **`settings.py`**
+    4. Load **`Environment Variables`**
 
 ```mermaid
-graph LR;
-    A[settings.yaml] --> D;
-    B[mode.json] --> C;
-    C[mode.env] --> D{Project Settings};
+flowchart TB;
+    A[pyproject.toml] --> E{Project Settings};
+    B[spoc.toml] --> E{Project Settings};
+    C[settings.py] --> E;
+    D[environment.toml] --> E;
 ```
 
 ---
 
-## Locations
+## Settings **Locations**
 
 ```text
 root/                           --> <Directory> - Project's Root.
 |
 |--  config/                    --> <Directory> - Configurations.
-|    |-- etc...
-|    |-- env/                   --> <Directory> - Environments.
-|    |   |-- development.env    --> <File> - Development Settings.
-|    |   |-- production.env     --> <File> - Production Settings.
-|    |   `-- staging.env        --> <File> - Staging Settings.
 |    |
-|    `-- mode.json              --> <File> - Current Mode.
+|    |-- .env/                  --> <Directory> - Environments.
+|    |   |-- development.toml   --> <File> - Development Settings.
+|    |   |-- production.toml    --> <File> - Production Settings.
+|    |   `-- staging.toml       --> <File> - Staging Settings.
+|    |
+|    |-- settings.py            --> <File> - Pythonic Settings.
+|    `-- spoc.toml              --> <File> - Spoc Settings.
 |
-|-- settings.yaml               --> <File> - Base Settings.
+|-- pyproject.toml              --> <File> - PyProject Settings.
 `-- etc...
 ```
 
-=== "YAML (CODE)"
+=== "PyProject"
 
-    ## **Settings** (YAML)
+    ## **pyproject** (TOML)
 
-    ``` yaml
-    # API Information
-    VERSION: 0.1.0 # (1)
-    APP_NAME: Fastberry # (2)
-    ADMIN_EMAIL: fastberry@example.com # (3)
+    ``` toml title="pyproject.toml"
+    [project]
+    name = "fastberry" # (1)
+    version = "0.1.4" # (2)
+    description = "GraphQL Made Easy." # (3)
 
-    # GraphQL (Output Folder) (4)
-    GENERATES: graphql
-
-    QUERYING:
-      items_per_page: 50 # (6)
-      max_depth: 4 # (7)
-
-    # Allowed Hosts (5)
-    ALLOWED_HOSTS:
-      - http://localhost:8080
-      - http://127.0.0.1:8080
-
-    # Applications (8)
-    INSTALLED_APPS:
-      - my_awesome_app
-
-    # Development (9)
-    DEVELOPMENT_APPS:
-      - some_development_tool
-
-    # Middleware (10)
-    MIDDLEWARE:
-      - myapp.middleware.SomeMiddleware
-
-    # Extensions (11)
-    EXTENSIONS:
-      - myapp.extension.SomeExtension
-
-    # Permissions (12)
-    PERMISSIONS:
-      - myapp.permission.SomePermission
-
-    # Event-Startup (13)
-    ON_STARTUP:
-      - myapp.events.OnStartup
-
-    # Event-Shutdown (14)
-    ON_SHUTDOWN:
-      - myapp.events.OnShutdown
+    # etc ... (4)
     ```
 
-    1. **API** — Current **Version**.
-    2. **API** — Project **Name**.
-    3. **API** — Admin **Email**.
-    4. **Output** folder for **GraphQL Schema & Operations**.
-    5. List of **Allowed Hosts** that can **connect** to the server.
-    6. **Max** number of items to grab from the **Database**.
-    7. **Max** number for the depth of **GraphQL Queries**.
-    8. List of **Installed Apps** that are currently used in the project.
-    9. List of **Development Apps** that are active when the server is running on **development mode**.
-    10. List of **BaseMiddleware**(s) and uses **(Starlette)**
-    11. List of **BaseExtension**(s) and uses **(Strawberry)**
-    12. List of **BasePermission**(s) and uses **(Strawberry)**
-    13. **FastAPI** **`Startup`** event. Everything You want to **load** before the **`SERVER`** starts.
-    14. **FastAPI** **`Shutdown`** event. Everything You want to **stop** before the **`SERVER`** shutdown.
+    1. **Name** — The **name** of the project.
+    2. **Version** — The **version** of the project.
+    3. **Description** — Short **description** of your project.
+    4. **Other** — Other **configurations** of your project.
 
-=== "Middleware, Extension and Permissions"
+    !!! info "PyProject"
 
-    ## **Breakdown** of the **Settings**
+        **`fastberry.config["pyproject"]`** is where your **PyProject Variables** are loaded.
 
-    ---
+    ``` python title="example.py"
+    import fastberry as fb
 
-    #### MIDDLEWARE <a href="https://www.starlette.io/middleware/" target="_blank" rel="noopener noreferrer">**(Starlette)**</a>
+    print(fb.config["pyproject"])
+    ```
 
-    > List of active **Middlewares**.
+=== "Spoc"
 
-    You can create your own **middleware** by using the **base module**.
+    ## **SPOC** (TOML)
 
-    The **BaseMiddleware** included is just a wrapper/rename for **BaseHTTPMiddleware** from **Starlette**
+    ``` toml title="config/spoc.toml"
+    [spoc] # (1)
+    mode = "custom" # development, production, staging, custom
+    custom_mode = "development" # (16)
+    docs = "config/docs.md"
+    generates = "graphql"
 
-    ---
+    [spoc.api] # (2)
+    graphql_path = "/graphql" # (10)
+    max_depth = 4 # (11)
+    items_per_page = 50 # (12)
+    allowed_hosts = ["http://localhost", "http://localhost:8080"]
 
-    #### EXTENSIONS <a href="https://strawberry.rocks/docs/guides/custom-extensions" target="_blank" rel="noopener noreferrer">**(Strawberry)**</a>
+    [spoc.apps] # (3)
+    production = ["app_one", "app_two"] # (13)
+    development = [] # (14)
+    staging = [] # (15)
 
-    > List of active **Extensions**.
+    [spoc.extra] # (4)
+    middleware = ["fastberry.extras.middleware "] # (5)
+    extensions = ["fastberry.extras.extensions"] # (6)
+    permissions = ["fastberry.extras.permissions"] # (7)
+    on_startup = ["fastberry.extras.on_startup"] # (8)
+    on_shutdown = ["fastberry.extras.on_shutdown"] # (9)
+    ```
 
-    You can create your own **extension** by using the **base module**.
+    1. **API** — **Core Settings**.
+    2. **API** — **Querying & More Configs**.
+    3. **Installed** — **Apps**.
+    4. **Installed** — **Middleware, Extension & Permissions**.
+    5. **Middleware** — For adding behavior that is applied across your entire **(FastAPI)** application.
+    6. **Extensions** — For adding behavior that is applied across your entire **(GraphQL)** application.
+    7. **Permissions** — For adding **Permissions** to your **(GraphQL)** application.
+    8. **On-Startup** — For adding behavior that is applied **before** the **server** start.
+    9. **On-Shutdown** — For adding behavior that is applied **after** the **server** shutdown.
+    10. **Endpoint** — GraphQL's **URL** endpoint.
+    11. **Depth** — Search depth in the GraphQL's **tree**.
+    12. **Pagination** — Number of **rows per page**.
+    13. **Production** — Production Ready Apps **(`Production`)**.
+    14. **Development** — Development Only Apps **(`Production` + `Development`)**.
+    15. **Staging** — Testing Only Apps **(`Production` + `Staging`)**.
+    16. **Custom** — Custom mode will load **`Apps`** from the pythonic **`settings.py`** plus the current **`mode`**.
 
-    The **BaseExtension** included is just a wrapper/rename for **Extension** from **Strawberry**
+    !!! info "SPOC"
 
-    ---
+        **`fastberry.config["spoc"]`** is where your **SPOC Variables** are loaded.
 
-    #### PERMISSIONS <a href="https://strawberry.rocks/docs/guides/permissions" target="_blank" rel="noopener noreferrer">**(Strawberry)**</a>
+    ``` python title="example.py"
+    import fastberry as fb
 
-    > List of active **Permissions**.
+    print(fb.config["spoc"])
+    ```
 
-    You can create your own **permissions** by using the **base module**.
+=== "Environment Variables"
 
-    The **BasePermission** included is just a wrapper for **BasePermission** from **Strawberry**
+    ## **Environment Variables** (TOML)
+
+    ``` toml title="config/.env/development.toml"
+    [env]
+    DEBUG       = "yes"
+    SECRET_KEY  = "fastapi-insecure-09d25e094faa6ca2556c"
+    ```
+
+    !!! info "Variables"
+
+        **`fastberry.config["env"]`** is where your **Environment Variables** are loaded.
+
+    ``` python title="example.py"
+    import fastberry as fb
+
+    print(fb.config["env"])
+    ```
+
+=== "Custom"
+
+    ## **Custom** (Python)
+
+    ``` python title="settings.py"
+    # -*- coding: utf-8 -*-
+    """Project Settings."""
+    import pathlib
+
+    # Base Directory
+    BASE_DIR = pathlib.Path(__file__).parents[1]
+
+    # Installed Apps
+    INSTALLED_APPS = ["good_app", "demo"]
+
+    SQL_URL = "sqlite:///example.db"
+    MONGO_URL = "mongodb://localhost:27017/test_database"
+    ```
+
+    !!! info "PyProject"
+
+        **`fastberry.config["pyproject"]`** is where your **PyProject Variables** are loaded.
+
+    ``` python title="example.py"
+    import fastberry as fb
+
+    print(fb.config["pyproject"])
+    ```
+
+## **Breakdown** of the **Middlewares, Extensions and Permissions**
+
+---
+
+#### MIDDLEWARE <a href="https://www.starlette.io/middleware/" target="_blank" rel="noopener noreferrer">**(Starlette)**</a>
+
+> List of active **Middlewares**.
+
+You can create your own **`middleware`** by using the **base module**.
+
+The **`BaseMiddleware`** included is just a wrapper/rename for **BaseHTTPMiddleware** from **Starlette**
+
+---
+
+#### EXTENSIONS <a href="https://strawberry.rocks/docs/guides/custom-extensions" target="_blank" rel="noopener noreferrer">**(Strawberry)**</a>
+
+> List of active **Extensions**.
+
+You can create your own **`extension`** by using the **base module**.
+
+The **`BaseExtension`** included is just a wrapper/rename for **Extension** from **Strawberry**
+
+---
+
+#### PERMISSIONS <a href="https://strawberry.rocks/docs/guides/permissions" target="_blank" rel="noopener noreferrer">**(Strawberry)**</a>
+
+> List of active **Permissions**.
+
+You can create your own **`permissions`** by using the **base module**.
+
+The **`BasePermission`** included is just a wrapper for **BasePermission** from **Strawberry**
