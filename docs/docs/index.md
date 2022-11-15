@@ -4,6 +4,8 @@ Fastberry, is built with **FastAPI** and **Strawberry** that is why is named **F
 
 The **`Command-Line-Interface` (CLI)** is built with **Click**.
 
+<div id="terminal-index" data-termynal></div>
+
 ---
 
 ## **Description**
