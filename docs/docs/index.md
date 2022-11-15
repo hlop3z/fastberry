@@ -30,7 +30,7 @@ A tool for building **`GraphQL — API(s)`** with **`Python`**.
 | <a href="https://www.uvicorn.org/" target="_blank">**Uvicorn**</a>                    | **Run** the server in **`Development`** mode.                         |
 | <a href="https://gunicorn.org/" target="_blank">**Gunicorn**</a>                      | **Run** the server in **`Staging`** and **`Production`** mode.        |
 | <a href="https://pypi.org/project/spoc/" target="_blank">**SPOC**</a>                 | **FrameWork** tool for building this **`Framework`**.                 |
-| <a href="https://pypi.org/project/dbcontroller/" target="_blank">**DBController**</a> | **Database** Controller for **`SQL`** & **`Mongo`**.                  |
+| <a href="https://pypi.org/project/dbcontroller/" target="_blank">**DBController**</a> | **Database** Controller for **`SQL`** and **`Mongo`**.                |
 
 ---
 
