@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://hlop3z.github.io/fastberry/apis/sqlalchemy/">
+        <link rel="canonical" href="https://hlop3z.github.io/fastberry/applications/graphql/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>SQL-Alchemy **API** - Fastberry</title>
+        <title>GraphQL - Fastberry</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sql-alchemy-api" class="md-skip">
+        <a href="#file-or-folder-layout" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SQL-Alchemy **API**
+              GraphQL
             
           </span>
         </div>
@@ -204,13 +204,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
         Fastberry
       </a>
     </li>
@@ -267,12 +269,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -335,14 +339,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
       
       
       
@@ -365,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../applications/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -379,7 +385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../applications/foct/" class="md-nav__link">
+      <a href="../foct/" class="md-nav__link">
         FOCT
       </a>
     </li>
@@ -391,11 +397,55 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../applications/graphql/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GraphQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         GraphQL
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-or-folder-layout" class="md-nav__link">
+    File or Folder Layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-code" class="md-nav__link">
+    Python Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -407,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../applications/crud/" class="md-nav__link">
+      <a href="../crud/" class="md-nav__link">
         CRUD
       </a>
     </li>
@@ -421,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../applications/types/" class="md-nav__link">
+      <a href="../types/" class="md-nav__link">
         Types
       </a>
     </li>
@@ -435,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../applications/forms/" class="md-nav__link">
+      <a href="../forms/" class="md-nav__link">
         Forms
       </a>
     </li>
@@ -449,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../applications/commands/" class="md-nav__link">
+      <a href="../commands/" class="md-nav__link">
         Commands
       </a>
     </li>
@@ -463,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../applications/routers/" class="md-nav__link">
+      <a href="../routers/" class="md-nav__link">
         Router
       </a>
     </li>
@@ -620,8 +670,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -630,43 +678,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connect-table-type-to-manager" class="md-nav__link">
-    Connect Table (Type) to Manager
-  </a>
-  
-    <nav class="md-nav" aria-label="Connect Table (Type) to Manager">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-methods" class="md-nav__link">
-    Core Methods
+  <a href="#file-or-folder-layout" class="md-nav__link">
+    File or Folder Layout
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#read-methods" class="md-nav__link">
-    Read Methods
+      
+        <li class="md-nav__item">
+  <a href="#python-code" class="md-nav__link">
+    Python Code
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cud-methods" class="md-nav__link">
-    C.U.D Methods
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-querying-methods" class="md-nav__link">
-    Custom-Querying Methods
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -684,173 +705,126 @@
                 
                   
 
-  <a href="https://github.com/hlop3z/fastberry/edit/master/docs/apis/sqlalchemy.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/hlop3z/fastberry/edit/master/docs/applications/graphql.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="sql-alchemy-api">SQL-Alchemy <strong>API</strong></h1>
-<p>In this section we will learn about all the available options to create <strong>SQL-Queries</strong>.
-With the <strong>SQLAlchemy <code>Manager</code></strong>.</p>
-<h2 id="connect-table-type-to-manager">Connect <strong>Table (Type)</strong> to <strong>Manager</strong></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">fastberry</span> <span class="kn">import</span> <span class="n">SQLBase</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">DATABASE_URL</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///test_database.db&quot;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">sql_manager</span> <span class="o">=</span> <span class="n">SQLBase</span><span class="p">(</span><span class="n">DATABASE_URL</span><span class="p">,</span> <span class="n">My_Custom_GQL_Type</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="core-methods"><strong>Core</strong> Methods</h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://pypi.org/project/databases/" target="_blank"><strong><code>database</code></strong></a></td>
-<td><strong>Databases</strong> module. <strong>Asyncio</strong> support for a range of databases.</td>
-</tr>
-<tr>
-<td><a href="https://pypi.org/project/SQLAlchemy/" target="_blank"><strong><code>table</code></strong></a></td>
-<td><strong>SQLAlchemy</strong> module. <strong>Table</strong> for a SQL-Database</td>
-</tr>
-<tr>
-<td><strong><code>Q</code></strong></td>
-<td><strong>Custom-Querying</strong> for <strong>SQLAlchemy</strong> Tables</td>
-</tr>
-</tbody>
-</table>
-<h3 id="read-methods"><strong>Read</strong> Methods</h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Is Used To...</th>
-<th>Variables</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>filter_by</code></strong></td>
-<td><strong>Filter-By</strong> Columns (<strong>Multiple</strong>-Records)</td>
-<td><code>(dict, page=1, limit=100, sort_by='-id' )</code></td>
-</tr>
-<tr>
-<td><strong><code>search</code></strong></td>
-<td><strong>Search</strong> in Columns (<strong>Multiple</strong>-Records)</td>
-<td><code>(list[str(columns)], page=1, etc...)</code></td>
-</tr>
-<tr>
-<td><strong><code>find</code></strong></td>
-<td><strong>Custom-Querying</strong> (<strong>Multiple</strong>-Records)</td>
-<td><code>(custom_query, page=1, etc...)</code></td>
-</tr>
-<tr>
-<td><strong><code>get_by</code></strong></td>
-<td><strong>Filter-By</strong> Columns (<strong>Single</strong>-Record)</td>
-<td><code>(**kwargs)</code></td>
-</tr>
-<tr>
-<td><strong><code>detail</code></strong></td>
-<td>Get <strong>Details</strong> by <strong>GraphQL-ID</strong> (<strong>Single</strong>-Record)</td>
-<td><code>(GraphQL_ID)</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="cud-methods"><strong>C.U.D</strong> Methods</h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Is Used To...</th>
-<th>Variables</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>form</code></strong></td>
-<td><strong>Clean</strong> User's <strong><code>Inputs</code></strong>. And, <strong>only</strong> allows fields that are in the DataBase.</td>
-<td><code>(dict)</code></td>
-</tr>
-<tr>
-<td><strong><code>create</code></strong></td>
-<td><strong>Create</strong> a Single-Records.</td>
-<td><code>(dict)</code></td>
-</tr>
-<tr>
-<td><strong><code>update</code></strong></td>
-<td><strong>Edit</strong> Multiple-Records.</td>
-<td><code>(list[ID], dict)</code></td>
-</tr>
-<tr>
-<td><strong><code>delete</code></strong></td>
-<td><strong>Delete</strong> Multiple-Records.</td>
-<td><code>(list[ID])</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="custom-querying-methods"><strong>Custom-Querying</strong> Methods</h3>
+  <h1>GraphQL</h1>
+
 <blockquote>
-<p><strong>Usage</strong>: <code>Q.where(str: "column", str: "operation", Any: value)</code></p>
+<p>Your code <strong>needs</strong> to be in a <strong>file</strong> named <strong><code>graphql.py</code></strong> or <strong>folder</strong> named <strong><code>graphql</code></strong> inside your <strong>Application</strong>.</p>
 </blockquote>
-<p>For <strong>Example</strong>: <code>sql_manager.Q.where("id", "in", [1, 2, 3])</code></p>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Is Used To...</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>eq</code></strong></td>
-<td><strong>Equals</strong></td>
-</tr>
-<tr>
-<td><strong><code>ne</code></strong></td>
-<td><strong>Not Equals</strong></td>
-</tr>
-<tr>
-<td><strong><code>lt</code></strong></td>
-<td><strong>Less than</strong></td>
-</tr>
-<tr>
-<td><strong><code>le</code></strong></td>
-<td><strong>Less than or Equal than</strong></td>
-</tr>
-<tr>
-<td><strong><code>gt</code></strong></td>
-<td><strong>Greater than</strong></td>
-</tr>
-<tr>
-<td><strong><code>ge</code></strong></td>
-<td><strong>Greater than or Equal than</strong></td>
-</tr>
-<tr>
-<td><strong><code>contains</code></strong></td>
-<td><strong>Custom Text Search (Ignore-Case)</strong></td>
-</tr>
-<tr>
-<td><strong><code>like</code></strong></td>
-<td><strong>Text Search "%" (Case-Sensitive)</strong></td>
-</tr>
-<tr>
-<td><strong><code>ilike</code></strong></td>
-<td><strong>Text Search "%" (Ignore-Case)</strong></td>
-</tr>
-<tr>
-<td><strong><code>in</code></strong></td>
-<td><strong>In List</strong></td>
-</tr>
-<tr>
-<td><strong><code>bt</code></strong></td>
-<td><strong>Between</strong> "A &amp; B"</td>
-</tr>
-</tbody>
-</table>
+<h2 id="file-or-folder-layout">File or Folder <strong>Layout</strong></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span> File</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2Z"/></svg></span> Folder</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>root/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>|--  apps/
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>|    `--  MY_APP/
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>|         `-- graphql.py            --&gt; &lt;File&gt; - Your code in HERE!
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>|
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>`-- etc...
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>root/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>|
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>|--  apps/
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>|    `--  MY_APP/
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>|         `-- graphql/            --&gt; &lt;Directory&gt; - Your GraphQL in HERE!
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>|             |-- __init__.py     --&gt; &lt;File&gt; - Your IMPORTS in HERE!
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>|             `-- etc...
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>|
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>`-- etc...
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="python-code">Python <strong>Code</strong></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span> File</label><label for="__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2Z"/></svg></span> Folder</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">crud.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">    API - CRUD</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Fastberry</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kn">import</span> <span class="nn">fastberry</span> <span class="k">as</span> <span class="nn">fb</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Create your API (GraphQL) here.</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nd">@fb</span><span class="o">.</span><span class="n">gql</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">class</span> <span class="nc">Demo</span><span class="p">:</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="sd">&quot;&quot;&quot;Demo Api&quot;&quot;&quot;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="sd">&quot;&quot;&quot;GQL-Class Metadata&quot;&quot;&quot;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="c1"># app = False</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="c1"># model = &quot;User&quot;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="k">class</span> <span class="nc">Query</span><span class="p">:</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        <span class="sd">&quot;&quot;&quot;Query&quot;&quot;&quot;</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>        <span class="k">async</span> <span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>            <span class="sd">&quot;&quot;&quot;Read the Docs&quot;&quot;&quot;</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>            <span class="k">return</span> <span class="s2">&quot;Detail&quot;</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>    <span class="k">class</span> <span class="nc">Mutation</span><span class="p">:</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>        <span class="sd">&quot;&quot;&quot;Mutation&quot;&quot;&quot;</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>        <span class="k">async</span> <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>            <span class="sd">&quot;&quot;&quot;Read the Docs&quot;&quot;&quot;</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>            <span class="k">return</span> <span class="s2">&quot;Create&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">__init__.py</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">    CRUD - Init</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Import your &lt;cruds&gt; here.</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kn">from</span> <span class="nn">.demo</span> <span class="kn">import</span> <span class="n">Demo</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">demo.py</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="sd">    API - CRUD</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Fastberry</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kn">import</span> <span class="nn">fastberry</span> <span class="k">as</span> <span class="nn">fb</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Create your API (GraphQL) here.</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nd">@fb</span><span class="o">.</span><span class="n">gql</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">class</span> <span class="nc">Demo</span><span class="p">:</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="sd">&quot;&quot;&quot;Demo Api&quot;&quot;&quot;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="k">class</span> <span class="nc">Query</span><span class="p">:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        <span class="sd">&quot;&quot;&quot;Query&quot;&quot;&quot;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        <span class="k">async</span> <span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>            <span class="sd">&quot;&quot;&quot;Read the Docs&quot;&quot;&quot;</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>            <span class="k">return</span> <span class="s2">&quot;Detail&quot;</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    <span class="k">class</span> <span class="nc">Mutation</span><span class="p">:</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>        <span class="sd">&quot;&quot;&quot;Mutation&quot;&quot;&quot;</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>        <span class="k">async</span> <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>            <span class="sd">&quot;&quot;&quot;Read the Docs&quot;&quot;&quot;</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>            <span class="k">return</span> <span class="s2">&quot;Create&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 
@@ -871,6 +845,42 @@ With the <strong>SQLAlchemy <code>Manager</code></strong>.</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../foct/" class="md-footer__link md-footer__link--prev" aria-label="Previous: FOCT" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              FOCT
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../crud/" class="md-footer__link md-footer__link--next" aria-label="Next: CRUD" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              CRUD
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

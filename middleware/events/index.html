@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://hlop3z.github.io/fastberry/apis/sqlalchemy/">
+        <link rel="canonical" href="https://hlop3z.github.io/fastberry/middleware/events/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>SQL-Alchemy **API** - Fastberry</title>
+        <title>Events - Fastberry</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sql-alchemy-api" class="md-skip">
+        <a href="#extension-example" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SQL-Alchemy **API**
+              Events
             
           </span>
         </div>
@@ -204,13 +204,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
         Fastberry
       </a>
     </li>
@@ -267,12 +269,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -482,14 +486,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" checked>
       
       
       
@@ -512,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../middleware/workflow/" class="md-nav__link">
+      <a href="../workflow/" class="md-nav__link">
         Workflow
       </a>
     </li>
@@ -526,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../middleware/middleware/" class="md-nav__link">
+      <a href="../middleware/" class="md-nav__link">
         Middleware
       </a>
     </li>
@@ -540,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../middleware/extension/" class="md-nav__link">
+      <a href="../extension/" class="md-nav__link">
         Extension
       </a>
     </li>
@@ -554,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../middleware/permissions/" class="md-nav__link">
+      <a href="../permissions/" class="md-nav__link">
         Permission
       </a>
     </li>
@@ -568,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../middleware/plugin/" class="md-nav__link">
+      <a href="../plugin/" class="md-nav__link">
         Plugin
       </a>
     </li>
@@ -580,11 +586,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../middleware/events/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Events
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Events
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-on-event-method" class="md-nav__link">
+    Creating an on-event method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-of-built-in-on-event" class="md-nav__link">
+    Example of built-in on-event
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -630,43 +684,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connect-table-type-to-manager" class="md-nav__link">
-    Connect Table (Type) to Manager
-  </a>
-  
-    <nav class="md-nav" aria-label="Connect Table (Type) to Manager">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-methods" class="md-nav__link">
-    Core Methods
+  <a href="#creating-an-on-event-method" class="md-nav__link">
+    Creating an on-event method
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#read-methods" class="md-nav__link">
-    Read Methods
+      
+        <li class="md-nav__item">
+  <a href="#example-of-built-in-on-event" class="md-nav__link">
+    Example of built-in on-event
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cud-methods" class="md-nav__link">
-    C.U.D Methods
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-querying-methods" class="md-nav__link">
-    Custom-Querying Methods
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -684,173 +711,65 @@
                 
                   
 
-  <a href="https://github.com/hlop3z/fastberry/edit/master/docs/apis/sqlalchemy.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/hlop3z/fastberry/edit/master/docs/middleware/events.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="sql-alchemy-api">SQL-Alchemy <strong>API</strong></h1>
-<p>In this section we will learn about all the available options to create <strong>SQL-Queries</strong>.
-With the <strong>SQLAlchemy <code>Manager</code></strong>.</p>
-<h2 id="connect-table-type-to-manager">Connect <strong>Table (Type)</strong> to <strong>Manager</strong></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">fastberry</span> <span class="kn">import</span> <span class="n">SQLBase</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">DATABASE_URL</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///test_database.db&quot;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">sql_manager</span> <span class="o">=</span> <span class="n">SQLBase</span><span class="p">(</span><span class="n">DATABASE_URL</span><span class="p">,</span> <span class="n">My_Custom_GQL_Type</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="core-methods"><strong>Core</strong> Methods</h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://pypi.org/project/databases/" target="_blank"><strong><code>database</code></strong></a></td>
-<td><strong>Databases</strong> module. <strong>Asyncio</strong> support for a range of databases.</td>
-</tr>
-<tr>
-<td><a href="https://pypi.org/project/SQLAlchemy/" target="_blank"><strong><code>table</code></strong></a></td>
-<td><strong>SQLAlchemy</strong> module. <strong>Table</strong> for a SQL-Database</td>
-</tr>
-<tr>
-<td><strong><code>Q</code></strong></td>
-<td><strong>Custom-Querying</strong> for <strong>SQLAlchemy</strong> Tables</td>
-</tr>
-</tbody>
-</table>
-<h3 id="read-methods"><strong>Read</strong> Methods</h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Is Used To...</th>
-<th>Variables</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>filter_by</code></strong></td>
-<td><strong>Filter-By</strong> Columns (<strong>Multiple</strong>-Records)</td>
-<td><code>(dict, page=1, limit=100, sort_by='-id' )</code></td>
-</tr>
-<tr>
-<td><strong><code>search</code></strong></td>
-<td><strong>Search</strong> in Columns (<strong>Multiple</strong>-Records)</td>
-<td><code>(list[str(columns)], page=1, etc...)</code></td>
-</tr>
-<tr>
-<td><strong><code>find</code></strong></td>
-<td><strong>Custom-Querying</strong> (<strong>Multiple</strong>-Records)</td>
-<td><code>(custom_query, page=1, etc...)</code></td>
-</tr>
-<tr>
-<td><strong><code>get_by</code></strong></td>
-<td><strong>Filter-By</strong> Columns (<strong>Single</strong>-Record)</td>
-<td><code>(**kwargs)</code></td>
-</tr>
-<tr>
-<td><strong><code>detail</code></strong></td>
-<td>Get <strong>Details</strong> by <strong>GraphQL-ID</strong> (<strong>Single</strong>-Record)</td>
-<td><code>(GraphQL_ID)</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="cud-methods"><strong>C.U.D</strong> Methods</h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Is Used To...</th>
-<th>Variables</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>form</code></strong></td>
-<td><strong>Clean</strong> User's <strong><code>Inputs</code></strong>. And, <strong>only</strong> allows fields that are in the DataBase.</td>
-<td><code>(dict)</code></td>
-</tr>
-<tr>
-<td><strong><code>create</code></strong></td>
-<td><strong>Create</strong> a Single-Records.</td>
-<td><code>(dict)</code></td>
-</tr>
-<tr>
-<td><strong><code>update</code></strong></td>
-<td><strong>Edit</strong> Multiple-Records.</td>
-<td><code>(list[ID], dict)</code></td>
-</tr>
-<tr>
-<td><strong><code>delete</code></strong></td>
-<td><strong>Delete</strong> Multiple-Records.</td>
-<td><code>(list[ID])</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="custom-querying-methods"><strong>Custom-Querying</strong> Methods</h3>
+<h1 id="extension-example"><strong>Extension</strong> Example</h1>
 <blockquote>
-<p><strong>Usage</strong>: <code>Q.where(str: "column", str: "operation", Any: value)</code></p>
+<p>Inject { <strong>on_startup</strong> } and { <strong>on_shutdown</strong> } Server Events.</p>
 </blockquote>
-<p>For <strong>Example</strong>: <code>sql_manager.Q.where("id", "in", [1, 2, 3])</code></p>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Is Used To...</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>eq</code></strong></td>
-<td><strong>Equals</strong></td>
-</tr>
-<tr>
-<td><strong><code>ne</code></strong></td>
-<td><strong>Not Equals</strong></td>
-</tr>
-<tr>
-<td><strong><code>lt</code></strong></td>
-<td><strong>Less than</strong></td>
-</tr>
-<tr>
-<td><strong><code>le</code></strong></td>
-<td><strong>Less than or Equal than</strong></td>
-</tr>
-<tr>
-<td><strong><code>gt</code></strong></td>
-<td><strong>Greater than</strong></td>
-</tr>
-<tr>
-<td><strong><code>ge</code></strong></td>
-<td><strong>Greater than or Equal than</strong></td>
-</tr>
-<tr>
-<td><strong><code>contains</code></strong></td>
-<td><strong>Custom Text Search (Ignore-Case)</strong></td>
-</tr>
-<tr>
-<td><strong><code>like</code></strong></td>
-<td><strong>Text Search "%" (Case-Sensitive)</strong></td>
-</tr>
-<tr>
-<td><strong><code>ilike</code></strong></td>
-<td><strong>Text Search "%" (Ignore-Case)</strong></td>
-</tr>
-<tr>
-<td><strong><code>in</code></strong></td>
-<td><strong>In List</strong></td>
-</tr>
-<tr>
-<td><strong><code>bt</code></strong></td>
-<td><strong>Between</strong> "A &amp; B"</td>
-</tr>
-</tbody>
-</table>
+<h2 id="creating-an-on-event-method">Creating an <strong><code>on-event</code></strong> method</h2>
+<div class="admonition abstract">
+<p class="admonition-title">Context</p>
+<ul>
+<li><strong><code>app</code></strong> = <strong>FastAPI</strong> object.</li>
+<li><strong><code>settings</code></strong> = <strong>Settings</strong> module.</li>
+<li><strong><code>controller</code></strong> = <strong>Fastberry</strong> object.</li>
+</ul>
+</div>
+<div class="highlight"><span class="filename">on_event.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">on_startup</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server Startup&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">settings</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">controller</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">def</span> <span class="nf">on_shutdown</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server Shutdown&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="example-of-built-in-on-event"><strong>Example</strong> of built-in <strong><code>on-event</code></strong></h2>
+<blockquote>
+<p><strong><code>fastberry.extras.redirect_root</code></strong> is a built-in <strong><code>on-event</code></strong> method.
+You can redirect the root-path <strong><code>http://localhost:8000/</code></strong> to <strong><code>http://localhost:8000/docs</code></strong></p>
+</blockquote>
+<div class="highlight"><span class="filename">on_event.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">RedirectResponse</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span> <span class="nf">redirect_root</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="sd">&quot;&quot;&quot;Redirect&quot;&quot;&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="nd">@context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">response_class</span><span class="o">=</span><span class="n">RedirectResponse</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">redirect_root</span><span class="p">():</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="sd">&quot;&quot;&quot;Redirect To Docs&quot;&quot;&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">return</span> <span class="s2">&quot;/docs&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">return</span> <span class="n">context</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Note</p>
+<p>In the file <strong><code>spoc.toml</code></strong> inside your <strong><code>config</code></strong> folder.
+Add the <strong><code>on-event</code></strong> method.</p>
+</div>
+<div class="highlight"><span class="filename">config/spoc.toml</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">[</span><span class="n">spoc</span><span class="p">]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># etc ...</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">[</span><span class="n">spoc</span><span class="o">.</span><span class="n">extra</span><span class="p">]</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># etc ...</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">on_startup</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fastberry.extras.redirect_root&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">on_shutdown</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div>
 
 
 
@@ -871,6 +790,27 @@ With the <strong>SQLAlchemy <code>Manager</code></strong>.</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../plugin/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Plugin" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Plugin
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
