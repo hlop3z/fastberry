@@ -15,3 +15,7 @@
     overflow-wrap: break-all;
     overflow: hidden;
 }
+
+[data-termynal] > span {
+    display: block;
+}

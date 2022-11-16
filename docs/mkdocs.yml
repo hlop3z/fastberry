@@ -27,6 +27,11 @@ nav:
       # - Application Programming Interface:
       # - Fastberry API: apis/fastberry.md
       # - GraphQL API: apis/graphql.md
+  - Getting Started:
+      - Before Starting: getting-started/index.md
+      - Installation: getting-started/installation.md
+      - Installation: index.md
+      - Installation: index.md
 
 # Configurations
 watch:
