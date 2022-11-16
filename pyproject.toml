@@ -4,7 +4,7 @@ build-backend = "pdm.pep517.api"
 
 [project]
 name = "fastberry"
-version = "0.0.54"
+version = "0.0.55"
 description = "GraphQL Made Easy"
 requires-python = ">=3.10"
 readme = "README.md"
@@ -38,10 +38,11 @@ mongo = ["dbcontroller[mongo]>=0.1.41"]
 sql = ["dbcontroller[sql]>=0.1.41"]
 testing = ["dbcontroller[testing]>=0.1.41"]
 
-[tool.setuptools.packages.find]
-where = ["src"]
-
+[tool]
 [tool.pdm]
+
+[tool.pdm.build]
+package-dir = "src"
 
 [tool.pdm.dev-dependencies]
 devops = [
