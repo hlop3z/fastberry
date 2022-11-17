@@ -30,8 +30,8 @@ nav:
   - Getting Started:
       - Before Starting: getting-started/index.md
       - Installation: getting-started/installation.md
-      - Installation: index.md
-      - Installation: index.md
+      - First Project: getting-started/first-project.md
+      - First App: getting-started/first-app.md
 
 # Configurations
 watch:

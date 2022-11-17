@@ -60,7 +60,7 @@ terminal("#terminal-getting-started-2", [
   },
 ]);
 
-terminal("#terminal-getting-started-3", [
+terminal("#terminal-getting-started-installation", [
   {
     type: "input",
     value: 'pdm add "fastberry[testing]"',
@@ -73,6 +73,46 @@ terminal("#terminal-getting-started-3", [
   { type: "progress", value: 100 },
   {
     value: "🎉 All complete!",
+    startDelay: 0,
+  },
+]);
+
+terminal("#terminal-getting-started-first-project", [
+  {
+    type: "input",
+    value: "pdm run startproject",
+    startDelay: 0,
+  },
+  {
+    value: "* Starting-Project! ...",
+    startDelay: 0,
+  },
+]);
+
+terminal("#terminal-getting-started-first-project-app", [
+  {
+    type: "input",
+    value: "pdm run app",
+    startDelay: 0,
+  },
+  {
+    value: "* Starting FastApi Server... (Mode: Development)",
+    startDelay: 0,
+  },
+  {
+    value: "etc ...",
+    startDelay: 0,
+  },
+]);
+
+terminal("#terminal-getting-started-first-app", [
+  {
+    type: "input",
+    value: "pdm app start-app demo",
+    startDelay: 0,
+  },
+  {
+    value: '* Starting App: "{ demo }" . . .',
     startDelay: 0,
   },
 ]);
