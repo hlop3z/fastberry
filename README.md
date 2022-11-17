@@ -1,5 +1,7 @@
 # Welcome to **Fastberry**
 
+GraphQL Made Easy
+
 ## Links
 
 - ### [PyPi](https://pypi.org/project/fastberry)
