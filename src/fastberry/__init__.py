@@ -143,12 +143,15 @@ try:
     import dbcontroller as dbc
     from dbcontroller.forms import ISNULL
 
-    if hasattr(settings, "SQL_URL"):
-        if settings.SQL_URL is not None:
-            sql = dbc.Controller(sql=settings.SQL_URL)
-    if hasattr(settings, "MONGO_URL"):
-        if settings.MONGO_URL is not None:
-            mongo = dbc.Controller(mongo=settings.MONGO_URL)
+    if hasattr(settings, "DATABASES"):
+        config_sql = settings.DATABASES.get("sql")
+        config_mongo = settings.DATABASES.get("mongo")
+        default_sql = config_sql.get("default")
+        default_mongo = config_mongo.get("default")
+        if default_sql:
+            sql = dbc.Controller(sql=default_sql)
+        if default_mongo:
+            mongo = dbc.Controller(mongo=default_mongo)
 
     # Types
     type = dbc.type

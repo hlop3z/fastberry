@@ -60,4 +60,4 @@ pdm app run
     1. Your project's **name**
     2. Your project's **version**
 
-![Screenshot](img/docs.png)
+![Docs](img/docs.png)

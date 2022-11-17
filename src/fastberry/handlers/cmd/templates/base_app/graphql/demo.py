@@ -17,7 +17,7 @@ class Demo:
         """Meta-Data"""
 
         app = False
-        model = "user"
+        model = None
 
     class Query:
         """Query"""

@@ -5,9 +5,9 @@
 ## App **Controller**
 
 ```python
-from fastberry import Fastberry
+from fastberry import App
 
-Controller = Fastberry()
+Controller = App()
 ```
 
 !!! example "Controller"
@@ -56,7 +56,6 @@ Controller = Fastberry()
     2. **`./router.py`** gets loaded to **`router`**
     3. **`./graphql.py`** gets loaded to **`graphql`**
     4. **`./types.py`** gets loaded to **`types`**
-
 
 ```mermaid
 sequenceDiagram

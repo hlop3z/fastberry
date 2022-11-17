@@ -137,3 +137,8 @@ Some of the commands and the installation of **modules** (aka: **INSTALLED_APPS*
 | **`./manage.py schema`**    | Build **GraphQL (Schema + Operations + ReturnTypes)**.         |
 | **`./manage.py start-app`** | Create a **Fastberry App** inside your "**`apps`**" directory. |
 | **`./manage.py --help`**    | For **more information**.                                      |
+
+!!! warning "startproject"
+
+    Careful with the command `startproject`. Only **use it once** and make sure you are in a **new folder**.
+    It will write files and folders.

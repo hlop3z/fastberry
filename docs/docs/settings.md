@@ -162,10 +162,12 @@ root/                           --> <Directory> - Project's Root.
     BASE_DIR = pathlib.Path(__file__).parents[1]
 
     # Installed Apps
-    INSTALLED_APPS = ["good_app", "demo"]
+    INSTALLED_APPS = ["good_app", "app_two"]
 
-    SQL_URL = "sqlite:///example.db"
-    MONGO_URL = "mongodb://localhost:27017/test_database"
+    DATABASES = {
+        "sql": {"default": None},    # Example: sqlite:///example.db
+        "mongo": {"default": None},  # Example: mongodb://localhost:27017/example
+    }
     ```
 
     !!! info "PyProject"
