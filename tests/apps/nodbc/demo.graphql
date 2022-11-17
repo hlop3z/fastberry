@@ -48,3 +48,8 @@ mutation Create {
     }
   }
 }
+
+query MyQuery {
+  detail(item: { id: "", ids: "" })
+  search(pagination: { limit: 10, page: 10, sortBy: "id", all: false })
+}

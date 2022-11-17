@@ -60,7 +60,7 @@ root/                           --> <Directory> - Project's Root.
     1. **Name** — The **name** of the project.
     2. **Version** — The **version** of the project.
     3. **Description** — Short **description** of your project.
-    4. **Other** — Other **configurations** of your project.
+    4. **Other** — Extra **configurations** of your project.
 
     !!! info "PyProject"
 
@@ -80,8 +80,8 @@ root/                           --> <Directory> - Project's Root.
     [spoc] # (1)
     mode = "custom" # development, production, staging, custom
     custom_mode = "development" # (16)
-    docs = "config/docs.md"
-    generates = "graphql"
+    docs = "config/docs.md" # (17)
+    generates = "graphql" # (18)
 
     [spoc.api] # (2)
     graphql_path = "/graphql" # (10)
@@ -118,6 +118,8 @@ root/                           --> <Directory> - Project's Root.
     14. **Development** — Development Only Apps **(`Production` + `Development`)**.
     15. **Staging** — Testing Only Apps **(`Production` + `Staging`)**.
     16. **Custom** — Custom mode will load **`Apps`** from the pythonic **`settings.py`** plus the current **`mode`**.
+    17. **Docs** — Path for the documentation.
+    18. **Generates** — **Folder** where the schema and frontend related files and folders will be **generated**.
 
     !!! info "SPOC"
 
@@ -155,7 +157,9 @@ root/                           --> <Directory> - Project's Root.
 
     ``` python title="settings.py"
     # -*- coding: utf-8 -*-
-    """Project Settings."""
+    """
+        { Settings }
+    """
     import pathlib
 
     # Base Directory
@@ -164,9 +168,10 @@ root/                           --> <Directory> - Project's Root.
     # Installed Apps
     INSTALLED_APPS = ["good_app", "app_two"]
 
+    # Database(s)
     DATABASES = {
-        "sql": {"default": None},    # Example: sqlite:///example.db
-        "mongo": {"default": None},  # Example: mongodb://localhost:27017/example
+        "sql"  : {"default": "sqlite:///example.db"},
+        "mongo": {"default": "mongodb://localhost:27017/example"},
     }
     ```
 

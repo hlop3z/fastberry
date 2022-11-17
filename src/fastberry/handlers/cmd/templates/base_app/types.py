@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    API - Fastberry Types
+    { Types } for GraphQL
 """
 
-
-import dataclasses as dc
-import datetime
-import decimal
-import typing
-
+from typing import Optional
 import fastberry as fb
 
 # Create your <types> here.

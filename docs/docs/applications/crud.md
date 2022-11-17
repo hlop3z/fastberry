@@ -1,8 +1,8 @@
 # C.R.U.D Application (**Default** Setup)
 
-> The **CRUD** application is created when you run the **`start-app`** command.
->
-> With the **`--crud` flag** .
+!!! info
+
+    The **CRUD** application is created when you run the **`start-app`** command.
 
 ## **CRUD**
 
@@ -55,8 +55,7 @@ That means you don't use **`self`** inside your functions.
 - **`app`** (**bool**) : Prepend the **application**'s name to the operation's name.
 - **`model`** (**str**): Prepend **model**'s name to the operation's name.
 
-
-``` text
+```text
 root/
 |
 |--  apps/

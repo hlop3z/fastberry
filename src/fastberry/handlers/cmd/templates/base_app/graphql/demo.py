@@ -7,8 +7,6 @@
 import fastberry as fb
 
 # Create your API (GraphQL) here.
-
-
 @fb.gql
 class Demo:
     """Demo Api"""

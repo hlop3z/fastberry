@@ -55,6 +55,7 @@ graph LR;
     """
         { Types } for GraphQL
     """
+
     from typing import Optional
     import fastberry as fb
 
@@ -119,11 +120,14 @@ graph LR;
     # Base Directory
     BASE_DIR = pathlib.Path(__file__).parents[1]
 
-    # Installed Apps IF (mode = custom)
-    # INSTALLED_APPS = []
+    # Installed Apps
+    INSTALLED_APPS = []
 
-    SQL_URL = "sqlite:///example.db"
-    MONGO_URL = "mongodb://localhost:27017/example"
+    # Database(s)
+    DATABASES = {
+        "sql"  : {"default": "sqlite:///example.db"},
+        "mongo": {"default": "mongodb://localhost:27017/example"},
+    }
     ```
 
 ## Model **Fields**

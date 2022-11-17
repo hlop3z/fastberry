@@ -10,7 +10,7 @@ BASE_DIR = pathlib.Path(__file__).parents[1]
 # Installed Apps
 INSTALLED_APPS = []
 
-# SQL & Mongo - Databases
+# Database(s)
 DATABASES = {
     "sql": {"default": None},  # Example: sqlite:///example.db
     "mongo": {"default": None},  # Example: mongodb://localhost:27017/example

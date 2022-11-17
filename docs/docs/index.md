@@ -107,9 +107,9 @@ root/                           --> <Directory> - Project's Root.
 |--  config/                    --> <Directory> - Configurations.
 |    |
 |    |-- .env/                  --> <Directory> - Environments.
-|    |   |-- development.env    --> <File> - Development    | Settings.
-|    |   |-- production.env     --> <File> - Production     | Settings.
-|    |   `-- staging.env        --> <File> - Staging        | Settings.
+|    |   |-- development.toml   --> <File> - Development    | Settings.
+|    |   |-- production.toml    --> <File> - Production     | Settings.
+|    |   `-- staging.toml       --> <File> - Staging        | Settings.
 |    |
 |    |-- docs.md                --> <File> - API's Documentation in HERE.
 |    |-- settings.py            --> <File> - API (Pythonic) | Settings.
@@ -134,7 +134,7 @@ Some of the commands and the installation of **modules** (aka: **INSTALLED_APPS*
 | --------------------------- | -------------------------------------------------------------- |
 | **`startproject`**          | Create a new **Fastberry** project.                            |
 | **`./manage.py run`**       | Run **FastApi Server**.                                        |
-| **`./manage.py schema`**    | Build **GraphQL (Schema + Operations + ReturnTypes)**.         |
+| **`./manage.py schema`**    | Build **GraphQL (Schema & More)**.                             |
 | **`./manage.py start-app`** | Create a **Fastberry App** inside your "**`apps`**" directory. |
 | **`./manage.py --help`**    | For **more information**.                                      |
 

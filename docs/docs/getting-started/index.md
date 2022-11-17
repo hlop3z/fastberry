@@ -2,7 +2,7 @@
 
     For the tutorial there is one **extra requirement**.
 
-## <a href="https://pypi.org/project/pdm/" target="_blank">**P**ython **D**ependency **M**anager</a>
+## <a href="https://pypi.org/project/pdm/" target="_blank">**P**ython **D**ependencies **M**anager</a>
 
 First of all take a look at the tool <a href="https://pypi.org/project/pdm/" target="_blank">**PDM**</a>. Because, we will use it to build our **First API**.
 
@@ -41,7 +41,7 @@ pdm init
 
     We **selected** Number "**`1`**" in order to use python version (**`3.10`**)
 
-    The output in your computer will look similar but not exactly the same.
+    The **output** in your computer will look similar but **not exactly the same**.
 
 <div id="terminal-getting-started" data-termynal></div>
 

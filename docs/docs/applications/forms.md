@@ -36,16 +36,22 @@
     2. **`fastberry.value`**
     3. **`fastberry.filters(regex = list(tuple), rules = list(function))`**
 
-## **Input** References
+## **Value** References
 
-| Name          | API Reference                                                              |
-| ------------- | -------------------------------------------------------------------------- |
-| **`default`** | Default value                                                              |
-| **`regex`**   | Regex validators **`key = Regex-Pattern`** and **`value = Error-Message`** |
-| **`rules`**   | Custom validators returns **`None`** or **`Error-Message(s)`**             |
-| **`filters`** | Transform data with **`Regex` & `Rules`**                                  |
+| Name          | API Reference                                                                        |
+| ------------- | ------------------------------------------------------------------------------------ |
+| **`default`** | **Default** value                                                                    |
+| **`regex`**   | Regex (**validators**) **`key` = `Regex-Pattern`** and **`value` = `Error-Message`** |
+| **`rules`**   | Custom (**validators**) returns **`None`** or **`Error-Message(s)`**                 |
+| **`filters`** | **Transform-Data** with **`Regex` & `Rules`**                                        |
 
 ## Python **Code**
+
+!!! tip
+
+    **Values** can only have a **Single Type**.
+
+    **However**, you can wrap it around a **`list`** for example: **`list[int]`**
 
 === ":material-file: File"
 
