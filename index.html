@@ -219,6 +219,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="getting-started/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -717,6 +733,96 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/" class="md-nav__link">
+        Before Starting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/first-project/" class="md-nav__link">
+        First Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/first-app/" class="md-nav__link">
+        First App
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -985,9 +1091,9 @@
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>|--  config/                    --&gt; &lt;Directory&gt; - Configurations.
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>|    |
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>|    |-- .env/                  --&gt; &lt;Directory&gt; - Environments.
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>|    |   |-- development.env    --&gt; &lt;File&gt; - Development    | Settings.
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>|    |   |-- production.env     --&gt; &lt;File&gt; - Production     | Settings.
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>|    |   `-- staging.env        --&gt; &lt;File&gt; - Staging        | Settings.
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>|    |   |-- development.toml   --&gt; &lt;File&gt; - Development    | Settings.
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>|    |   |-- production.toml    --&gt; &lt;File&gt; - Production     | Settings.
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>|    |   `-- staging.toml       --&gt; &lt;File&gt; - Staging        | Settings.
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>|    |
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>|    |-- docs.md                --&gt; &lt;File&gt; - API&#39;s Documentation in HERE.
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>|    |-- settings.py            --&gt; &lt;File&gt; - API (Pythonic) | Settings.
@@ -1020,7 +1126,7 @@
 </tr>
 <tr>
 <td><strong><code>./manage.py schema</code></strong></td>
-<td>Build <strong>GraphQL (Schema + Operations + ReturnTypes)</strong>.</td>
+<td>Build <strong>GraphQL (Schema &amp; More)</strong>.</td>
 </tr>
 <tr>
 <td><strong><code>./manage.py start-app</code></strong></td>
@@ -1032,6 +1138,11 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">startproject</p>
+<p>Careful with the command <code>startproject</code>. Only <strong>use it once</strong> and make sure you are in a <strong>new folder</strong>.
+It will write files and folders.</p>
+</div>
 
 
 

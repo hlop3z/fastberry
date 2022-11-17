@@ -9,3 +9,13 @@
 .cool-text { 
     color: #cc00cc;
 }
+
+[data-ty="progress"] {
+    width: 100% !important;
+    overflow-wrap: break-all;
+    overflow: hidden;
+}
+
+[data-termynal] > span {
+    display: block;
+}

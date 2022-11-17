@@ -219,6 +219,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -713,6 +729,96 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        Before Starting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/first-project/" class="md-nav__link">
+        First Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/first-app/" class="md-nav__link">
+        First App
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -888,7 +994,7 @@
 <li><strong>Name</strong> — The <strong>name</strong> of the project.</li>
 <li><strong>Version</strong> — The <strong>version</strong> of the project.</li>
 <li><strong>Description</strong> — Short <strong>description</strong> of your project.</li>
-<li><strong>Other</strong> — Other <strong>configurations</strong> of your project.</li>
+<li><strong>Other</strong> — Extra <strong>configurations</strong> of your project.</li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">PyProject</p>
@@ -904,8 +1010,8 @@
 <div class="highlight"><span class="filename">config/spoc.toml</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">[</span><span class="n">spoc</span><span class="p">]</span><span class="w"> </span><span class="c1"># (1)</span><span class="w"></span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;custom&quot;</span><span class="w"> </span><span class="c1"># development, production, staging, custom</span><span class="w"></span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">custom_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;development&quot;</span><span class="w"> </span><span class="c1"># (16)</span><span class="w"></span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">docs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;config/docs.md&quot;</span><span class="w"></span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">generates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;graphql&quot;</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">docs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;config/docs.md&quot;</span><span class="w"> </span><span class="c1"># (17)</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">generates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;graphql&quot;</span><span class="w"> </span><span class="c1"># (18)</span><span class="w"></span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">[</span><span class="n">spoc</span><span class="p">.</span><span class="n">api</span><span class="p">]</span><span class="w"> </span><span class="c1"># (2)</span><span class="w"></span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">graphql_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/graphql&quot;</span><span class="w"> </span><span class="c1"># (10)</span><span class="w"></span>
@@ -942,6 +1048,9 @@
 <li><strong>Development</strong> — Development Only Apps <strong>(<code>Production</code> + <code>Development</code>)</strong>.</li>
 <li><strong>Staging</strong> — Testing Only Apps <strong>(<code>Production</code> + <code>Staging</code>)</strong>.</li>
 <li><strong>Custom</strong> — Custom mode will load <strong><code>Apps</code></strong> from the pythonic <strong><code>settings.py</code></strong> plus the current <strong><code>mode</code></strong>.</li>
+<li><strong>Custom</strong> — Custom mode will load <strong><code>Apps</code></strong> from the pythonic <strong><code>settings.py</code></strong> plus the current <strong><code>mode</code></strong>.</li>
+<li><strong>Custom</strong> — Custom mode will load <strong><code>Apps</code></strong> from the pythonic <strong><code>settings.py</code></strong> plus the current <strong><code>mode</code></strong>.</li>
+<li><strong>Custom</strong> — Custom mode will load <strong><code>Apps</code></strong> from the pythonic <strong><code>settings.py</code></strong> plus the current <strong><code>mode</code></strong>.</li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">SPOC</p>
@@ -970,17 +1079,22 @@
 <div class="tabbed-block">
 <h2 id="custom-python"><strong>Custom</strong> (Python)</h2>
 <div class="highlight"><span class="filename">settings.py</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="sd">&quot;&quot;&quot;Project Settings.&quot;&quot;&quot;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">import</span> <span class="nn">pathlib</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Base Directory</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Installed Apps</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;good_app&quot;</span><span class="p">,</span> <span class="s2">&quot;demo&quot;</span><span class="p">]</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">SQL_URL</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///example.db&quot;</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="n">MONGO_URL</span> <span class="o">=</span> <span class="s2">&quot;mongodb://localhost:27017/test_database&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="sd">    { Settings }</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kn">import</span> <span class="nn">pathlib</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Base Directory</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># Installed Apps</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;good_app&quot;</span><span class="p">,</span> <span class="s2">&quot;app_two&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1"># Database(s)</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="s2">&quot;sql&quot;</span>  <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite:///example.db&quot;</span><span class="p">},</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="s2">&quot;mongo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;mongodb://localhost:27017/example&quot;</span><span class="p">},</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">}</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">PyProject</p>
