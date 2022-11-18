@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://hlop3z.github.io/fastberry/applications/crud/">
+        <link rel="canonical" href="https://hlop3z.github.io/fastberry/applications/application/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>CRUD - Fastberry</title>
+        <title>Application - Fastberry</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#crud-application-default-setup" class="md-skip">
+        <a href="#application-crud-default-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CRUD
+              Application
             
           </span>
         </div>
@@ -439,12 +439,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          CRUD
+          Application
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        CRUD
+        Application
       </a>
       
         
@@ -485,8 +485,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#main-five-operations" class="md-nav__link">
-    Main Five Operations
+  <a href="#five-operations-to-get-you-started" class="md-nav__link">
+    Five Operations to get you started.
   </a>
   
 </li>
@@ -548,6 +548,20 @@
     <li class="md-nav__item">
       <a href="../forms/" class="md-nav__link">
         Forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manager/" class="md-nav__link">
+        Manager
       </a>
     </li>
   
@@ -853,8 +867,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#main-five-operations" class="md-nav__link">
-    Main Five Operations
+  <a href="#five-operations-to-get-you-started" class="md-nav__link">
+    Five Operations to get you started.
   </a>
   
 </li>
@@ -899,13 +913,13 @@
                 
                   
 
-  <a href="https://github.com/hlop3z/fastberry/edit/master/docs/applications/crud.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/hlop3z/fastberry/edit/master/docs/applications/application.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="crud-application-default-setup">C.R.U.D Application (<strong>Default</strong> Setup)</h1>
+<h1 id="application-crud-default-setup">Application (C.R.U.D <strong>Default</strong> Setup)</h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The <strong>CRUD</strong> application is created when you run the <strong><code>start-app</code></strong> command.</p>
@@ -915,13 +929,15 @@
 <p>Each function is turn into a <strong><code>@staticmethod</code></strong> when it gets loaded after the server starts running.</p>
 <p>That means you don't use <strong><code>self</code></strong> inside your functions.</p>
 <h3 id="command">Command</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./manage.py start-app my_app --crud
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./manage.py start-app my_app
 </code></pre></div>
 <h3 id="pylint-disable">PyLint (<strong>disable</strong>)</h3>
-<blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p><strong>E0213</strong>: Method should have "<strong><code>self</code></strong>" as first argument (<strong>no-self-argument</strong>)</p>
-</blockquote>
-<h3 id="main-five-operations">Main <strong>Five Operations</strong></h3>
+<p>Disable the <strong>no-self-argument</strong>.</p>
+</div>
+<h3 id="five-operations-to-get-you-started"><strong>Five Operations</strong> to get you started.</h3>
 <blockquote>
 <p>The demo-app comes with <strong><code>5</code></strong> core <strong><code>operations</code></strong>. (<strong>Create, Update, Delete, Search</strong> &amp; <strong>Detail</strong>)</p>
 </blockquote>
@@ -1025,7 +1041,7 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">    API - CRUD</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">    API - GraphQL</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">&quot;&quot;&quot;</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Fastberry</span>
@@ -1041,7 +1057,7 @@
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="sd">&quot;&quot;&quot;GQL-Class Metadata&quot;&quot;&quot;</span>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="n">app</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;User&quot;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="k">class</span> <span class="nc">Query</span><span class="p">:</span>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="sd">&quot;&quot;&quot;Query&quot;&quot;&quot;</span>
@@ -1078,7 +1094,7 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">    CRUD - Init</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">    GraphQL Operations</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">&quot;&quot;&quot;</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kn">from</span> <span class="nn">.demo</span> <span class="kn">import</span> <span class="n">Demo</span>
