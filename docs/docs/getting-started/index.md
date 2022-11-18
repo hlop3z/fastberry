@@ -1,6 +1,6 @@
 !!! warning
 
-    For the tutorial there is one **extra requirement**.
+    For the tutorial there is an **extra requirement**.
 
 ## <a href="https://pypi.org/project/pdm/" target="_blank">**P**ython **D**ependencies **M**anager</a>
 

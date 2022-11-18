@@ -50,7 +50,7 @@ def redirect_root(context):
 
 # etc ...
 
-[spoc.extra]
+[spoc.extras]
 # etc ...
 on_startup = ["fastberry.extras.redirect_root"]
 on_shutdown = []

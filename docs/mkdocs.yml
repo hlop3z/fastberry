@@ -18,6 +18,8 @@ nav:
           - Manager: applications/manager.md
           - Commands: applications/commands.md
           - Router: applications/routers.md
+      - SQL Database:
+          - Migrations: databases/index.md
       - Middleware, Extension and Permissions:
           - Workflow: middleware/workflow.md
           - Middleware: middleware/middleware.md
@@ -33,6 +35,9 @@ nav:
       - Installation: getting-started/installation.md
       - First Project: getting-started/first-project.md
       - First App: getting-started/first-app.md
+      - First Type: getting-started/first-type.md
+      - First Form: getting-started/first-form.md
+      - First Manager: getting-started/first-manager.md
 
 # Configurations
 watch:

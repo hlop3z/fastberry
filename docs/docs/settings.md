@@ -94,7 +94,7 @@ root/                           --> <Directory> - Project's Root.
     development = [] # (14)
     staging = [] # (15)
 
-    [spoc.extra] # (4)
+    [spoc.extras] # (4)
     middleware = ["fastberry.extras.middleware "] # (5)
     extensions = ["fastberry.extras.extensions"] # (6)
     permissions = ["fastberry.extras.permissions"] # (7)

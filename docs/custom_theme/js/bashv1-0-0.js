@@ -116,3 +116,37 @@ terminal("#terminal-getting-started-first-app", [
     startDelay: 0,
   },
 ]);
+
+terminal("#terminal-getting-started-first-type", [
+  {
+    type: "input",
+    value: "pdm app db auto-migrate",
+    startDelay: 0,
+  },
+  {
+    value: "INFO  [alembic.runtime.migration] Context impl SQLiteImpl.",
+    startDelay: 0,
+  },
+  {
+    value:
+      "INFO  [alembic.runtime.migration] Will assume non-transactional DDL.",
+    startDelay: 0,
+  },
+  {
+    value:
+      "INFO  [alembic.autogenerate.compare] Detected added table 'demo_book'",
+    startDelay: 0,
+  },
+  {
+    value: "etc. . .",
+    startDelay: 0,
+  },
+]);
+
+terminal("#terminal-getting-started-first-form", [
+  {
+    value:
+      "FormResponse(data=namespace(author='F. Scott Fitzgerald', title='The Great Gatsby'), errors=[], is_valid=True, next=None)",
+    startDelay: 0,
+  },
+]);

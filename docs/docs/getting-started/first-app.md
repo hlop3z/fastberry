@@ -70,11 +70,3 @@ query MyQuery {
   }
 }
 ```
-
-## [Applications](../../applications/)
-
-!!! warning
-
-    **End of this tutorial**. To learn how to create **`Types`** and other **`functionalities`**.
-
-    Please read the full documentation for the [Applications](../../applications/) section.

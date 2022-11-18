@@ -17,19 +17,25 @@ except:
     if not Path(file_settings).exists():
         with open(file_settings, "w") as f:
             f.write(
-                """
+                '''
 # -*- coding: utf-8 -*-
+"""
+    { Settings }
+"""
 import pathlib
 
 # Base Directory
 BASE_DIR = pathlib.Path(__file__).parents[1]
 
 # Installed Apps
-# INSTALLED_APPS = []
+INSTALLED_APPS = []
 
-# SQL_URL = "sqlite:///example.db"
-# MONGO_URL = "mongodb://localhost:27017/test_database"            
-""".strip()
+# Database(s)
+DATABASES = {
+    "sql": {"default": None},  # Example: sqlite:///example.db
+    "mongo": {"default": None},  # Example: mongodb://localhost:27017/example
+}            
+'''.strip()
             )
 
     file_settings = "./config/spoc.toml"
@@ -54,7 +60,7 @@ production = []
 development = []
 staging = []
 
-[spoc.extra]
+[spoc.extras]
 middleware = []
 extensions = []
 permissions = []
@@ -99,15 +105,15 @@ root/                           --> <Directory> - Project's Root.
 |    |
 |    |-- .env/                  --> <Directory> - Environments.
 |    |   |
-|    |   |-- development.toml   --> <File> - Development | Settings.
-|    |   |-- production.toml    --> <File> - Production | Settings.
-|    |   `-- staging.toml       --> <File> - Staging | Settings.
+|    |   |-- development.toml   --> <File> - Development    | Settings.
+|    |   |-- production.toml    --> <File> - Production     | Settings.
+|    |   `-- staging.toml       --> <File> - Staging        | Settings.
 |    |
 |    |-- docs.md                --> <File> - This Documentation is in HERE.
-|    |-- settings.py            --> <File> - Python | Settings.
-|    `-- spoc.toml              --> <File> - TOML | Settings.
+|    |-- settings.py            --> <File> - Python         | Settings.
+|    `-- spoc.toml              --> <File> - TOML           | Settings.
 |
-|-- pyproject.toml              --> <File> - Project | Settings.
+|-- pyproject.toml              --> <File> - Project        | Settings.
 |
 `-- etc...
 ```
