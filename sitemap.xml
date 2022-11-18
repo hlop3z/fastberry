@@ -61,6 +61,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hlop3z.github.io/fastberry/databases/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hlop3z.github.io/fastberry/getting-started/</loc>
          <lastmod>2022-11-18</lastmod>
          <changefreq>daily</changefreq>
@@ -71,7 +76,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hlop3z.github.io/fastberry/getting-started/first-form/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hlop3z.github.io/fastberry/getting-started/first-manager/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hlop3z.github.io/fastberry/getting-started/first-project/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hlop3z.github.io/fastberry/getting-started/first-type/</loc>
          <lastmod>2022-11-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
