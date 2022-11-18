@@ -71,10 +71,10 @@ query MyQuery {
 }
 ```
 
-## [Applications](/fastberry/applications/)
+## [Applications](../../applications/)
 
 !!! warning
 
     **End of this tutorial**. To learn how to create **`Types`** and other **`functionalities`**.
 
-    Please read the full documentation for the [Applications](/fastberry/applications/) section.
+    Please read the full documentation for the [Applications](../../applications/) section.

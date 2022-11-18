@@ -4,6 +4,7 @@
 """
 
 from typing import Optional
+
 import fastberry as fb
 
 # Create your <types> here.

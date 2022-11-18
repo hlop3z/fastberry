@@ -151,7 +151,7 @@ root/                           --> <Directory> - Project's Root.
     print(fb.config["env"])
     ```
 
-=== "Custom"
+=== "Custom (settings.py)"
 
     ## **Custom** (Python)
 

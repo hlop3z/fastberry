@@ -6,6 +6,9 @@
 # Fastberry
 import fastberry as fb
 
+# Type(s) Tools
+from .. import forms, manager, types
+
 # Create your API (GraphQL) here.
 @fb.gql
 class Demo:

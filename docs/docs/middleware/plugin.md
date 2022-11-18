@@ -238,9 +238,11 @@ python -m pip install "python-jose[cryptography]" "passlib[bcrypt]"
 
     from datetime import timedelta
 
-    from fastapi import APIRouter, Depends, HTTPException, Response, status
+    from fastapi import Depends, HTTPException, Response, status
     from fastapi.responses import JSONResponse
     from fastapi.security import OAuth2PasswordRequestForm
+
+    from fastberry import Router
 
     from .users import (
         Token,
@@ -252,7 +254,7 @@ python -m pip install "python-jose[cryptography]" "passlib[bcrypt]"
 
     ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24
 
-    router = APIRouter(
+    router = Router(
         tags=["Users"],
     )
 

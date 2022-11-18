@@ -1,4 +1,4 @@
-# C.R.U.D Application (**Default** Setup)
+# Application (C.R.U.D **Default** Setup)
 
 !!! info
 
@@ -15,14 +15,18 @@ That means you don't use **`self`** inside your functions.
 ### Command
 
 ```sh
-./manage.py start-app my_app --crud
+./manage.py start-app my_app
 ```
 
 ### PyLint (**disable**)
 
-> **E0213**: Method should have "**`self`**" as first argument (**no-self-argument**)
+!!! warning
 
-### Main **Five Operations**
+    **E0213**: Method should have "**`self`**" as first argument (**no-self-argument**)
+
+    Disable the **no-self-argument**.
+
+### **Five Operations** to get you started.
 
 > The demo-app comes with **`5`** core **`operations`**. (**Create, Update, Delete, Search** & **Detail**)
 
@@ -75,7 +79,7 @@ root/
     ```python
     # -*- coding: utf-8 -*-
     """
-        API - CRUD
+        API - GraphQL
     """
 
     # Fastberry
@@ -91,7 +95,7 @@ root/
             """GQL-Class Metadata"""
 
             app = False
-            model = "User"
+            model = None
 
         class Query:
             """Query"""
@@ -130,7 +134,7 @@ root/
     ```python
     # -*- coding: utf-8 -*-
     """
-        CRUD - Init
+        GraphQL Operations
     """
 
     from .demo import Demo

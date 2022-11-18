@@ -12,9 +12,10 @@ nav:
           - Introduction: applications/index.md
           - FOCT: applications/foct.md
           - GraphQL: applications/graphql.md
-          - CRUD: applications/crud.md
+          - Application: applications/application.md
           - Types: applications/types.md
           - Forms: applications/forms.md
+          - Manager: applications/manager.md
           - Commands: applications/commands.md
           - Router: applications/routers.md
       - Middleware, Extension and Permissions:

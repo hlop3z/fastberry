@@ -32,10 +32,10 @@
 
 === ":material-file: File"
 
-    ``` python title="crud.py"
+    ``` python title="graphql.py"
     # -*- coding: utf-8 -*-
     """
-        API - CRUD
+        API - GraphQL
     """
 
     # Fastberry
@@ -49,8 +49,8 @@
 
         class Meta:
             """GQL-Class Metadata"""
-            # app = False
-            # model = "User"
+            app = False
+            model = None
 
         class Query:
             """Query"""
@@ -74,7 +74,7 @@
     ```python title="__init__.py"
     # -*- coding: utf-8 -*-
     """
-        CRUD - Init
+        GraphQL - Init
     """
 
     # Import your <cruds> here.
@@ -84,7 +84,7 @@
     ``` python title="demo.py"
     # -*- coding: utf-8 -*-
     """
-        API - CRUD
+        API - GraphQL
     """
 
     # Fastberry
@@ -95,6 +95,11 @@
     @fb.gql
     class Demo:
         """Demo Api"""
+
+        class Meta:
+            """GQL-Class Metadata"""
+            app = False
+            model = None
 
         class Query:
             """Query"""
