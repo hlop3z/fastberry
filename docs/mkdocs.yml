@@ -7,12 +7,12 @@ nav:
   - Fastberry:
       - Introduction: index.md
       - Diagram: diagram.md
+      - FOCT: foct.md
       - Settings: settings.md
       - Applications:
           - Introduction: applications/index.md
-          - FOCT: applications/foct.md
-          - GraphQL: applications/graphql.md
           - Application: applications/application.md
+          - GraphQL: applications/graphql.md
           - Types: applications/types.md
           - Forms: applications/forms.md
           - Manager: applications/manager.md

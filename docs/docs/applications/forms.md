@@ -38,12 +38,13 @@
 
 ## **Value** References
 
-| Name          | API Reference                                                                        |
-| ------------- | ------------------------------------------------------------------------------------ |
-| **`default`** | **Default** value                                                                    |
-| **`regex`**   | Regex (**validators**) **`key` = `Regex-Pattern`** and **`value` = `Error-Message`** |
-| **`rules`**   | Custom (**validators**) returns **`None`** or **`Error-Message(s)`**                 |
-| **`filters`** | **Transform-Data** with **`Regex` & `Rules`**                                        |
+| Name           | API Reference                                                                        |
+| -------------- | ------------------------------------------------------------------------------------ |
+| **`default`**  | The **default** value                                                                |
+| **`required`** | **Default: `False`**. Does the field **requires an input** value?                    |
+| **`regex`**    | Regex (**validators**) **`key` = `Regex-Pattern`** and **`value` = `Error-Message`** |
+| **`rules`**    | Custom (**validators**) returns **`None`** or **`Error-Message(s)`**                 |
+| **`filters`**  | **Transform-Data** with **`Regex` & `Rules`**                                        |
 
 ## Python **Code**
 
@@ -72,33 +73,34 @@
         """(Form) Read The Docs"""
 
         name = fb.value(
-            str,  # Single Typing
+            # Single Typing
+            str,
             default=None,
+            required=True,
         )
         count = fb.value(
             int,
-            default=None,
+            default=999,
         )
         cash = fb.value(
             float,
-            default=None,
+            default=44.4,
         )
         amount = fb.value(
             fb.decimal,
-            default=None,
+            default="55.5",
         )
         start_date = fb.value(
             fb.date,
-            default=None,
+            default="2022-11-10",
         )
         end_datetime = fb.value(
             fb.datetime,
-            default=None,
+            default="2022-11-10T16:35:56.216344",
         )
         timestamp = fb.value(
             fb.time,
-            default=None,
-            required=True,
+            default="16:35:04.872130",
         )
 
 
