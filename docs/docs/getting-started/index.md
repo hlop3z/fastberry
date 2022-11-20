@@ -2,6 +2,12 @@
 
     For the tutorial there is an **extra requirement**.
 
+!!! info "Video Tutorial"
+
+    For the tutorial there is a video.
+
+    <a href="https://www.youtube.com/watch?v=6hRUNtD_Ygg" target="_blank">**Video Tutorial**</a>
+
 ## <a href="https://pypi.org/project/pdm/" target="_blank">**P**ython **D**ependencies **M**anager</a>
 
 First of all take a look at the tool <a href="https://pypi.org/project/pdm/" target="_blank">**PDM**</a>. Because, we will use it to build our **First API**.
