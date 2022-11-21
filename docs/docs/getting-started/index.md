@@ -1,12 +1,12 @@
+!!! info "Video Tutorial"
+
+    Here is the <a href="https://www.youtube.com/watch?v=6hRUNtD_Ygg" target="_blank">**Video Tutorial**</a> Link.
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/6hRUNtD_Ygg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 !!! warning
 
     For the tutorial there is an **extra requirement**.
-
-!!! info "Video Tutorial"
-
-    For the tutorial there is a video.
-
-    <a href="https://www.youtube.com/watch?v=6hRUNtD_Ygg" target="_blank">**Video Tutorial**</a>
 
 ## <a href="https://pypi.org/project/pdm/" target="_blank">**P**ython **D**ependencies **M**anager</a>
 
