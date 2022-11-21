@@ -1,5 +1,6 @@
 <h1 style="font-size: 5em; letter-spacing: -2px; font-family: Georgia, sans-serif;" align="center">
 	Welcome to <strong>Fastberry</strong>
+    	<img alt="PyPI - Python Version" src="docs/img/fastberry.png" />
 </h1>
 
 <p align="center">
