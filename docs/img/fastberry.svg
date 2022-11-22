@@ -26,8 +26,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="2.0888418"
-     inkscape:cx="343.25241"
-     inkscape:cy="669.27039"
+     inkscape:cx="343.25242"
+     inkscape:cy="669.27041"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -140,7 +140,8 @@
      inkscape:label="Hair Back"
      inkscape:export-filename="g7231.png"
      inkscape:export-xdpi="96"
-     inkscape:export-ydpi="96">
+     inkscape:export-ydpi="96"
+     sodipodi:insensitive="true">
     <path
        id="rect6773"
        style="fill:url(#linearGradient6768);stroke:none;stroke-width:0.0999999;stroke-opacity:1"
@@ -169,14 +170,15 @@
        style="display:inline;fill:url(#linearGradient3981);fill-opacity:1;stroke:#000000;stroke-width:0.1"
        inkscape:transform-center-x="0.0617515"
        inkscape:transform-center-y="-2.313921"
-       d="M 102.27322,192.451 92.352257,173.70509 68.318114,191.5031 83.080797,176.2749 58.72692,158.91697 l 19.0448,9.33436 6.082148,-22.82779 -0.09188,15.29915 29.905442,-0.27198 -20.894175,3.64258 z"
+       d="M 102.27322,192.451 92.352257,173.70509 68.318114,191.5031 83.080797,176.2749 58.72692,158.91697 l 19.0448,9.33436 4.055507,-9.27463 1.934761,1.74599 29.905442,-0.27198 -20.894175,3.64258 z"
        sodipodi:nodetypes="ccccccccccc"
        inkscape:label="Starberry" />
     <g
        id="g4580"
        style="stroke:#e10505;stroke-width:0.921984;stroke-opacity:1"
        inkscape:label="Air"
-       transform="matrix(-1.1368082,0.25723416,-0.30260896,-0.9663491,231.29328,326.14083)">
+       transform="matrix(-1.1368082,0.25723416,-0.30260896,-0.9663491,231.29328,326.14083)"
+       sodipodi:insensitive="true">
       <path
          style="fill:#000000;fill-opacity:1;stroke:#e10505;stroke-width:0.0921984;stroke-opacity:1"
          id="path4527"
@@ -196,7 +198,8 @@
     </g>
     <g
        id="g7235"
-       inkscape:label="Hair Front">
+       inkscape:label="Hair Front"
+       sodipodi:insensitive="true">
       <path
          id="rect6773-48"
          style="fill:url(#linearGradient6975);stroke:none;stroke-width:0.0999999;stroke-opacity:1"
@@ -214,7 +217,8 @@
     </g>
     <g
        id="g8164"
-       inkscape:label="Seeds">
+       inkscape:label="Seeds"
+       sodipodi:insensitive="true">
       <ellipse
          style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-opacity:1"
          id="path7173"
