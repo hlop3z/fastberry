@@ -34,9 +34,9 @@ Documentation = "https://hlop3z.github.io/fastberry/"
 startproject = "fastberry.scripts.start_project:cli"
 
 [project.optional-dependencies]
-mongo = ["dbcontroller[mongo]>=0.1.45"]
-sql = ["dbcontroller[sql]>=0.1.45"]
-testing = ["dbcontroller[testing]>=0.1.45"]
+mongo = ["dbcontroller[mongo]>=0.1.46"]
+sql = ["dbcontroller[sql]>=0.1.46"]
+testing = ["dbcontroller[testing]>=0.1.46"]
 
 [tool]
 [tool.pdm]
