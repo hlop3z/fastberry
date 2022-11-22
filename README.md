@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    <img alt="PyPI - Python Version" src="docs/img/fastberry.png" />
+    <img alt="PyPI - Python Version" src="https://raw.githubusercontent.com/hlop3z/fastberry/main/docs/img/fastberry.png" />
 </p>
 
 <p align="center">
@@ -36,6 +36,6 @@
 	<br>
 	<a href="https://hlop3z.github.io/fastberry/" target="_blank">
 	Docs
-	<img alt="PyPI - Downloads" src="docs/img/docs.png" />
+	<img alt="PyPI - Downloads" src="https://raw.githubusercontent.com/hlop3z/fastberry/main/docs/img/docs.png" />
 	</a>
 </p>
