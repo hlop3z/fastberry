@@ -134,6 +134,7 @@ from .graphql import edges, error, errors, mutation, page, query
 # GraphQL Premade User-Inputs
 from .tools import Item as item
 from .tools import Pagination as pagination
+from .tools import coro
 
 # Framework Wrappers
 base_dir = spoc.base_dir

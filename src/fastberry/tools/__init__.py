@@ -5,6 +5,7 @@
 import re
 
 from .forms import Item, Pagination
+from .coro import coro
 
 
 def to_kebab_case(text):
