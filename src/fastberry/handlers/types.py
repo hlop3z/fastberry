@@ -20,10 +20,10 @@ def types(models: list):
                     name = active.object.__name__
                     found = single_name.get(name)
                     if found and found.object != active.object:
-                        found_message = f"""\n* <Type: { found.name }> is already in use by the <App: { found.app }>"""
-                        found_message += f"""\n* <Types> must have UNIQUE names."""
-                        found_message += f"""\n* Rename it in either <App: { found.app } or { active.app }>."""
-                        raise ValueError(found_message)
+                        msg = f"""\n* <Type: { found.name }> is already in use by the <App: { found.app }>"""
+                        msg += """\n* <Types> must have UNIQUE names."""
+                        msg += f"""\n* Rename it in either <App: { found.app } or { active.app }>."""
+                        raise ValueError(msg)
                     single_name[name] = active
                     if callable(active.object.__database__):
                         active.object.__database__()

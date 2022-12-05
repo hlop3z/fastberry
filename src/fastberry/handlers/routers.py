@@ -4,10 +4,10 @@
 from fastapi import APIRouter
 
 
-def routers(routers: list):
+def routers(items: list):
     """Collect (FastAPI) Routers"""
     router = []
-    for active in routers:
+    for active in items:
         if isinstance(active.object, APIRouter):
             router.append(active.object)
     return router

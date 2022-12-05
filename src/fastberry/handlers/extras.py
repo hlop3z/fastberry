@@ -13,9 +13,9 @@ def add_middleware(app=None, installed: list = None):
     return app
 
 
-def extras(extras):
+def extras(items):
     """Collect Extras From (`spoc.toml`)"""
-    extra_out = {k: v for k, v in extras}
+    extra_out = dict(items)
     extra_out["middleware"] = functools.partial(
         add_middleware, installed=extra_out.get("middleware", {})
     )

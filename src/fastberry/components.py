@@ -4,9 +4,8 @@
 import functools
 
 import click
-from fastapi import APIRouter
-
 import spoc
+from fastapi import APIRouter
 
 COMPONENT = {}
 COMPONENT["graphql"] = {"engine": "strawberry-graphql", "type": "schema"}

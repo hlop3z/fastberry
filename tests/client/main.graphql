@@ -1,0 +1,101 @@
+mutation CreateTask {
+  create(
+    form: {
+      title: "First App"
+      description: "create an example app."
+      status: "open"
+    }
+  ) {
+    ... on Task {
+      id
+      title
+      description
+      status
+    }
+    ... on Error {
+      error
+      meta
+      messages {
+        field
+        text
+        type
+      }
+    }
+  }
+}
+
+mutation CreateSecondTask {
+  create(
+    form: {
+      title: "Post Tutorial"
+      description: "post the example app."
+      status: "open"
+    }
+  ) {
+    ... on Task {
+      id
+      title
+      description
+      status
+    }
+    ... on Error {
+      error
+      meta
+      messages {
+        field
+        text
+        type
+      }
+    }
+  }
+}
+
+mutation UpdateTask {
+  update(item: "MTo6YTU1ZTUzMmVhYjAyOGI0Mg==", status: "close") {
+    ... on Task {
+      id
+      title
+      description
+      status
+    }
+    ... on Error {
+      error
+      meta
+      messages {
+        field
+        text
+        type
+      }
+    }
+  }
+}
+
+query AllTasks {
+  search(status: null) {
+    edges {
+      node {
+        id
+        title
+        description
+        status
+      }
+    }
+  }
+}
+
+query SearchTask {
+  search(status: "open") {
+    edges {
+      node {
+        id
+        title
+        description
+        status
+      }
+    }
+  }
+}
+
+mutation DeleteTask {
+  delete(item: "Mjo6M2VmOWFiYmI1ZGY1YjY0MQ==")
+}

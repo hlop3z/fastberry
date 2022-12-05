@@ -2,13 +2,15 @@
     On Events (FastAPI)
 """
 from fastapi.responses import RedirectResponse
+
 from ..handlers.cmd.action import introspection_info
+
 
 def redirect_root(context):
     """Redirect"""
 
     @context.app.get("/", response_class=RedirectResponse)
-    async def redirect_root():
+    async def redirect_to_docs():
         """Redirect To Docs"""
         return "/docs"
 
@@ -25,4 +27,3 @@ def graphql_info(context):
         return introspection_info(schema)
 
     return context
-

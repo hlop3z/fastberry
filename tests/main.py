@@ -9,25 +9,6 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastberry.app import Controller
 from strawberry.fastapi import GraphQLRouter
 
-"""
-__________               __________                   __               __   
-\______   \ ___________  \______   \_______  ____    |__| ____   _____/  |_ 
- |     ___// __ \_  __ \  |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\
- |    |   \  ___/|  | \/  |    |     |  | \(  <_> )  |  \  ___/\  \___|  |  
- |____|    \___  >__|     |____|     |__|   \____/\__|  |\___  >\___  >__|  
-               \/                                \______|    \/     \/      
-"""
-
-"""
-import fastberry as fb
-from sqlalchemy import create_engine
-
-# print(Controller.types)
-engine = create_engine(fb.sql.url, echo=True)
-fb.sql.base.metadata.create_all(engine)
-"""
-
-
 # FastAPI
 app = Controller.context.app
 

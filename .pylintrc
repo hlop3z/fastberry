@@ -115,6 +115,12 @@ disable=raw-checker-failed,
         too-many-nested-blocks,
         W0201,
         W0622,
+        W0612,
+        R0801,
+        E0213,
+        W0611,
+        E0401,
+
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -312,7 +318,7 @@ indent-after-paren=4
 indent-string='    '
 
 # Maximum number of characters on a single line.
-max-line-length=100
+max-line-length=140
 
 # Maximum number of lines in a module.
 max-module-lines=1000

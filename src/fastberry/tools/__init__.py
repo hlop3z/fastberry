@@ -4,8 +4,19 @@
 """
 import re
 
-from .forms import Item, Pagination
 from .coro import coro
+from .forms import Item, Pagination
+
+
+def doc(description):
+    """Inject Documentation"""
+
+    def decorator(function):
+        """Decorator"""
+        function.__doc__ = description
+        return function
+
+    return decorator
 
 
 def to_kebab_case(text):

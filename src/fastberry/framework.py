@@ -3,9 +3,8 @@
 """
 from types import SimpleNamespace
 
-from fastapi import FastAPI
-
 import spoc
+from fastapi import FastAPI
 
 from . import handlers
 

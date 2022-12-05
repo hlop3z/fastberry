@@ -27,11 +27,9 @@ def Schema(
     Extensions.extend(extensions)
 
     # Apps Extensions
-    """
-    settings = Settings()
-    if len(settings.extensions) > 0:
-        Extensions.extend(settings.extensions)
-    """
+    # settings = Settings()
+    # if len(settings.extensions) > 0:
+    # Extensions.extend(settings.extensions)
 
     # Introspection
     if not introspection:

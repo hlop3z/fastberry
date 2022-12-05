@@ -1,11 +1,13 @@
 """
     Fastberry Main (Core-Methods)
 """
+from pathlib import Path
+
 from starlette.middleware.base import BaseHTTPMiddleware as BaseMiddleware
 from strawberry.extensions import Extension as BaseExtension
 from strawberry.permission import BasePermission
 
-from pathlib import Path
+from .scripts import templates_code
 
 try:
     import spoc
@@ -15,110 +17,18 @@ except:
 
     file_settings = "./config/settings.py"
     if not Path(file_settings).exists():
-        with open(file_settings, "w") as f:
-            f.write(
-                '''
-# -*- coding: utf-8 -*-
-"""
-    { Settings }
-"""
-import pathlib
-
-# Base Directory
-BASE_DIR = pathlib.Path(__file__).parents[1]
-
-# Installed Apps
-INSTALLED_APPS = []
-
-# Database(s)
-DATABASES = {
-    "sql": {"default": None},  # Example: sqlite:///example.db
-    "mongo": {"default": None},  # Example: mongodb://localhost:27017/example
-}            
-'''.strip()
-            )
+        with open(file_settings, "w", encoding="utf-8") as f:
+            f.write(templates_code.SETTINGS)
 
     file_settings = "./config/spoc.toml"
     if not Path(file_settings).exists():
-        with open(file_settings, "w") as f:
-            f.write(
-                """
-[spoc]
-mode = "custom"
-custom_mode = "development"
-docs = "config/docs.md"
-generates = "graphql"
-
-[spoc.api]
-graphql_path = "/graphql"
-max_depth = 4
-items_per_page = 50
-allowed_hosts = ["http://localhost", "http://localhost:8080"]
-
-[spoc.apps]
-production = []
-development = []
-staging = []
-
-[spoc.extras]
-middleware = []
-extensions = []
-permissions = []
-on_startup = ["fastberry.extras.redirect_root"] # "fastberry.extras.graphql_info"
-on_shutdown = []
-""".strip()
-            )
+        with open(file_settings, "w", encoding="utf-8") as f:
+            f.write(templates_code.SPOC)
 
     file_settings = "./config/docs.md"
     if not Path(file_settings).exists():
-        with open(file_settings, "w") as f:
-            f.write(
-                """
-# Welcome
-
-> This is a simple **API** Skeleton
-
----
-
-## Links
-
-> Go To [GraphQL](/graphql)
-
----
-
-## Mode (Options)
-
-- `development`
-
-- `staging`
-
-- `production`
-
----
-
-## Settings Layout
-
-```text
-root/                           --> <Directory> - Project's Root.
-|
-|--  config/                    --> <Directory> - Configurations.
-|    |
-|    |-- .env/                  --> <Directory> - Environments.
-|    |   |
-|    |   |-- development.toml   --> <File> - Development    | Settings.
-|    |   |-- production.toml    --> <File> - Production     | Settings.
-|    |   `-- staging.toml       --> <File> - Staging        | Settings.
-|    |
-|    |-- docs.md                --> <File> - This Documentation is in HERE.
-|    |-- settings.py            --> <File> - Python         | Settings.
-|    `-- spoc.toml              --> <File> - TOML           | Settings.
-|
-|-- pyproject.toml              --> <File> - Project        | Settings.
-|
-`-- etc...
-```
-""".strip()
-            )
+        with open(file_settings, "w", encoding="utf-8") as f:
+            f.write(templates_code.DOCS)
 
     import spoc
 
@@ -134,7 +44,7 @@ from .graphql import edges, error, errors, mutation, page, query
 # GraphQL Premade User-Inputs
 from .tools import Item as item
 from .tools import Pagination as pagination
-from .tools import coro
+from .tools import coro, doc
 
 # Framework Wrappers
 base_dir = spoc.base_dir

@@ -29,15 +29,15 @@ root/                           --> <Directory> - Project's Root.
 |    |
 |    |-- .env/                  --> <Directory> - Environments.
 |    |   |
-|    |   |-- development.toml   --> <File> - Development | Settings.
-|    |   |-- production.toml    --> <File> - Production | Settings.
-|    |   `-- staging.toml       --> <File> - Staging | Settings.
+|    |   |-- development.toml   --> <File> - Development    | Settings.
+|    |   |-- production.toml    --> <File> - Production     | Settings.
+|    |   `-- staging.toml       --> <File> - Staging        | Settings.
 |    |
 |    |-- docs.md                --> <File> - This Documentation is in HERE.
-|    |-- settings.py            --> <File> - Python | Settings.
-|    `-- spoc.toml              --> <File> - TOML | Settings.
+|    |-- settings.py            --> <File> - Python         | Settings.
+|    `-- spoc.toml              --> <File> - TOML           | Settings.
 |
-|-- pyproject.toml              --> <File> - Project | Settings.
+|-- pyproject.toml              --> <File> - Project        | Settings.
 |
 `-- etc...
 ```

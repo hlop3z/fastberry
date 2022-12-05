@@ -1,3 +1,6 @@
+"""
+    Framework Core Managers To Transform Blocks of Code Into A Full-Project
+"""
 from .api_info import api_info
 from .commands import commands
 from .extras import extras

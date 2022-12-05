@@ -1,3 +1,7 @@
+"""
+    Read & Transform the GraphQL Schema.
+"""
+
 import typing
 
 SCALAR_TYPES = [
@@ -231,20 +235,20 @@ def create_inputs(graphql_info):
         the_type[active["name"]] = the_fields
     return the_type
 
+
 def get_return_types(graphql_info):
     """API Return-Types"""
     responses = {}
     for item in graphql_info:
         real_type = item["response"]
         real_type = get_real_type({"type": real_type})
-        """
-        if real_type["type"].endswith("Connection"):
-            real_type["type"] = real_type["type"].replace("Connection", "")
-        """
+        # if real_type["type"].endswith("Connection"):
+        #    real_type["type"] = real_type["type"].replace("Connection", "")
         del real_type["name"]
         del real_type["default"]
         responses[item["name"]] = real_type
     return responses
+
 
 def get_info(schema):
     """Get Schema Info { Introspection }"""
@@ -278,18 +282,30 @@ def get_info(schema):
                     match item["name"]:
                         case "Query":
                             graphql_info["ops"]["query"] = [
-                                {"name": active["name"], "fields": active["args"], "response": active["type"]}
+                                {
+                                    "name": active["name"],
+                                    "fields": active["args"],
+                                    "response": active["type"],
+                                }
                                 for active in item["fields"]
                             ]
                         case "Mutation":
                             graphql_info["ops"]["mutation"] = [
-                                {"name": active["name"], "fields": active["args"], "response": active["type"]}
+                                {
+                                    "name": active["name"],
+                                    "fields": active["args"],
+                                    "response": active["type"],
+                                }
                                 for active in item["fields"]
                             ]
 
     # Custom Typing
-    graphql_info["returnTypes"]["query"] = get_return_types(graphql_info["ops"]["query"])
-    graphql_info["returnTypes"]["mutation"] = get_return_types(graphql_info["ops"]["mutation"])
+    graphql_info["returnTypes"]["query"] = get_return_types(
+        graphql_info["ops"]["query"]
+    )
+    graphql_info["returnTypes"]["mutation"] = get_return_types(
+        graphql_info["ops"]["mutation"]
+    )
     graphql_info["types"] = create_types(graphql_info["types"])
     graphql_info["forms"] = create_types(graphql_info["forms"])
     graphql_info["ops"]["query"] = create_inputs(graphql_info["ops"]["query"])

@@ -3,4 +3,4 @@
 """
 
 from .authcookie import AuthenticatedCookieMiddleware
-from .redirect_root import redirect_root, graphql_info
+from .redirect_root import graphql_info, redirect_root

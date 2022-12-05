@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+"""
+    Main Settings Required For The API
+"""
 import typing
 
 from ..core import types

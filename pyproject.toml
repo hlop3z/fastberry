@@ -24,6 +24,7 @@ dependencies = [
     "strawberry-graphql>=0.125.0",
     "spoc>=0.1.5",
     "uvicorn[standard]>=0.18.3",
+    "pre-commit>=2.20.0",
 ]
 
 [project.urls]

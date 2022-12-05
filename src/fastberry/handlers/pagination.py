@@ -14,10 +14,8 @@ def pagination(toml):
         limit = min(max_items_per_page, self.limit)
         if page < 0:
             page = 1
-        if limit < max_items_per_page:
-            limit = max_items_per_page
         self.page = page
-        self.limit = limit
+        self.limit = max(limit, max_items_per_page)
 
     data_class = dc.make_dataclass(
         "Pagination",

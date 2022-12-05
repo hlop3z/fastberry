@@ -1,3 +1,6 @@
+"""
+    Built-in Forms for Fastberry(GraphQL).
+"""
 import fastberry as fb
 
 try:
@@ -21,7 +24,7 @@ if dbc:
     PAGINATION_DOC = """
     Global **Pagination**
 
-    **Setting**: `(all: true)` 
+    **Setting**: `(all: true)`
 
     **Returns**: **All** of the **items** in the **Database** (Mostly For **Admin(s) Use Only**).
     """
@@ -75,6 +78,9 @@ if dbc:
 
         class Next:
             """Run After User-Input"""
+
+            page = 0
+            limit = 10
 
             def run(self):
                 """Run"""

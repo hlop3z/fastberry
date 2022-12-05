@@ -5,10 +5,9 @@ import functools
 import typing
 from collections import namedtuple
 
+import spoc
 import strawberry
 from strawberry.types import Info
-
-import spoc
 
 from ...components import COMPONENT
 from .schema import Schema
@@ -20,18 +19,18 @@ Operation = namedtuple("Operation", ["name", "annotations"])
 
 def operation_annotations(annotations: dict):
     """GraphQL Operations"""
-    operation_annotations = {"inputs": {}}
+    ops_annotations = {"inputs": {}}
     for key, val in annotations:
         if key == "return":
             return_types = set()
             for item in typing.get_args(val):
                 if hasattr(item, "__name__"):  # hasattr(item, "__spoc__") and
                     return_types.add(item.__name__)
-            operation_annotations["return"] = list(return_types)
+            ops_annotations["return"] = list(return_types)
         else:
             if hasattr(val, "__spoc__") and hasattr(val, "__name__"):
-                operation_annotations["inputs"][key] = val.__name__
-    return operation_annotations
+                ops_annotations["inputs"][key] = val.__name__
+    return ops_annotations
 
 
 def create_operation(name, annotations):

@@ -4,7 +4,7 @@
 
 MIDDLEWARE = '''
 # -*- coding: utf-8 -*-
-""" 
+"""
     [Middleware]
 """
 
@@ -16,7 +16,7 @@ from fastberry import BaseMiddleware
 
 EXTENSION = '''
 # -*- coding: utf-8 -*-
-""" 
+"""
     [Extension]
 """
 
@@ -28,7 +28,7 @@ from fastberry import BaseExtension
 
 PERMISSION = '''
 # -*- coding: utf-8 -*-
-""" 
+"""
     [Permission]
 """
 
@@ -44,7 +44,7 @@ from fastberry import BasePermission
 
 ROUTER = '''
 # -*- coding: utf-8 -*-
-""" 
+"""
     [Router]
 """
 

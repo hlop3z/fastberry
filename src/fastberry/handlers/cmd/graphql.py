@@ -127,10 +127,12 @@ def write_json(path, data, javascript=False):
             json_data = f"export default {json_data}"
         file.write(json_data)
 
+
 def write_schema(path, data):
     """Write Schema File"""
     with open(path, "w", encoding="utf-8") as file:
         file.write(str(data))
+
 
 def go_to_path(base_dir, user_dir, default_dir="graphql"):
     """Go To Path By String"""
@@ -143,7 +145,14 @@ def go_to_path(base_dir, user_dir, default_dir="graphql"):
 
 
 @click.command(name="schema")
-@click.option("-c", "--client", default=False, is_flag=True, show_default=True, help="Create Zeus-GraphQL Setup.")
+@click.option(
+    "-c",
+    "--client",
+    default=False,
+    is_flag=True,
+    show_default=True,
+    help="Create Zeus-GraphQL Setup.",
+)
 def graphql(client):
     """Build GraphQL (Schema + Operations)"""
     controller = get_controller()
@@ -192,23 +201,21 @@ def graphql(client):
     schema = controller.graphql.schema()
     schema_info = introspection_info(schema)
 
-    """
     # Names (Operations)
-    query_names = controller.graphql.info.query
-    mutation_names = controller.graphql.info.mutation
-    query_names_camel = set()
-    mutation_names_camel = set()
+    # query_names = controller.graphql.info.query
+    # mutation_names = controller.graphql.info.mutation
+    # query_names_camel = set()
+    # mutation_names_camel = set()
 
-    for x in query_names:
-        query_names_camel.add(to_camel_case(x))
-    for x in mutation_names:
-        mutation_names_camel.add(to_camel_case(x))
+    # for x in query_names:
+    #     query_names_camel.add(to_camel_case(x))
+    # for x in mutation_names:
+    #     mutation_names_camel.add(to_camel_case(x))
 
-    operations_names = {
-        "query": pretty(query_names_camel),
-        "mutation": pretty(mutation_names_camel),
-    }
-    """
+    # operations_names = {
+    #     "query": pretty(query_names_camel),
+    #     "mutation": pretty(mutation_names_camel),
+    # }
 
     if client:
         # Fastberry GraphQL

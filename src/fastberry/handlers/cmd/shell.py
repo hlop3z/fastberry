@@ -1,3 +1,7 @@
+"""
+    Shell Utilites
+"""
+
 import os
 import pathlib
 import shlex
@@ -5,7 +9,6 @@ import shutil
 import subprocess
 import zipfile
 
-    
 import click
 
 CURRENT_PATH = pathlib.Path(__file__).parents[0]
@@ -44,7 +47,7 @@ def unzip_base(source, destination):
         zip_ref.extractall(destination)
 
 
-def unzip(source: str, destination: str, name: str = None):
+def unzip(source: str, destination: str):
     """Unzip Method"""
     source = TEMPLATES_DIR / source
     file_name = source.name
@@ -55,13 +58,15 @@ def unzip(source: str, destination: str, name: str = None):
 
 def zip(zip_path, source_path):
     """Zip Method"""
+
     def zipdir(path, ziph):
         # ziph is zipfile handle
         for root, dirs, files in os.walk(path):
             for file in files:
-                ziph.write(os.path.join(root, file), 
-                        os.path.relpath(os.path.join(root, file), 
-                                        os.path.join(path, '..')))
+                ziph.write(
+                    os.path.join(root, file),
+                    os.path.relpath(os.path.join(root, file), os.path.join(path, "..")),
+                )
 
-    with zipfile.ZipFile(f'{str(zip_path)}.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
+    with zipfile.ZipFile(f"{str(zip_path)}.zip", "w", zipfile.ZIP_DEFLATED) as zipf:
         zipdir(source_path, zipf)

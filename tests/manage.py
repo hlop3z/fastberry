@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-""" [Manage]
+""" { Command-Line-Interface }
     Click's Main File.
 """
 from fastberry.app import Controller

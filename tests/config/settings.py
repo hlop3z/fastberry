@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-""" [Settings]
-    Project Settings { app.settings }.
+"""
+    { Settings }
 """
 import pathlib
 
@@ -8,8 +8,10 @@ import pathlib
 BASE_DIR = pathlib.Path(__file__).parents[1]
 
 # Installed Apps
-# INSTALLED_APPS = ["good_app", "demo"]
-INSTALLED_APPS = ["shop"]
+INSTALLED_APPS = ["todo"]
 
-SQL_URL = "sqlite:///example.db"
-MONGO_URL = "mongodb://localhost:27017/test_database"
+# Database(s)
+DATABASES = {
+    "sql": {"default": "sqlite:///example.db"}, 
+    "mongo": {"default": None},
+}

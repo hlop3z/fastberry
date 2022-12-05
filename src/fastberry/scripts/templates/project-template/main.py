@@ -6,8 +6,9 @@
 # FastAPI & Strawberry
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from fastberry.app import Controller
 from strawberry.fastapi import GraphQLRouter
+
+from fastberry.app import Controller
 
 # FastAPI
 app = Controller.context.app
