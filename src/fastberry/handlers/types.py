@@ -10,8 +10,8 @@ except ImportError:
 
 def types(models: list):
     """Collect (GraphQL) Return-Types"""
-    single_name = {}
-    all_types = {}
+    single_name: dict = {}
+    all_types: dict = {}
     if dbc:
         for active in models:
             is_component = dbc.is_model(active.object)

@@ -53,12 +53,14 @@ devops = [
     "bandit>=1.7.4",
     "watchdog>=2.1.9",
     "twine>=4.0.1",
+    "mypy>=0.991",
 ]
 docs = ["mkdocs", "mkdocs-material"]
 
 [tool.pdm.scripts]
 lint-watch = "python scripts/linter.py"
 test = { shell = "cd tests/ && python manage.py" }
+pre = { shell = "pre-commit run --all-file" }
 # Docs
 docs-dev = { shell = "cd docs/ && python -m mkdocs serve --dev-addr 0.0.0.0:8055" }
 docs-build = { shell = "cd docs/ && python -m mkdocs build" }

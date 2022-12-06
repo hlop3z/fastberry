@@ -8,7 +8,7 @@ from ..core import types
 
 
 def api_info(
-    base_dir: typing.Any = None, pyproject: dict = None, toml: typing.Any = None
+    base_dir: typing.Any = None, pyproject: typing.Any = None, toml: typing.Any = None
 ):
     """API's Info"""
     current_path = base_dir

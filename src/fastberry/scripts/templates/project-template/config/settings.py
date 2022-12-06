@@ -8,7 +8,7 @@ import pathlib
 BASE_DIR = pathlib.Path(__file__).parents[1]
 
 # Installed Apps
-INSTALLED_APPS = []
+INSTALLED_APPS: list = []
 
 # Database(s)
 DATABASES = {

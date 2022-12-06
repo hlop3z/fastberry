@@ -8,16 +8,10 @@ except ImportError:
     dbc = None
 
 
-def inject_core(single_name: dict, all_forms: dict, item, name: str = None):
-    """Inject"""
-    single_name[name] = item
-    all_forms[f"fastberry.{name.lower()}"] = item
-
-
 def forms(models: list):
     """Collect (GraphQL) Input-Forms"""
-    single_name = {}
-    all_forms = {}
+    single_name: dict = {}
+    all_forms: dict = {}
     if dbc:
         for active in models:
             is_component = dbc.is_form(active.object)

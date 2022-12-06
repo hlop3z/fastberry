@@ -2,12 +2,14 @@
     Extras [middleware, on_startup, on_shutdown, extensions, permissions]
 """
 import functools
+from typing import Any
 
 from ..core import types
 
 
-def add_middleware(app=None, installed: list = None):
+def add_middleware(app: Any = None, installed: list | None = None):
     """Install The Middleware"""
+    installed = installed or []
     for middleware in reversed(installed):
         app.add_middleware(middleware)
     return app
