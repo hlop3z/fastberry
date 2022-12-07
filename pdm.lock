@@ -717,6 +717,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "ssort"
+version = "0.11.6"
+requires_python = ">=3.8"
+summary = "The python statement sorter"
+dependencies = [
+    "pathspec>=0.9.0",
+]
+
+[[package]]
 name = "starlette"
 version = "0.21.0"
 requires_python = ">=3.7"
@@ -876,7 +885,7 @@ summary = "Backport of pathlib-compatible object wrapper for zip files"
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:67848fece5941f1175e63e214ada2330c258182d37f8cc3ad33ff55579477722"
+content_hash = "sha256:f19f3ef199bef34a67d23c36a8c22dbb091ee15c075d8398c7969f3893a0a3a1"
 
 [metadata.files]
 "aiosqlite 0.17.0" = [
@@ -1674,6 +1683,9 @@ content_hash = "sha256:67848fece5941f1175e63e214ada2330c258182d37f8cc3ad33ff5557
     {url = "https://files.pythonhosted.org/packages/fa/5f/150ca2e971231624041de73fbc61b0b16f5139530cbff889213cc00f83f8/SQLAlchemy-1.4.41-cp27-cp27m-win32.whl", hash = "sha256:e570cfc40a29d6ad46c9aeaddbdcee687880940a3a327f2c668dd0e4ef0a441d"},
     {url = "https://files.pythonhosted.org/packages/fe/28/f22792eee334cd83a15ef34b825761ee057d330b9b24d3f1496b95faa557/SQLAlchemy-1.4.41-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:90484a2b00baedad361402c257895b13faa3f01780f18f4a104a2f5c413e4536"},
     {url = "https://files.pythonhosted.org/packages/ff/1c/55bf52c1961ce01164835047ed2c09e44b76d1f18a75841715626f2786b1/SQLAlchemy-1.4.41-cp27-cp27mu-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:f37fa70d95658763254941ddd30ecb23fc4ec0c5a788a7c21034fc2305dab7cc"},
+]
+"ssort 0.11.6" = [
+    {url = "https://files.pythonhosted.org/packages/27/c6/4fdb102b282380d5b4791d90302ba8778689f24bef118707fd50f037752e/ssort-0.11.6.tar.gz", hash = "sha256:21fec493487f32dff50d30efa5b6aad18286e9817600b64bfe686ae062bae7ae"},
 ]
 "starlette 0.21.0" = [
     {url = "https://files.pythonhosted.org/packages/94/a3/777d1749aa0db3f9da12a8cc5f89fe01c95548909d012f0e419299c6d8a3/starlette-0.21.0-py3-none-any.whl", hash = "sha256:0efc058261bbcddeca93cad577efd36d0c8a317e44376bcfc0e097a2b3dc24a7"},

@@ -12,6 +12,6 @@ INSTALLED_APPS = ["todo"]
 
 # Database(s)
 DATABASES = {
-    "sql": {"default": "sqlite:///example.db"}, 
+    "sql": {"default": "sqlite:///example.db"},
     "mongo": {"default": None},
 }

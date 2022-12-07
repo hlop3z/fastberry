@@ -54,6 +54,7 @@ devops = [
     "watchdog>=2.1.9",
     "twine>=4.0.1",
     "mypy>=0.991",
+    "ssort>=0.11.6",
 ]
 docs = ["mkdocs", "mkdocs-material"]
 
