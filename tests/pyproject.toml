@@ -5,7 +5,7 @@ description = "Create Tasks"
 authors = [
     { name = "hlop3z", email = "23062270+hlop3z@users.noreply.github.com" },
 ]
-dependencies = ["fastberry[testing]>=0.0.66"]
+dependencies = ["fastberry[testing] @ file:///${PROJECT_ROOT}/.."]
 requires-python = ">=3.10"
 license = { text = "MIT" }
 
@@ -18,3 +18,7 @@ build-backend = "pdm.pep517.api"
 
 [tool.pdm.scripts]
 app = "python manage.py"
+test = "pytest -rA ./automated-testing/"
+
+[tool.pdm.dev-dependencies]
+testing = ["pytest>=7.2.0", "httpx>=0.23.1", "pytest-asyncio>=0.20.2"]
