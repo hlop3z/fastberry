@@ -54,7 +54,7 @@ def Edges(model) -> Connection:
 
 
 def Page(
-    edges: list[Edge] = None, length: int = None, pages: int = None, extra: dict = None
+    edges: list[Edge] = None, length: int = 0, pages: int = 0, extra: dict = None
 ) -> Connection:
     """Edges { Page } Response"""
     edges = edges or []

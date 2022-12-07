@@ -9,8 +9,8 @@ from strawberry.extensions import AddValidationRules, QueryDepthLimiter
 
 def Schema(
     query: object = None,
-    mutation: object = None,
-    extensions: list = None,
+    mutation: object | None = None,
+    extensions: list | None = None,
     max_depth: int = 4,
     introspection: bool = True,
     **kwargs
