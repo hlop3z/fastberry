@@ -3,8 +3,9 @@
 """
 import click
 import spoc
+import os
 
-from .shell import shell_command, shell_print
+from .shell import shell_print
 
 
 @click.command()
@@ -32,4 +33,4 @@ def run(port, workers):
     shell_print(f"* Starting FastApi Server... (Mode: { mode.title() })\n")
 
     # RETURN-VALUE
-    shell_command(cmd)
+    os.system(cmd)
