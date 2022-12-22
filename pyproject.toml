@@ -60,7 +60,7 @@ docs = ["mkdocs", "mkdocs-material"]
 
 [tool.pdm.scripts]
 lint-watch = "python scripts/linter.py"
-test = { shell = "cd tests/ && python manage.py" }
+test = { shell = "cd tests/ && python manage.py run" }
 pre = { shell = "pre-commit run --all-file" }
 # Docs
 docs-dev = { shell = "cd docs/ && python -m mkdocs serve --dev-addr 0.0.0.0:8055" }
