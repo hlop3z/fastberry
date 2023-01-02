@@ -92,3 +92,21 @@ class Fastberry:
                 if not x.startswith("_") and x not in ["init", "keys"]
             ]
         )
+
+
+def graphql_schema():
+    """GraphQL Schema
+
+    Methods:
+        * execute
+        * execute_sync
+
+    Example:
+
+        schema.execute("graphql-query", variable_values={"key": "value"})
+
+    Returns:
+        schema: GraphQL-Schema
+    """
+    app = Fastberry()
+    return app.graphql.schema()
