@@ -14,10 +14,16 @@ PLUGINS = ["types", "forms", "graphql", "router", "commands"]
 def create_api(self):
     """FastAPI Builder"""
 
+    hide_docs = dict()
+    if self.context.is_production:
+        hide_docs["docs_url"] = None
+        hide_docs["redoc_url"] = None
+
     app = FastAPI(
         title=self.info.title.title(),
         version=self.info.version,
         description=self.info.description,
+        **hide_docs
     )
     # App Context
     self.context.app = app
