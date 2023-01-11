@@ -8,6 +8,11 @@ graph LR;
     C[Mongo] --> D{GraphQL Type};
 ```
 
+!!! tip
+
+    Go to <a href="https://hlop3z.github.io/dbcontroller/" target="_blank" rel="noopener noreferrer">**DBController**</a>
+    **and learn more** how to create and use the **`Models`** and **`Fields`**.
+
 ## File **Layout**
 
 === ":material-file: Types (Models)"
