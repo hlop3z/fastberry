@@ -34,7 +34,7 @@ class Todo:
     class Mutation:
         """Mutation"""
 
-        async def create(form: forms.Task) -> fb.mutation(types.Task):
+        async def create(form: forms.Task) -> fb.editor(types.Task):
             """Create a new task"""
             return await manager.Task.create(form.input)
 

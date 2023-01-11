@@ -7,3 +7,5 @@ from .types import ErrorMessage as error
 from .types import Mutation as mutation
 from .types import Page as page
 from .types import Query as query
+from .types import Editor as editor
+from .types import Deleted as deleted

@@ -38,6 +38,13 @@ class Error:
     error: bool = True
 
 
+@strawberry.type
+class Deleted:
+    """GraphQL Deleted"""
+
+    count: int = 0
+
+
 def Query(model):
     """GraphQL Query"""
     return model | None
@@ -46,6 +53,11 @@ def Query(model):
 def Mutation(model):
     """GraphQL Mutation"""
     return model | Error
+
+
+def Editor(model):
+    """GraphQL Editor aka: (Super-Mutation)"""
+    return model | Error | Deleted
 
 
 def Edges(model) -> Connection:
