@@ -4,7 +4,7 @@ build-backend = "pdm.pep517.api"
 
 [project]
 name = "fastberry"
-version = "0.0.70"
+version = "0.0.71"
 description = "GraphQL Made Easy"
 requires-python = ">=3.10"
 readme = "README.md"
