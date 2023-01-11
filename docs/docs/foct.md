@@ -241,6 +241,8 @@ flowchart BT;
 
 ## Inputs **Tools**
 
+> For **Client-Inpunt** in GraphQL **Query** and **Mutation** Operations.
+
 | Method           | Connects With ... | Description                                                    |
 | ---------------- | ----------------- | -------------------------------------------------------------- |
 | **`pagination`** | **`[edges]`**     | Use **pagination** for **`annotations`** of client's **input** |
@@ -248,15 +250,21 @@ flowchart BT;
 
 ## Types **Tools**
 
-| Method         | Connects With ... | Description                            |
-| -------------- | ----------------- | -------------------------------------- |
-| **`mutation`** | **`types`**       | Use **mutation** for **`annotations`** |
-| **`query`**    | **`types`**       | Use **query** for **`annotations`**    |
-| **`edges`**    | **`page`**        | Use **edges** for **`annotations`**    |
+> For **Annotation** in GraphQL **Query** and **Mutation** Operations.
+
+| Method         | Connects With ... | Description                                            |
+| -------------- | ----------------- | ------------------------------------------------------ |
+| **`editor`**   | **`types`**       | Use **editor** for a custom-mutation **`annotations`** |
+| **`mutation`** | **`types`**       | Use **mutation** for **`annotations`**                 |
+| **`query`**    | **`types`**       | Use **query** for **`annotations`**                    |
+| **`edges`**    | **`page`**        | Use **edges** for **`annotations`**                    |
 
 ## Return **Tools**
 
-| Method       | Connects With ... | Description                                               |
-| ------------ | ----------------- | --------------------------------------------------------- |
-| **`errors`** | **`[error]`**     | Use **errors** to **`return`** a **list** of **error**(s) |
-| **`page`**   | **`[edges]`**     | Use **page** to **`return`** a **list** of **`edges`**    |
+> To **Return** Data Via **Query** and **Mutation** Operations.
+
+| Method        | Connects With ... | Description                                                        |
+| ------------- | ----------------- | ------------------------------------------------------------------ |
+| **`errors`**  | **`[error]`**     | Use **errors** to **`return`** a **list** of **error**(s)          |
+| **`page`**    | **`[edges]`**     | Use **page** to **`return`** a **list** of **`edges`**             |
+| **`deleted`** | **`types`**       | Use **deleted** to **`return`** a **count** of **`deleted`** items |
