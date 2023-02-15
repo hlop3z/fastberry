@@ -39,7 +39,7 @@ from .components import graphql as gql
 from .framework import Fastberry as App
 
 # GraphQL Tools
-from .graphql import edges, error, errors, mutation, page, query, editor, deleted
+from .graphql import deleted, edges, editor, error, errors, mutation, page, query
 
 # GraphQL Premade User-Inputs
 from .tools import Item as item

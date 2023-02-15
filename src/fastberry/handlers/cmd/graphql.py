@@ -13,6 +13,7 @@ import click
 
 from ...tools import to_camel_case
 from .action import introspection_info
+from .gql import build_client
 from .shell import shell_print, unzip, zip
 
 
@@ -151,7 +152,7 @@ def go_to_path(base_dir, user_dir, default_dir="graphql"):
     default=False,
     is_flag=True,
     show_default=True,
-    help="Create Zeus-GraphQL Setup.",
+    help="Create JavaScript GraphQL.",
 )
 def graphql(client):
     """Build GraphQL (Schema + Operations)"""
@@ -163,27 +164,17 @@ def graphql(client):
     # Get Path(s)
     base_dir = controller.core.base_dir
     output_dir = go_to_path(base_dir, generates_dir, "graphql")
-    fbout_dir = output_dir / "fastberry"
 
     # Create Path(s)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Clean
     reset_folder(output_dir)
-    backend = fbout_dir / "backend"
-    if client:
-        unzip("zeus-graphql.zip", fbout_dir)
-        backend.mkdir(parents=True, exist_ok=True)
 
     # Output Paths <Files>
     codeout = {
         "schema": output_dir / "schema.graphql",
         "schema-ops": output_dir / "operations.json",
-        "client-schema": backend / "schema.graphql",
-        "operations": backend / "operations.mjs",
-        "returnTypes": backend / "returnTypes.mjs",
-        "types": backend / "types.mjs",
-        "forms": backend / "forms.mjs",
     }
 
     clean_name = functools.partial(clean_print_name, output_dir)
@@ -222,36 +213,7 @@ def graphql(client):
         shell_print(messages["cool-folder"])
         shell_print("[FastBerry]: Creating GraphQL Client Builder...")
         shell_print(messages["cool-folder"])
-        shell_print(
-            f"""* [Schema]         : { clean_name(codeout["client-schema"]) }""",
-            color="yellow",
-        )
-        shell_print(
-            f"""* [Operations]     : { clean_name(codeout["operations"]) }""",
-            color="yellow",
-        )
-        shell_print(
-            f"""* [Forms]          : { clean_name(codeout["forms"]) }""",
-            color="yellow",
-        )
-        shell_print(
-            f"""* [Types]          : { clean_name(codeout["types"]) }""",
-            color="yellow",
-        )
-        shell_print(
-            f"""* [Return-Types]   : { clean_name(codeout["returnTypes"]) }""",
-            color="yellow",
-        )
-        # Outputs
-        write_schema(codeout["client-schema"], schema)
-        write_json(codeout["operations"], schema_info["ops"], True)
-        write_json(codeout["types"], schema_info["types"], True)
-        write_json(codeout["forms"], schema_info["forms"], True)
-        write_json(codeout["returnTypes"], schema_info["returnTypes"], True)
-        # ZipDir
-        zip(output_dir / "fastberry-js", fbout_dir)
-        reset_folder(fbout_dir)
-        os.rmdir(fbout_dir)
+        build_client(schema)
     else:
         # Core GraphQL
         shell_print(messages["cool-folder"])

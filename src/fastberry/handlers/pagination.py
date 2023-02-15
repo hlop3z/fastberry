@@ -1,5 +1,5 @@
 """
-    DataClass
+    Global Pagination
 """
 import dataclasses as dc
 import typing
@@ -12,10 +12,8 @@ def pagination(toml):
     def init(self):
         page = max(1, self.page)
         limit = min(max_items_per_page, self.limit)
-        if page < 0:
-            page = 1
         self.page = page
-        self.limit = max(limit, max_items_per_page)
+        self.limit = limit
 
     data_class = dc.make_dataclass(
         "Pagination",

@@ -14,7 +14,7 @@ PLUGINS = ["types", "forms", "graphql", "router", "commands"]
 def create_api(self):
     """FastAPI Builder"""
 
-    hide_docs = dict()
+    hide_docs = {}
     if self.context.is_production:
         hide_docs["docs_url"] = None
         hide_docs["redoc_url"] = None

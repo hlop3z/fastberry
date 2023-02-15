@@ -1,9 +1,10 @@
 """
     Run the API
 """
+import os
+
 import click
 import spoc
-import os
 
 from .shell import shell_print
 
