@@ -12,8 +12,7 @@ import shutil
 import click
 
 from ...tools import to_camel_case
-from .action import introspection_info
-from .gql import build_client
+from .gql import build_client, introspection_info
 from .shell import shell_print, unzip, zip
 
 
@@ -181,7 +180,7 @@ def graphql(client):
 
     # Core Information
     messages = {
-        "main-folder": "[Building]: Forms, Operations, Schema & Types . . .",
+        "main-folder": "[Building]: Schema & Operations . . .",
         "folder": f"[Folder]: {output_dir}",
     }
 
@@ -211,8 +210,18 @@ def graphql(client):
     if client:
         # Fastberry GraphQL
         shell_print(messages["cool-folder"])
-        shell_print("[FastBerry]: Creating GraphQL Client Builder...")
+        shell_print("[FastBerry]: Creating GraphQL Client...")
         shell_print(messages["cool-folder"])
+        shell_print(messages["folder"])
+        shell_print(messages["cool-folder"])
+        shell_print(
+            """* [Folder] : client/""",
+            color="yellow",
+        )
+        shell_print(
+            """* [ReadMe] : README.md """,
+            color="yellow",
+        )
         build_client(schema)
     else:
         # Core GraphQL
@@ -231,4 +240,4 @@ def graphql(client):
         )
         # Outputs
         write_schema(codeout["schema"], schema)
-        write_json(codeout["schema-ops"], schema_info["ops"])
+        write_json(codeout["schema-ops"], schema_info)

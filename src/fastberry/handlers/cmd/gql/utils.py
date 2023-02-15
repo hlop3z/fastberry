@@ -1,6 +1,10 @@
+"""
+    [Front-end Builder]
+"""
+
+import json
 from pathlib import Path
 from types import SimpleNamespace
-import json
 
 INTROSPECT_OBJECTS = """query IntrospectionQuery{__schema{queryType{name}mutationType{name}subscriptionType{name}types{...FullType}directives{name description locations args{...InputValue}}}}fragment FullType on __Type{kind name description fields(includeDeprecated:true){name description args{...InputValue}type{...TypeRef}isDeprecated deprecationReason}inputFields{...InputValue}interfaces{...TypeRef}enumValues(includeDeprecated:true){name description isDeprecated deprecationReason}possibleTypes{...TypeRef}}fragment InputValue on __InputValue{name description type{...TypeRef}defaultValue}fragment TypeRef on __Type{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name}}}}}}}"""
 
@@ -22,11 +26,13 @@ POSSIBLE_TYPES = {
 
 
 def graphql_introspect_objects(schema):
+    """Introspection"""
     results = schema.execute_sync(INTROSPECT_OBJECTS, variable_values=None)
     return results.data.get("__schema", {})
 
 
 def get_types(schema):
+    """GraphQL Types"""
     out_schema = {}
     for item in schema.get("types", []):
         kind = item.get("kind")
@@ -39,6 +45,7 @@ def get_types(schema):
 
 
 def transform_field(field):
+    """GraphQL Fields"""
     if not field.get("required"):
         field["required"] = False
     if not field.get("list"):
@@ -49,20 +56,21 @@ def transform_field(field):
 
 
 def get_field_info(field):
+    """GraphQL Field Info"""
     current = SimpleNamespace(**transform_field(field))
     if not current.ofType:
         return current
-    else:
-        current_dict = get_field_info(current.ofType)
-        # Trying to Fix IT
-        if current.kind == "NON_NULL":
-            current_dict.required = True
-        if current.kind == "LIST":
-            current_dict.list = True
-        return current_dict
+    current_dict = get_field_info(current.ofType)
+    # Trying to Fix IT
+    if current.kind == "NON_NULL":
+        current_dict.required = True
+    if current.kind == "LIST":
+        current_dict.list = True
+    return current_dict
 
 
 def get_object_fields(fields):
+    """GraphQL Object"""
     items = {}
     for field in fields:
         field = SimpleNamespace(**field)
@@ -79,6 +87,7 @@ def get_object_fields(fields):
 
 
 def get_input_config(all_args):
+    """GraphQL Input Config"""
     field_list = []
     form_dict = {}
     for field in all_args:
@@ -109,6 +118,7 @@ def get_input_config(all_args):
 
 
 def get_op_args(operations):
+    """GraphQL Operations"""
     items = {}
     for item in operations:
         field_list, form_dict = get_input_config(item.get("args"))
@@ -120,6 +130,7 @@ def get_op_args(operations):
 
 
 def get_graphql_objects_base(graphql_objects):
+    """GraphQL Starter"""
     all_graphql_objects = {}
     for item in graphql_objects:
         name = item.get("name")
@@ -139,6 +150,7 @@ def get_graphql_objects_base(graphql_objects):
 
 
 def get_graphql_objects(all_objects):
+    """GraphQL Main Objects"""
     all_objs = get_graphql_objects_base(all_objects)
     all_query = all_objs.get("Query")
     all_mutation = all_objs.get("Mutation")
@@ -154,6 +166,7 @@ def get_graphql_objects(all_objects):
 
 
 def get_graphql_input_objects(graphql_input_objects):
+    """GraphQL Input Objects"""
     dict_out = {}
     for item in graphql_input_objects:
         field_list, form_dict = get_input_config(item["inputFields"])
@@ -166,6 +179,7 @@ def get_graphql_input_objects(graphql_input_objects):
 
 
 def get_graphql_scalars(graphql_scalars):
+    """GraphQL Scalar"""
     all_graphql_scalars = set()
     for item in graphql_scalars:
         all_graphql_scalars.add(item.get("name"))
@@ -173,6 +187,7 @@ def get_graphql_scalars(graphql_scalars):
 
 
 def get_graphql_unions(graphql_unions):
+    """GraphQL Union"""
     all_graphql_unions = {}
     for item in graphql_unions:
         item = SimpleNamespace(**item)
@@ -190,6 +205,7 @@ def get_graphql_unions(graphql_unions):
 
 
 def get_graphql_enum(all_enum):
+    """GraphQL Enum"""
     all_graphql_enum = {}
     for item in all_enum:
         name = item.get("name")
@@ -199,6 +215,7 @@ def get_graphql_enum(all_enum):
 
 
 def transform_operations(schema, current):
+    """GraphQL Transform Operations 1"""
     current_type = current["type"]
     current_form = current["form"]
     current_args = current["args"]
@@ -212,6 +229,7 @@ def transform_operations(schema, current):
 
 
 def get_all_transform_operations(schema, op_type):
+    """GraphQL Transform Operations 2"""
     query_ops = {}
     all_query = schema.get(op_type, {})
     for op in all_query.keys():
@@ -221,6 +239,7 @@ def get_all_transform_operations(schema, op_type):
 
 
 def parse_graphql_schema(schema, include_input_object=True):
+    """GraphQL Parse Schema"""
     # Step 1
     schema_introspect = graphql_introspect_objects(schema)
     schema_types = get_types(schema_introspect)
@@ -244,6 +263,7 @@ def parse_graphql_schema(schema, include_input_object=True):
 
 
 def write_file(path, data):
+    """Write To File"""
     file_path = Path(path)
     parent_dir = file_path.parent
     if not parent_dir.exists():
@@ -253,6 +273,7 @@ def write_file(path, data):
 
 
 def create_frontend_objects(all_objs):
+    """Frontend Objects"""
     frontend_setup = {}
     for name, config in all_objs.items():
         config_js = {}
@@ -269,6 +290,7 @@ def create_frontend_objects(all_objs):
 
 
 def create_frontend_operations(schema, all_objs):
+    """Frontend Operations"""
     query_frontend = {}
     for name, config in all_objs.items():
         return_value = None
@@ -289,11 +311,14 @@ def create_frontend_operations(schema, all_objs):
 
 
 class Frontend:
+    """Frontend Builder"""
+
     def __init__(self, schema):
         self._schema = parse_graphql_schema(schema, True)
 
     @property
     def query(self):
+        """All Queries"""
         items = self._schema.get("Query")
         if items:
             return create_frontend_operations(self._schema, items)
@@ -301,6 +326,7 @@ class Frontend:
 
     @property
     def mutation(self):
+        """All Mutations"""
         items = self._schema.get("Mutation")
         if items:
             return create_frontend_operations(self._schema, items)
@@ -308,6 +334,7 @@ class Frontend:
 
     @property
     def models(self):
+        """All Models"""
         items = self._schema.get("OBJECT")
         if items:
             schema = create_frontend_objects(items)
@@ -316,6 +343,7 @@ class Frontend:
 
     @property
     def schema(self):
+        """Schema"""
         return json.dumps(
             {
                 "query": self.query,

@@ -2,12 +2,12 @@
 """
     Custom - Command-Line-Group
 """
+import os
+from pathlib import Path
+
 import fastberry as fb
 
 from .utils import Frontend, write_file
-from pathlib import Path
-import os
-
 
 JS_README = """
 # FastBerry (ESM)
