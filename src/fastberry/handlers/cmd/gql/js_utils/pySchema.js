@@ -198,8 +198,8 @@ function createGraphQLRequest(opType, reqObj) {
     if (inputArgs) {
       operationString += "(";
       const items = [];
-      const childItems = [];
       Object.keys(inputArgs).forEach((arg) => {
+        const childItems = [];
         let theArgs = inputArgs[arg];
         if (theArgs instanceof Object) {
           Object.keys(theArgs).forEach((key) => {
