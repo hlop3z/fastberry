@@ -7,6 +7,8 @@ function getObj(schema, maxDepth, obj, currentDepth = 0) {
     }
     if (current === true) {
       returnValue[key] = current;
+    } else if (current === false) {
+      //pass
     } else {
       const childObj = schema.model[current];
       returnValue[key] = getObj(schema, maxDepth, childObj, currentDepth + 1);
