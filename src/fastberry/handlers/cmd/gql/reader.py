@@ -1,3 +1,6 @@
+"""Names & Info"""
+
+
 def get_names(part):
     """Get Operations Names"""
     return list(map(lambda x: x["name"], part["fields"]))
