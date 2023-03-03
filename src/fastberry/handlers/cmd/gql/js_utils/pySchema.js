@@ -193,9 +193,9 @@ function createGraphQLRequest(opType, reqObj) {
     query += " }";
     return query;
   }
-  function createGraphQLArgs(inputArgs) {
+  function createGraphQLArgs(inputArgs = {}) {
     let operationString = "";
-    if (inputArgs) {
+    if (inputArgs && Object.keys(inputArgs).length > 0) {
       operationString += "(";
       const items = [];
       Object.keys(inputArgs).forEach((arg) => {
