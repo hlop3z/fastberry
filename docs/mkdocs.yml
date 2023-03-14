@@ -38,6 +38,10 @@ nav:
       - First Type: getting-started/first-type.md
       - First Form: getting-started/first-form.md
       - First Manager: getting-started/first-manager.md
+  - Utils:
+      - PDM: utils/pdm.md
+      - Docker: utils/docker.md
+      - CI-CD: utils/cicd.md
 
 # Configurations
 watch:
