@@ -41,7 +41,6 @@ nav:
   - Utils:
       - PDM: utils/pdm.md
       - Docker: utils/docker.md
-      - CI-CD: utils/cicd.md
 
 # Configurations
 watch:

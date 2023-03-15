@@ -19,6 +19,7 @@ WORKDIR /project
 COPY . .
 
 # Scripts: Before Starting
+# RUN apk add curl
 RUN python3 -m pip install -r requirements.txt
 
 # Run App
