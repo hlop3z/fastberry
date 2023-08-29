@@ -7,7 +7,14 @@ import pathlib
 import shutil
 import zipfile
 
+import click
+
 TEMPORARY_DIR = pathlib.Path(__file__).parents[0] / "tmp"
+
+
+def shell_print(text: str, color: str = "green"):
+    """Shell Print"""
+    return click.secho(f"{ text }", fg=color, bold=True)
 
 
 def unzip_base(source, destination):

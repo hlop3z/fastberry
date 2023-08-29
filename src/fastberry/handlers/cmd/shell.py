@@ -16,6 +16,11 @@ TEMPORARY_DIR = CURRENT_PATH / "tmp"
 TEMPLATES_DIR = CURRENT_PATH / "templates"
 
 
+def shell_print(text: str, color: str = "green"):
+    """Shell Print"""
+    return click.secho(f"{ text }", fg=color, bold=True)
+
+
 def shell_command(list_of_commands: list[str]):
     """Shell Commands"""
     processes = []
@@ -26,11 +31,6 @@ def shell_command(list_of_commands: list[str]):
         task = subprocess.Popen(__code, shell=True)
         processes.append(task)
     return [process.wait() for process in processes]
-
-
-def shell_print(text: str, color: str = "green"):
-    """Shell Print"""
-    return click.secho(f"{ text }", fg=color, bold=True)
 
 
 def path_delete(dir_path):

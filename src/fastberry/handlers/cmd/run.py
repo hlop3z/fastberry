@@ -4,7 +4,8 @@
 import os
 
 import click
-import spoc
+from ...spoc_admin import spoc
+
 
 from .shell import shell_print
 

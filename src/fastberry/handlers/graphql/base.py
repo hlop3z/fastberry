@@ -5,7 +5,7 @@ import functools
 import typing
 from collections import namedtuple
 
-import spoc
+from ...spoc_admin import spoc
 import strawberry
 from strawberry.types import Info
 

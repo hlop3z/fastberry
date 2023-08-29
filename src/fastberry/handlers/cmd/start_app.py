@@ -5,7 +5,7 @@
 import os.path
 
 import click
-import spoc
+from ...spoc_admin import spoc
 
 from .action.plugin_maker import create_plugin
 from .shell import shell_print, unzip

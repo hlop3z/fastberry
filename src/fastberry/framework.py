@@ -3,7 +3,7 @@
 """
 from types import SimpleNamespace
 
-import spoc
+from .spoc_admin import spoc
 from fastapi import FastAPI
 
 from . import handlers
@@ -23,7 +23,7 @@ def create_api(self):
         title=self.info.title.title(),
         version=self.info.version,
         description=self.info.description,
-        **hide_docs
+        **hide_docs,
     )
     # App Context
     self.context.app = app

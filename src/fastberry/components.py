@@ -4,7 +4,7 @@
 import functools
 
 import click
-import spoc
+from .spoc_admin import spoc
 from fastapi import APIRouter
 
 COMPONENT = {}
@@ -14,6 +14,7 @@ COMPONENT["commands"] = {"engine": "click", "type": "group"}
 
 # Router
 spoc.component(APIRouter, metadata=COMPONENT["router"])
+
 
 # GraphQL Class @Decorator
 def graphql(

@@ -7,8 +7,7 @@ import pathlib
 
 import click
 
-from ..handlers.cmd.shell import shell_print
-from .shell import unzip
+from .shell import unzip, shell_print
 
 TEMPLATES_DIR = pathlib.Path(__file__).parents[0] / "templates"
 
