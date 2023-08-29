@@ -20,4 +20,5 @@ docs/site
 # Python
 .pdm-python
 .pdm.toml
+pdm.lock
 .venv/
