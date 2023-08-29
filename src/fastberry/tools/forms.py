@@ -1,8 +1,6 @@
 """
     Built-in Forms for Fastberry(GraphQL).
 """
-import fastberry as fb
-
 try:
     import dbcontroller as dbc
 
@@ -10,7 +8,6 @@ try:
     value = dbc.form.field
     ID = dbc.ID
 except ImportError:
-
     dbc = False
 
 
@@ -65,7 +62,7 @@ if dbc:
         )
         page = value(
             int,
-            default=10,
+            default=1,
         )
         sort_by = value(
             str,
@@ -84,7 +81,9 @@ if dbc:
 
             def run(self):
                 """Run"""
-                controller = fb.App()
+                from ..framework import Fastberry
+
+                controller = Fastberry()
                 page = controller.pagination(
                     page=self.page,
                     limit=self.limit,
